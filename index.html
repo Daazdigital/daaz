@@ -1199,6 +1199,23 @@
             .solution-grid,
             .testimonial-grid {
                 grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .solution-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .solution-content {
+                order: 1;
+            }
+            
+            .solution-image-container {
+                order: 2;
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
             }
             
             .solution-content h2,
@@ -1254,7 +1271,14 @@
             .solution,
             .services,
             .testimonial {
-                padding: 80px 0;
+                padding: 80px 24px;
+            }
+            
+            .solution-image {
+                border-radius: 12px;
+                max-height: 400px;
+                object-fit: cover;
+                object-position: center;
             }
             
             .service-card {
