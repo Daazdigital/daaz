@@ -75,30 +75,6 @@
             text-align: center;
             padding: 120px 24px;
             position: relative;
-            background-image: url('images/2026-02-14-22-32-51-hero-background.webp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .hero-visual {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            height: 400px;
-            background-image: url('images/2026-02-14-22-33-16-hero-element.webp');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.9;
-            z-index: 0;
-        }
-        
-        .hero .container {
-            position: relative;
-            z-index: 1;
         }
         
         .hero h1 {
@@ -225,14 +201,6 @@
             padding: 8px;
         }
         
-        .pain-point-img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin-bottom: 24px;
-            border-radius: 8px;
-        }
-        
         .pain-point h3 {
             font-size: 20px;
             margin-bottom: 16px;
@@ -330,14 +298,6 @@
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-        
-        .service-card-img {
-            width: 100%;
-            height: 180px;
-            object-fit: contain;
-            margin-bottom: 24px;
-            border-radius: 8px;
         }
         
         .service-tag {
@@ -529,19 +489,7 @@
         }
         
         /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-visual {
-                width: 300px;
-                height: 300px;
-                opacity: 0.6;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .hero-visual {
-                display: none;
-            }
-            
             .hero {
                 padding: 80px 24px;
                 min-height: auto;
@@ -590,7 +538,6 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-visual"></div>
         <div class="container">
             <h1 class="fade-in">Product Leadership That Drives Business Outcomes</h1>
             <p class="hero-subheadline fade-in" style="animation-delay: 0.2s;">
@@ -625,17 +572,14 @@
             <h2>Good Execution Without Strategy Is Just Expensive Guessing</h2>
             <div class="problem-grid">
                 <div class="pain-point">
-                    <img src="images/2026-02-14-22-33-38-problem-maze.webp" alt="Strategic complexity" class="pain-point-img">
                     <h3>Decisions based on opinion</h3>
                     <p>Without framework, each feature becomes an internal debate. The roadmap responds to the loudest voice, not the most important.</p>
                 </div>
                 <div class="pain-point">
-                    <img src="images/2026-02-14-22-33-58-problem-gears.webp" alt="Busy without impact" class="pain-point-img">
                     <h3>Teams busy, little impact</h3>
                     <p>Deliverables on time, metrics stagnant. Velocity mistaken for progress.</p>
                 </div>
                 <div class="pain-point">
-                    <img src="images/2026-02-14-22-34-20-problem-stairs.webp" alt="Growth limitations" class="pain-point-img">
                     <h3>Growth limited by structure</h3>
                     <p>Scale without strategy creates complexity. Complexity kills agility. Agility kills growth.</p>
                 </div>
@@ -665,7 +609,6 @@
             <div class="services-grid">
                 
                 <article class="service-card">
-                    <img src="images/2026-02-14-22-34-40-service-leadership.webp" alt="Fractional Product Leadership" class="service-card-img">
                     <span class="service-tag">For Startups in Scale</span>
                     <h3>Fractional Product Leadership</h3>
                     <p>A senior product executive embedded in your leadership team for ongoing strategic guidance.</p>
@@ -681,7 +624,6 @@
                 </article>
 
                 <article class="service-card">
-                    <img src="images/2026-02-14-22-35-16-service-discovery.webp" alt="Product Discovery Sprint" class="service-card-img">
                     <span class="service-tag">For Decisions That Matter</span>
                     <h3>Product Discovery Sprint</h3>
                     <p>A focused 3-6 week engagement to de-risk a major product decision.</p>
@@ -697,7 +639,6 @@
                 </article>
 
                 <article class="service-card">
-                    <img src="images/2026-02-14-22-35-37-service-ai.webp" alt="AI Product Co-Creation" class="service-card-img">
                     <span class="service-tag">For AI That Works</span>
                     <h3>AI Product Co-Creation</h3>
                     <p>Build AI products grounded in real user workflows and sustainable economics.</p>
