@@ -1203,19 +1203,26 @@
             }
             
             .solution-grid {
-                display: flex;
-                flex-direction: column;
+                display: flex !important;
+                flex-direction: column !important;
             }
             
             .solution-content {
-                order: 1;
+                order: 1 !important;
+                position: relative !important;
+                z-index: 2 !important;
+                background: var(--off-white) !important;
+                padding: 24px !important;
             }
             
             .solution-image-container {
-                order: 2;
-                width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
+                order: 2 !important;
+                position: relative !important;
+                z-index: 1 !important;
+                width: 100% !important;
+                max-width: 600px !important;
+                margin: 24px auto 0 !important;
+                transform: none !important;
             }
             
             .solution-content h2,
@@ -1279,6 +1286,12 @@
                 max-height: 400px;
                 object-fit: cover;
                 object-position: center;
+            }
+            
+            /* Disable parallax on mobile for solution section */
+            .solution-image-container {
+                transform: none !important;
+                will-change: auto !important;
             }
             
             .service-card {
@@ -1662,12 +1675,17 @@
             { selector: '.hero-shape-3', speed: 0.08, direction: -1 },
             { selector: '.hero-background-visual', speed: 0.04, direction: -1 },
             { selector: '.hero-content', speed: 0.02, direction: -1 },
-            { selector: '.solution-image-container', speed: 0.05, direction: -1 },
+            { selector: '.solution-image-container', speed: 0.05, direction: -1, disableOnMobile: true },
             { selector: '.cta-lines', speed: 0.02, direction: 1 }
         ];
 
         function updateParallax(scroll) {
+            const isMobile = window.innerWidth <= 1024;
+            
             parallaxElements.forEach(item => {
+                // Skip mobile-disabled elements on small screens
+                if (isMobile && item.disableOnMobile) return;
+                
                 const elements = document.querySelectorAll(item.selector);
                 elements.forEach(el => {
                     const yPos = scroll * item.speed * item.direction;
