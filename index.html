@@ -325,8 +325,9 @@
         
         .hero-content {
             max-width: 620px;
-            z-index: 2;
+            z-index: 3;
             padding-right: 48px;
+            position: relative;
         }
         
         .hero h1 {
@@ -440,51 +441,30 @@
             50% { opacity: 0.7; transform: scale(1.2); }
         }
         
-        /* Hero Visual */
-        .hero-visual {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            width: 90%;
-            max-width: 480px;
-            border-radius: 16px;
-            overflow: visible;
-            box-shadow: 
-                0 4px 6px rgba(0,0,0,0.05),
-                0 20px 40px rgba(74,63,107,0.12),
-                0 40px 80px rgba(74,63,107,0.06);
-            animation: floatImage 6s ease-in-out infinite;
+        /* Hero Background Visual - Wide & Integrated */
+        .hero-background-visual {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background-image: url('images/2026-02-15-hero-minimalist-wide.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             opacity: 0;
-            transform: scale(0.95);
-            animation: fadeScale 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards, floatImage 6s ease-in-out 1.4s infinite;
+            transform: translateX(30px);
+            animation: heroBackgroundReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+            z-index: 1;
+            mask-image: linear-gradient(to left, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
         }
         
-        @keyframes fadeScale {
+        @keyframes heroBackgroundReveal {
             to {
-                opacity: 1;
-                transform: scale(1);
+                opacity: 0.9;
+                transform: translateX(0);
             }
-        }
-        
-        @keyframes floatImage {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-            position: relative;
-            right: -20px;
-            bottom: -10px;
         }
         
         /* Social Proof Section */
@@ -1345,11 +1325,7 @@
             </div>
         </div>
         
-        <div class="hero-visual">
-            <div class="hero-image-container">
-                <img src="images/2026-02-14-hero-3d-composition.webp" alt="Strategic 3D Composition" class="hero-image">
-            </div>
-        </div>
+        <div class="hero-background-visual"></div>
     </section>
 
     <!-- Social Proof -->
@@ -1660,7 +1636,7 @@
             { selector: '.hero-shape-1', speed: 0.03, direction: -1 },
             { selector: '.hero-shape-2', speed: 0.05, direction: -1 },
             { selector: '.hero-shape-3', speed: 0.08, direction: -1 },
-            { selector: '.hero-image-container', speed: 0.1, direction: -1 },
+            { selector: '.hero-background-visual', speed: 0.04, direction: -1 },
             { selector: '.hero-content', speed: 0.02, direction: -1 },
             { selector: '.solution-image-container', speed: 0.05, direction: -1 },
             { selector: '.cta-lines', speed: 0.02, direction: 1 }
