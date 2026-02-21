@@ -1216,8 +1216,9 @@
                 z-index: 0;
             }
             .hero-img {
-                object-position: 70% center;
-                /* keep the UI screens and hands visible */
+                object-position: center;
+                border-radius: 0;
+                /* show more of the image, less zoom */
             }
             /* Mobile blend: dark overlay from bottom up for text legibility */
             .hero-visual::before {
@@ -1368,22 +1369,6 @@
         <!-- RIGHT: full-bleed photo -->
         <div class="hero-visual">
             <img src="images/hero-image.jpg" class="hero-img" alt="Product strategy in action">
-            <!-- Floating impact card — bottom left of image, over the laptop area -->
-            <div class="hv-impact" style="bottom: 140px; left: -20px;">
-                <div class="hv-impact-num">6×</div>
-                <div class="hv-impact-label" data-en="Productivity Gain" data-pt="Ganho de Produtividade">Productivity<br>Gain</div>
-            </div>
-            <!-- Floating decision card — top right -->
-            <div class="hv-decision" style="top: 120px; right: 32px; bottom: auto;">
-                <div class="hv-decision-icon">🎯</div>
-                <div class="hv-decision-title" data-en="Decision made" data-pt="Decisão tomada">Decision made</div>
-                <div class="hv-decision-sub" data-en="MVP scope defined · Stakeholders aligned · Next sprint clear" data-pt="Escopo do MVP definido · Stakeholders alinhados">MVP scope defined · Stakeholders aligned · Next sprint clear</div>
-            </div>
-            <!-- Badge — bottom right -->
-            <div class="hv-badge" style="bottom: 60px; right: 32px; left: auto;">
-                <div class="hv-badge-dot"></div>
-                <span class="hv-badge-text" data-en="AI Product Co-Creation" data-pt="Co-criação com AI">AI Product Co-Creation</span>
-            </div>
         </div>
     </section>
     <!-- TENSION -->
