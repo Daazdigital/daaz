@@ -1207,7 +1207,15 @@
                 position: relative;
                 min-height: auto;
                 padding-top: 76px; /* Clear navbar */
-                background: #0f0e1f;
+                background: 
+                    /* Top-left indigo glow */
+                    radial-gradient(ellipse at 20% 10%, rgba(78,74,173,0.45) 0%, transparent 50%),
+                    /* Top-right subtle teal */
+                    radial-gradient(ellipse at 80% 5%, rgba(46,196,182,0.08) 0%, transparent 40%),
+                    /* Center purple haze */
+                    radial-gradient(ellipse at 50% 30%, rgba(78,74,173,0.25) 0%, transparent 60%),
+                    /* Base dark */
+                    #0f0e1f;
             }
             /* Image now at bottom */
             .hero-visual {
@@ -1240,7 +1248,7 @@
                 order: 1; /* Move before image */
                 padding: 40px 28px;
                 max-width: 100%;
-                background: #0f0e1f; /* Solid background for text area */
+                /* Background removed — inherits from #hero with purple glows */
             }
             .hero-label {
                 margin-bottom: 16px;
