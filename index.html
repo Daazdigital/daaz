@@ -844,10 +844,17 @@
         }
         .service-image {
             width: 100%;
-            border-radius: 12px;
-            margin-bottom: 16px;
+            height: 220px;
             object-fit: cover;
-            max-height: 220px;
+            display: block;
+            margin: -52px -60px 32px -60px;
+            border-radius: 20px 20px 0 0;
+        }
+        .service-card-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
         }
         .service-format-item {
             display: flex;
@@ -1476,6 +1483,7 @@
             <div class="service-cards">
                 <!-- Service 1 -->
                 <div class="service-card reveal">
+                    <img src="images/service-01.webp" alt="Fractional Product Leadership" class="service-image">
                     <div>
                         <div class="service-num" data-en="Service 01" data-pt="Serviço 01">Service 01</div>
                         <h3 class="service-name" data-en="Fractional Product Leadership" data-pt="Liderança de Produto Fracionada">Fractional Product Leadership</h3>
@@ -1486,7 +1494,7 @@
                         </div>
                         
                     </div>
-                    <div class="service-detail-right">\n                        <img src="images/service-01.webp" alt="Fractional Product Leadership" class="service-image">\n                        <div class="service-format-item">
+                    <div class="service-detail-right">\n                        <div class="service-format-item">
                             <div class="service-format-dot"></div>
                             <div class="service-format-text" data-en="2–3 days per week, medium-term contracts (3–6 months)" data-pt="2–3 dias por semana, contratos de médio prazo (3–6 meses)">2–3 days per week, medium-term contracts (3–6 months)</div>
                         </div>
@@ -1506,6 +1514,7 @@
                 </div>
                 <!-- Service 2 -->
                 <div class="service-card accent-teal reveal reveal-delay-1">
+                    <img src="images/service-02.webp" alt="Product Discovery Sprint" class="service-image">
                     <div>
                         <div class="service-num" data-en="Service 02" data-pt="Serviço 02">Service 02</div>
                         <h3 class="service-name" data-en="Product Discovery Sprint" data-pt="Sprint de Discovery de Produto">Product Discovery Sprint</h3>
@@ -1516,7 +1525,7 @@
                         </div>
                         
                     </div>
-                    <div class="service-detail-right">\n                        <img src="images/service-02.webp" alt="Product Discovery Sprint" class="service-image">\n                        <div class="service-format-item">
+                    <div class="service-detail-right">\n                        <div class="service-format-item">
                             <div class="service-format-dot" style="background:var(--teal)"></div>
                             <div class="service-format-text" data-en="4–6 weeks, fixed scope and fixed price" data-pt="4–6 semanas, escopo e preço fixos">4–6 weeks, fixed scope and fixed price</div>
                         </div>
@@ -1532,6 +1541,7 @@
                 </div>
                 <!-- Service 3 -->
                 <div class="service-card accent-gold reveal reveal-delay-2">
+                    <img src="images/service-03.webp" alt="AI Product Co-Creation" class="service-image">
                     <div>
                         <div class="service-num" data-en="Service 03" data-pt="Serviço 03">Service 03</div>
                         <h3 class="service-name" data-en="AI Product Co-Creation" data-pt="Co-criação de Produto com AI">AI Product Co-Creation</h3>
@@ -1542,7 +1552,7 @@
                         </div>
                         
                     </div>
-                    <div class="service-detail-right">\n                        <img src="images/service-03.webp" alt="AI Product Co-Creation" class="service-image">\n                        <div class="service-format-item">
+                    <div class="service-detail-right">\n                        <div class="service-format-item">
                             <div class="service-format-dot" style="background:var(--gold)"></div>
                             <div class="service-format-text" data-en="6–10 weeks or integrated with Fractional Leadership" data-pt="6–10 semanas ou integrado à Liderança Fracionada">6–10 weeks or integrated with Fractional Leadership</div>
                         </div>
