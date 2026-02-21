@@ -751,14 +751,9 @@
         .service-card {
             background: white;
             border-radius: 20px;
-            padding: 52px 60px;
+            padding: 0;
             box-shadow: 0 4px 32px rgba(74,58,186,0.07);
             border: 1px solid rgba(74,58,186,0.06);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-            position: relative;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
@@ -847,14 +842,14 @@
             height: 220px;
             object-fit: cover;
             display: block;
-            margin: -52px -60px 32px -60px;
-            border-radius: 20px 20px 0 0;
+            border-radius: 0;
         }
         .service-card-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: start;
+            padding: 52px 60px;
         }
         .service-format-item {
             display: flex;
@@ -1484,85 +1479,91 @@
                 <!-- Service 1 -->
                 <div class="service-card reveal">
                     <img src="images/service-01.webp" alt="Fractional Product Leadership" class="service-image">
-                    <div>
-                        <div class="service-num" data-en="Service 01" data-pt="Serviço 01">Service 01</div>
-                        <h3 class="service-name" data-en="Fractional Product Leadership" data-pt="Liderança de Produto Fracionada">Fractional Product Leadership</h3>
-                        <p class="service-desc" data-en="We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap." data-pt="Atuamos como seu Head de Produto — part-time, integrados ao time, focados no que importa: visão de produto, estratégia e as decisões que moldam seu roadmap.">We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap.</p>
-                        <div class="service-best-for">
-                            <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
-                            <span data-en="Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation." data-pt="Empresas crescendo sem liderança sênior de produto. Founders sobrecarregados com decisões táticas. Organizações navegando integração de AI ou transformação.">Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation.</span>
+                    <div class="service-card-content">
+                        <div>
+                            <div class="service-num" data-en="Service 01" data-pt="Serviço 01">Service 01</div>
+                            <h3 class="service-name" data-en="Fractional Product Leadership" data-pt="Liderança de Produto Fracionada">Fractional Product Leadership</h3>
+                            <p class="service-desc" data-en="We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap." data-pt="Atuamos como seu Head de Produto — part-time, integrados ao time, focados no que importa: visão de produto, estratégia e as decisões que moldam seu roadmap.">We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap.</p>
+                            <div class="service-best-for">
+                                <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
+                                <span data-en="Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation." data-pt="Empresas crescendo sem liderança sênior de produto. Founders sobrecarregados com decisões táticas. Organizações navegando integração de AI ou transformação.">Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation.</span>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="service-detail-right">\n                        <div class="service-format-item">
-                            <div class="service-format-dot"></div>
-                            <div class="service-format-text" data-en="2–3 days per week, medium-term contracts (3–6 months)" data-pt="2–3 dias por semana, contratos de médio prazo (3–6 meses)">2–3 days per week, medium-term contracts (3–6 months)</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot"></div>
-                            <div class="service-format-text" data-en="Product vision, strategy, and outcome-driven roadmaps" data-pt="Visão de produto, estratégia e roadmaps orientados a resultados">Product vision, strategy, and outcome-driven roadmaps</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot"></div>
-                            <div class="service-format-text" data-en="Alignment across product, engineering, design, data, and business" data-pt="Alinhamento entre produto, engenharia, design, dados e negócio">Alignment across product, engineering, design, data, and business</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot"></div>
-                            <div class="service-format-text" data-en="Remote and global, B2B contractor model" data-pt="Remoto e global, modelo de contratação B2B">Remote and global, B2B contractor model</div>
+                        <div class="service-detail-right">
+                            <div class="service-format-item">
+                                <div class="service-format-dot"></div>
+                                <div class="service-format-text" data-en="2–3 days per week, medium-term contracts (3–6 months)" data-pt="2–3 dias por semana, contratos de médio prazo (3–6 meses)">2–3 days per week, medium-term contracts (3–6 months)</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot"></div>
+                                <div class="service-format-text" data-en="Product vision, strategy, and outcome-driven roadmaps" data-pt="Visão de produto, estratégia e roadmaps orientados a resultados">Product vision, strategy, and outcome-driven roadmaps</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot"></div>
+                                <div class="service-format-text" data-en="Alignment across product, engineering, design, data, and business" data-pt="Alinhamento entre produto, engenharia, design, dados e negócio">Alignment across product, engineering, design, data, and business</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot"></div>
+                                <div class="service-format-text" data-en="Remote and global, B2B contractor model" data-pt="Remoto e global, modelo de contratação B2B">Remote and global, B2B contractor model</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Service 2 -->
                 <div class="service-card accent-teal reveal reveal-delay-1">
                     <img src="images/service-02.webp" alt="Product Discovery Sprint" class="service-image">
-                    <div>
-                        <div class="service-num" data-en="Service 02" data-pt="Serviço 02">Service 02</div>
-                        <h3 class="service-name" data-en="Product Discovery Sprint" data-pt="Sprint de Discovery de Produto">Product Discovery Sprint</h3>
-                        <p class="service-desc" data-en="A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making." data-pt="Um engajamento focado que transforma incerteza em decisões de produto claras e acionáveis. Não é pesquisa por pesquisa — é discovery orientado à tomada de decisão executiva.">A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making.</p>
-                        <div class="service-best-for">
-                            <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
-                            <span data-en="Product stagnation. High-stakes bets. Roadmaps without strategic clarity." data-pt="Estagnação de produto. Apostas de alto risco. Roadmaps sem clareza estratégica.">Product stagnation. High-stakes bets. Roadmaps driven by opinion instead of evidence.</span>
+                    <div class="service-card-content">
+                        <div>
+                            <div class="service-num" data-en="Service 02" data-pt="Serviço 02">Service 02</div>
+                            <h3 class="service-name" data-en="Product Discovery Sprint" data-pt="Sprint de Discovery de Produto">Product Discovery Sprint</h3>
+                            <p class="service-desc" data-en="A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making." data-pt="Um engajamento focado que transforma incerteza em decisões de produto claras e acionáveis. Não é pesquisa por pesquisa — é discovery orientado à tomada de decisão executiva.">A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making.</p>
+                            <div class="service-best-for">
+                                <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
+                                <span data-en="Product stagnation. High-stakes bets. Roadmaps without strategic clarity." data-pt="Estagnação de produto. Apostas de alto risco. Roadmaps sem clareza estratégica.">Product stagnation. High-stakes bets. Roadmaps driven by opinion instead of evidence.</span>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="service-detail-right">\n                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--teal)"></div>
-                            <div class="service-format-text" data-en="4–6 weeks, fixed scope and fixed price" data-pt="4–6 semanas, escopo e preço fixos">4–6 weeks, fixed scope and fixed price</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--teal)"></div>
-                            <div class="service-format-text" data-en="Clearly framed problems, validated hypotheses, MVP definition" data-pt="Problemas claramente definidos, hipóteses validadas, definição de MVP">Clearly framed problems, validated hypotheses, MVP definition</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--teal)"></div>
-                            <div class="service-format-text" data-en="Ends with executive-level decisions, not a report" data-pt="Termina com decisões executivas, não um relatório">Ends with executive-level decisions, not a report</div>
+                        <div class="service-detail-right">
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--teal)"></div>
+                                <div class="service-format-text" data-en="4–6 weeks, fixed scope and fixed price" data-pt="4–6 semanas, escopo e preço fixos">4–6 weeks, fixed scope and fixed price</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--teal)"></div>
+                                <div class="service-format-text" data-en="Clearly framed problems, validated hypotheses, MVP definition" data-pt="Problemas claramente definidos, hipóteses validadas, definição de MVP">Clearly framed problems, validated hypotheses, MVP definition</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--teal)"></div>
+                                <div class="service-format-text" data-en="Ends with executive-level decisions, not a report" data-pt="Termina com decisões executivas, não um relatório">Ends with executive-level decisions, not a report</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Service 3 -->
                 <div class="service-card accent-gold reveal reveal-delay-2">
                     <img src="images/service-03.webp" alt="AI Product Co-Creation" class="service-image">
-                    <div>
-                        <div class="service-num" data-en="Service 03" data-pt="Serviço 03">Service 03</div>
-                        <h3 class="service-name" data-en="AI Product Co-Creation" data-pt="Co-criação de Produto com AI">AI Product Co-Creation</h3>
-                        <p class="service-desc" data-en="We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos." data-pt="Concebemos e evoluímos produtos, funcionalidades e agentes baseados em AI que entregam valor real ao cliente — não experimentos isolados ou demos de tecnologia.">We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos.</p>
-                        <div class="service-best-for">
-                            <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
-                            <span data-en="Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation." data-pt="Empresas que querem AI como diferencial de produto, não apenas um buzzword. Times explorando agentes e automação.">Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation.</span>
+                    <div class="service-card-content">
+                        <div>
+                            <div class="service-num" data-en="Service 03" data-pt="Serviço 03">Service 03</div>
+                            <h3 class="service-name" data-en="AI Product Co-Creation" data-pt="Co-criação de Produto com AI">AI Product Co-Creation</h3>
+                            <p class="service-desc" data-en="We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos." data-pt="Concebemos e evoluímos produtos, funcionalidades e agentes baseados em AI que entregam valor real ao cliente — não experimentos isolados ou demos de tecnologia.">We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos.</p>
+                            <div class="service-best-for">
+                                <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
+                                <span data-en="Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation." data-pt="Empresas que querem AI como diferencial de produto, não apenas um buzzword. Times explorando agentes e automação.">Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation.</span>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="service-detail-right">\n                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--gold)"></div>
-                            <div class="service-format-text" data-en="6–10 weeks or integrated with Fractional Leadership" data-pt="6–10 semanas ou integrado à Liderança Fracionada">6–10 weeks or integrated with Fractional Leadership</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--gold)"></div>
-                            <div class="service-format-text" data-en="AI use cases from real customer problems, not technology hype" data-pt="Casos de uso de AI a partir de problemas reais do cliente, não hype tecnológico">AI use cases from real customer problems, not technology hype</div>
-                        </div>
-                        <div class="service-format-item">
-                            <div class="service-format-dot" style="background:var(--gold)"></div>
-                            <div class="service-format-text" data-en="Co-created vision, design, and implementation support" data-pt="Visão, design e suporte à implementação co-criados">Co-created vision, design, and implementation support</div>
+                        <div class="service-detail-right">
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--gold)"></div>
+                                <div class="service-format-text" data-en="6–10 weeks or integrated with Fractional Leadership" data-pt="6–10 semanas ou integrado à Liderança Fracionada">6–10 weeks or integrated with Fractional Leadership</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--gold)"></div>
+                                <div class="service-format-text" data-en="AI use cases from real customer problems, not technology hype" data-pt="Casos de uso de AI a partir de problemas reais do cliente, não hype tecnológico">AI use cases from real customer problems, not technology hype</div>
+                            </div>
+                            <div class="service-format-item">
+                                <div class="service-format-dot" style="background:var(--gold)"></div>
+                                <div class="service-format-text" data-en="Co-created vision, design, and implementation support" data-pt="Visão, design e suporte à implementação co-criados">Co-created vision, design, and implementation support</div>
+                            </div>
                         </div>
                     </div>
                 </div>
