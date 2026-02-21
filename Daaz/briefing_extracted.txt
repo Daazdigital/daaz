@@ -1,0 +1,343 @@
+BRIEFING DE TRANSFORMAÇÃO
+Daaz Landing Page
+De Institucional para Super Premium
+Documento detalhado de especificações visuais, posicionamento de imagens,
+micro-interações, briefing fotográfico e diretrizes de implementação.
+Fevereiro 2026
+1. Diagnóstico da Página Atual
+A página atual do Daaz tem uma base tipográfica sólida (Playfair Display + Inter) e copy estratégico de alta qualidade. No entanto, avaliada contra os 8 Pilares do framework Super Premium, apresenta gaps significativos:
+ANTES (Atual)
+DEPOIS (Premium)
+Hero puramente textual, sem visual
+Hero com atmosfera visual imersiva + depth
+Zero imagens em toda a página
+Visual assets estratégicos em cada seção
+Background sólido flat sem textura
+Camadas de profundidade: grain, gradients, glass
+Animação básica (fadeInUp apenas)
+Micro-interações sofisticadas por seção
+Service cards genéricos (borda + sombra)
+Cards com dimensão, luz e hover complexo
+Social proof com placeholders de texto
+Logos reais + métricas com animação
+Testimonial único centralizado
+Prova social multi-formato e distribuída
+CTA final com background sólido roxo
+CTA com gradiente dramático + textura
+Sem navegação (OK para LP)
+Nav sticky minimal transparente com blur
+Paleta funcional mas sem personalidade
+Paleta refinada com accent gold premium
+Score Atual vs. Target
+Score estimado atual: 5.2/10 | Target após transformação: 8.5+/10. Os maiores gaps estão em Profundidade Visual (3/10), Assets Visuais (2/10) e Micro-Interações (3/10). A tipografia e copy já estão em nível 7+/10.
+2. Direção Criativa Global
+Conceito: “Quiet Authority”
+A Daaz vende liderança de produto senior. O design precisa comunicar: “Esta pessoa já esteve nessa cadeira antes. Sabe exatamente o que fazer.” A direção visual deve evocar a confiança silenciosa de um executivo experiente — sem gritar, sem firulas, mas com uma presença inegável.
+Referências Visuais Específicas
+Tom editorial de revista de negócios premium (Harvard Business Review, McKinsey Quarterly)
+Profundidade visual inspirada em IOCO/Biocomputer (Creative Mints) — camadas e dimensão
+Restraint minimalista inspirada em Global Charity (Cuberto) — formas grandes, respiro generoso
+Tipografia bold como The Ark (Cosmin Capitanu) — headlines que comandam a página
+Paleta Refinada
+Primary
+#4A3F6B (mantém) — Deep purple/indigo, autoridade intelectual
+Primary Dark
+#2A2445 — Mais profundo para gradientes e dark sections
+Accent Gold
+#C4A265 — Novo. Sinaliza premium, usado em destaques e métricas
+Off-White
+#FAFAF8 (mantém) — Background principal, quente e acolhedor
+Soft Black
+#1A1A1A (mantém) — Texto principal
+Warm Gray
+#9CA3AF — Ajustado para melhor legibilidade
+Surface
+#F8F7F4 — Background alternativo com leve warmth
+Tipografia (Evolução)
+Headlines
+Playfair Display (mantém) — já é excelente. Aumentar contrast ratio: hero 72-80px
+Body
+Inter (mantém) — ajustar para weight 350 (light-regular) com letter-spacing +0.01em
+Labels/Tags
+Inter 600, uppercase, letter-spacing: 3px — mais espaçamento que atual
+Métricas
+Playfair Display 700 + accent gold — números como protagonistas
+Novo: Accent
+Adicionar Cormorant Garamond italic para pull-quotes e destaques editoriais
+3. Especificação Seção por Seção
+Cada seção abaixo inclui: layout, posicionamento de imagens, briefing fotográfico, micro-interações e especificações técnicas de CSS.
+3.1 Navegação (Novo Elemento)
+Layout
+A página atual não tem navegação. Adicionar uma nav sticky que aparece após o primeiro scroll, criando sensação de sofisticação sem roubar foco da hero.
+Posição
+Fixed top, transparente no hero. Após scroll de 100vh, ativa background blur
+Background
+Inativo: transparent | Ativo: rgba(250,250,248,0.85) + backdrop-filter: blur(20px)
+Conteúdo
+Logo “DAAZ” (esquerda) | Links: Services, Results, Approach (centro) | CTA: “Talk Strategy” (direita)
+Altura
+72px fixo, padding 0 48px
+Borda
+Ativo: border-bottom 1px solid rgba(0,0,0,0.06)
+Transição
+background e border com transition 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+Mobile
+Hamburger menu com panel slide-in da direita, overlay escuro
+Micro-Interações da Nav
+Logo: hover sutil com opacity 0.7 > 1.0, transition 0.3s
+Links: underline animado que cresce do centro para fora (width 0% > 100% via ::after), cor #C4A265 (gold)
+CTA “Talk Strategy”: botão pill com border 1px solid primary, hover preenche background com primary + text white, transition 0.3s
+Scroll behavior: ao scrollar para cima, nav aparece com slideDown sutil (translateY -100% > 0)
+3.2 Hero Section (Transformação Completa)
+A hero atual é puramente textual em fundo branco. O gap mais crítico da página. Precisa de atmosfera visual sem perder a clareza da mensagem.
+Layout
+Estrutura
+Full-viewport (100vh). Grid 2 colunas: 55% texto (esquerda) | 45% visual (direita)
+Alinhamento texto
+Mudar de center para left-aligned. Vertical center no grid. Max-width texto: 620px
+Background
+Gradiente sutil: linear-gradient(135deg, #FAFAF8 0%, #F0EDE6 40%, #E8E4F0 100%)
+Textura
+Overlay de grain noise (PNG tile, opacity 0.03) para eliminar o flat
+Depth elements
+2-3 formas geométricas abstratas em blur (circles/ellipses) flutuando no background, cores primary em opacity 0.05-0.08
+Briefing da Imagem Hero (Lado Direito)
+BRIEFING FOTOGRÁFICO — Hero Image
+Conceito: “The Strategist’s Perspective”. Uma composição visual que transmite visão estratégica e clareza de pensamento. NÃO é uma foto genérica de pessoa em escritório. Opções (em ordem de preferência): (1) Composição abstrata com elementos 3D: formas geométricas flutuantes em tons deep purple e gold, sugerindo “peças de um puzzle estratégico se encaixando”. Inspiração: IOCO/Biocomputer. (2) Fotografia editorial: mãos sobre uma mesa com artefatos de estratégia (post-its organizados, diagrama desenhado, caneta premium), vista de cima (flat lay), profundidade de campo curta, tons quentes. (3) Mockup premium do produto: dashboard/roadmap digital renderizado em perspectiva isométrica com glass morphism, mostrando “o output do trabalho estratégico”.
+Posicionamento Exato da Imagem
+Container: width 45% da grid, height auto (aspecto 4:3 ou 3:4 dependendo da opção)
+Offset: imagem levemente fora do container (overflow visible), 20px para direita e 10px para baixo — cria sensação de profundidade e “respiro”
+Tratamento: border-radius 16px, box-shadow multi-camada (0 4px 6px rgba(0,0,0,0.05), 0 20px 40px rgba(74,63,107,0.12), 0 40px 80px rgba(74,63,107,0.06))
+Float effect: sutil up-down animation (translateY 0 > -8px > 0) com duration 6s ease-in-out infinite — a imagem “flutua” suavemente
+Mobile: imagem vai para acima do texto, full-width com padding 24px lateral, aspect ratio 16:9 com object-fit cover
+Micro-Interações da Hero
+Headline: text-reveal animation. Cada palavra aparece sequencialmente (stagger 80ms) com fade-in + translateY(20px > 0), opacity 0 > 1. Duration 0.6s por palavra
+Sub-headline: fade-in simples com delay de 0.8s (após headline completa), translateY(15px > 0)
+CTA button: aparece com delay 1.2s. Idle state: sutil pulse glow (box-shadow que expande e contrai em opacity, 3s loop)
+CTA hover: translateY(-3px) + box-shadow expande + background escurece para primary-dark. Adicionar shimmer effect sutil (gradiente branco translucent que passa da esquerda para direita, 1x no hover)
+Imagem hero: aparece com delay 0.4s, scale(0.95 > 1) + opacity(0 > 1), duration 1s. Parallax leve no scroll: a imagem sobe mais devagar que o texto (translateY com fator 0.1x do scroll)
+Background shapes: cada forma geométrica se move independentemente em parallax com fatores diferentes (0.03x, 0.05x, 0.08x) — cria profundidade em camadas
+Badge de escassez (abaixo do CTA): “Disponível para Q1 2026 — 3 vagas restantes” com dot pulsante verde (#059669)
+Especificações CSS Críticas
+Hero headline: font-size: clamp(44px, 5.5vw, 76px), line-height: 1.08, letter-spacing: -0.03em, font-weight: 700
+Sub-headline: font-size: 20px, line-height: 1.65, color: #9CA3AF, font-weight: 350
+CTA: padding 22px 52px, border-radius 8px, font-size 16px, font-weight 500, letter-spacing 0.02em
+Grain overlay: background-image: url(noise.png), opacity: 0.03, mix-blend-mode: multiply, pointer-events: none
+3.3 Social Proof (Elevação Completa)
+Layout
+A seção atual tem placeholders de texto e uma métrica centralizada. Transformar em uma barra de credibilidade de alto impacto.
+Estrutura
+Duas linhas: (1) Logo bar horizontal, (2) 3 métricas em row
+Background
+Manter off-white mas adicionar border-top e border-bottom com 1px solid rgba(0,0,0,0.06)
+Padding
+Aumentar para 100px vertical (atual 80px)
+Label
+Manter “Trusted by product teams at”, mas typography: 13px, letter-spacing 3px (aumentar de 2px)
+Briefing dos Logos
+BRIEFING — Logo Bar
+Substituir os placeholders [Fintech Startup], [SaaS B2B], etc. por logos reais ou, se não disponíveis, criar placeholders visuais premium: retangulos com cantos arredondados (8px), background #F0EDE6, com texto do nome da empresa em font-weight 600, color #6B7280. Nunca texto solto. O formato “logo em container” comunica “este é um logo real” mesmo sem o asset final. Logos em grayscale com opacity 0.4 no estado normal, opacity 0.7 no hover. Transition 0.3s.
+Métricas (Expandir de 1 para 3)
+Transformar o $40M+ solitário em uma tríade de impacto:
+Métrica 1
+$40M+ | in product value delivered
+Métrica 2
+12+ | product leaders embedded globally
+Métrica 3
+3x | average revenue growth for clients
+Números: Playfair Display 700, font-size 56px, color #C4A265 (gold accent — não mais purple)
+Labels: Inter 400, 15px, color #9CA3AF
+Layout: 3 colunas iguais, separadas por divider vertical 1px solid rgba(0,0,0,0.08), height 48px
+Micro-Interações
+Logos: infinite scroll horizontal sutil (marquee CSS) com velocidade lenta (40s linear), pausar no hover
+Métricas: counter animation ao entrar no viewport. Números contam de 0 ao valor final. Duration 2s, easing ease-out. Usar Intersection Observer com threshold 0.5
+Stagger: métrica 1 começa imediatamente, métrica 2 com delay 200ms, métrica 3 com delay 400ms
+3.4 Problem Section (Dramatização Visual)
+Layout
+Background
+Mudar de #F5F5F3 flat para gradiente sutil: linear-gradient(180deg, #F5F5F3 0%, #EDEBE6 100%)
+Textura
+Adicionar subtle dot grid pattern (SVG, opacity 0.04) — evoca papel de quadriculado estratégico
+Grid
+Manter 3 colunas mas adicionar ícones custom acima de cada pain point
+Transição de seção
+Adicionar SVG wave/curve suave entre social proof e problem (height 60px, cor do background problem)
+Briefing dos Ícones (3 Custom Icons)
+BRIEFING — Ícones Pain Points
+Estilo: line icons com 2px stroke, monocromáticos (#4A3F6B), tamanho 48x48px. NãO usar ícones genéricos de biblioteca (Lucide, Heroicons). Criar ou encomendar custom. (1) “Decisions based on opinion”: ícone de balança desequilibrada com um lado caindo, ou uma seta ricocheteando em direções aleatórias (indecisão). (2) “Teams busy, little impact”: ícone de rodas girando (tipo hamster wheel) ou engrenagens que não se conectam. (3) “Growth limited by structure”: ícone de seta ascendente batendo em um teto/barreira, ou uma árvore com raízes emaranhadas.
+Posicionamento dos Ícones
+Acima do h3 de cada pain point, com margin-bottom 20px
+Centralizado horizontalmente dentro de cada coluna
+Container circular: 80px x 80px, background rgba(74,63,107,0.06), border-radius 50%
+Ícone 48px centrado dentro do container circular
+Micro-Interações
+Headline da seção: fade-in + translateY(20px > 0) ao entrar viewport
+Pain points: aparecem em stagger (200ms entre cada). Cada card: opacity 0 > 1 + translateY(30px > 0), duration 0.7s
+Ícone hover: container escurece para rgba(74,63,107,0.12) + ícone faz rotate sutil (5deg ida e volta, 0.4s), transition ease
+Pain point cards: ao hover, uma borda-left de 3px solid #C4A265 (gold) aparece via transition, indicando seleção
+3.5 Solution Section (Visual Storytelling)
+Layout Transformado
+A seção atual é puramente textual com uma lista de diferenciadores. Transformar em um layout split-screen que conta uma história visual.
+Estrutura
+Grid 2 colunas: 50% texto (esquerda) | 50% imagem (direita)
+Background
+Off-white (#FAFAF8) com gradiente radial sutil centrado na imagem (rgba(74,63,107,0.03))
+Padding
+140px vertical (aumentar de 120px)
+Briefing da Imagem Solution
+BRIEFING FOTOGRÁFICO — Solution Visual
+Conceito: “Embedded Partnership”. A imagem deve comunicar “trabalhamos juntos, lado a lado”. Opções: (1) Fotografia editorial: dois profissionais (de costas ou perfil, não olhando para câmera) debruçados sobre um whiteboard com diagramas de produto/estratégia. Iluminação lateral quente, profundidade de campo média, foco no conteúdo do whiteboard. Tons: neutros quentes, toques de roxo no ambiente (livro, caderno, tela de laptop ao fundo). (2) Flat lay estratégico: mesa de trabalho vista de cima com artefatos de discovery — user journey map, post-its coloridos organizados em framework, wireframes desenhados à mão, uma xícara de café premium. Tudo organizado com simetria intencional. (3) Ilustração custom: diagrama visual que mostra o fluxo “embedded > decisions > outcomes” com ícones conectados por linhas elegantes, estilo infográfico editorial.
+Posicionamento da Imagem
+Lado direito da grid, vertical-center alinhado ao texto
+Border-radius: 12px. Sem sombra pesada — apenas 0 2px 20px rgba(0,0,0,0.06)
+Reveal animation: a imagem “desvela” da direita para esquerda via clip-path: inset(0 100% 0 0) > inset(0 0% 0 0), duration 1.2s, triggered ao entrar viewport
+Parallax: translateY com fator 0.05x do scroll (sobe mais devagar que o texto)
+Mobile: imagem vai para ABAIXO do texto, full-width, margin-top 48px
+Diferenciadores (Evolução Visual)
+Manter a lista de 3 diferenciadores mas transformar de lista simples em “feature cards” inline:
+Cada diferenciador vira um mini-card: padding 24px, border-left 3px solid #C4A265, background rgba(196,162,101,0.04)
+Título bold em #1A1A1A, descrição em #9CA3AF
+Margin entre cards: 16px
+Stagger animation: cada card aparece com delay incremental de 150ms
+Remover os checkmarks circulares — a border-left gold já sinaliza “aprovado” de forma mais sofisticada
+3.6 Services Section (Premium Cards)
+Layout
+Background
+Gradiente: linear-gradient(180deg, #F5F5F3 0%, #F0EDE6 100%) com grain overlay
+Grid
+Manter 3 colunas, mas gap: 24px (reduzir de 32px para cards mais próximos)
+Card base
+Background: white, border: 1px solid rgba(0,0,0,0.06), border-radius: 16px (aumentar de 12px)
+Card destaque
+O card do meio (“Product Discovery Sprint”) recebe tratamento especial: borda top 3px solid #C4A265, badge “MOST POPULAR”
+Briefing das Imagens dos Cards (3 Visuais)
+BRIEFING — Service Card Visuals
+Cada card recebe um visual no topo (abaixo da tag, acima do h3). Tamanho: full-width do card, height 180px, border-radius top 16px (segue o card). Opção A (Preferível): Ilustrações abstratas custom, estilo geometric/editorial, paleta restrita ao primary + gold + off-white. (1) Fractional Leadership: composição com círculos concêntricos e linhas de conexão, sugerindo “orbit” (o líder orbitando o time). Tons roxo deep + gold highlights. (2) Discovery Sprint: composição com formas geométricas que se montam (puzzle pieces, blocos), sugerindo “clareza emergindo do caos”. Tons mais claros, com acentos de energia. (3) AI Co-Creation: composição com rede neural abstrata/nós conectados por linhas elegantes, sugerindo “inteligência”. Tons deep purple com glow effects sutis. Opção B: Fotografias abstratas tratadas com duotone (purple + gold overlay): texturas de papel, mãrmore, tech close-ups.
+Micro-Interações dos Cards
+Hover (base): translateY(-6px) + box-shadow evolui para 0 20px 60px rgba(74,63,107,0.15). Transition 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+Hover (imagem): a imagem do topo faz scale(1.05), overflow hidden no container garante crop. Transition 0.6s
+Hover (tag): muda de color primary para color gold (#C4A265). Transition 0.3s
+Card destaque (meio): sutil glow animation no idle state — box-shadow que pulsa levemente (opacity 0.05 > 0.12 > 0.05) com duration 4s
+Preço: counter animation quando viewport é atingido (conta de $0 ao valor). Duration 1.5s
+Stagger de entrada: card esquerdo (delay 0), card meio (delay 150ms), card direito (delay 300ms)
+Mobile: cards empilham em coluna única. O card “MOST POPULAR” fica primeiro (reorder via order: -1)
+3.7 Testimonial Section (Evolução para Multi-Prova)
+Layout Transformado
+A seção atual tem um único depoimento. Transformar em um formato editorial de maior impacto.
+Estrutura
+Grid 2 colunas: 40% foto/info do autor (esquerda) | 60% quote (direita)
+Background
+Off-white com accent: uma faixa vertical sutil de rgba(74,63,107,0.03) no lado esquerdo (20% da largura)
+Aspas
+Mudar de pseudo-element para um SVG custom de aspas em #C4A265 (gold), 48px, posicionado acima da quote
+Adicional
+Abaixo do depoimento principal, adicionar uma row de 2-3 mini-testimonials (apenas quote curta + nome + resultado)
+Briefing da Foto do Autor
+BRIEFING FOTOGRÁFICO — Testimonial Portrait
+Foto profissional de “Sarah Mitchell” (ou modelo representativo): headshot com fundo neutro, iluminação suave lateral (Rembrandt lighting), expressão confiante e acessível. Enquadramento: busto, leve ângulo (não frontal direto). Pós-produção: duotone sutil (purple shadows), ou grain fino para consistência editorial. Tamanho: 320x400px, border-radius 12px. Se foto real não disponível: usar placeholder com iniciais em círculo grande (120px) com background gradiente primary > primary-dark, tipografia Playfair Display bold white.
+Posicionamento
+Foto do autor: lado esquerdo, vertical-center, com sombra sutil (0 8px 30px rgba(0,0,0,0.08))
+Nome + cargo + empresa: abaixo da foto, left-aligned
+Resultado (“3x growth in 18 months”): badge visual com background rgba(196,162,101,0.1), border-radius 20px, padding 8px 16px, color gold, font-weight 600
+Quote: lado direito, Cormorant Garamond italic (nova fonte accent), font-size 28px, line-height 1.5, color #2D2D2D
+Mobile: layout empilha. Foto centralizada (circular crop 100px), quote abaixo
+Micro-Interações
+Foto: reveal animation com clip-path circular (circle(0%) > circle(100%)), duration 1s, triggered ao viewport
+Aspas SVG: fade-in + scale(0.8 > 1) com delay 0.3s
+Quote text: cada linha aparece em stagger sutil (opacity + translateX(-10px > 0)), 100ms entre linhas
+Resultado badge: aparece por último com delay 0.8s, scale(0.9 > 1) + opacity
+Mini-testimonials abaixo: fade-in simples em stagger 200ms ao scrollar
+3.8 CTA Final (Imersão Premium)
+Layout Transformado
+Background
+Gradiente imersivo: linear-gradient(135deg, #2A2445 0%, #4A3F6B 50%, #3A3255 100%)
+Textura
+Noise grain overlay (opacity 0.05) + subtle radial glow centrado no CTA (rgba(196,162,101,0.08))
+Padding
+160px vertical (aumentar de 140px)
+Elemento decorativo
+Linhas finas douradas (#C4A265, opacity 0.15) formando um grid perspective no background (vanishing point no centro)
+Conteúdo Refinado
+Headline: manter texto mas ajustar para Playfair Display 700, clamp(36px, 4vw, 52px), color white
+Sub-text: manter a personalidade (“No sales pitch. No 47-slide deck.”) mas adicionar line-height 1.7
+CTA button: evoluir para visual premium — background white, color primary, border-radius 8px, font-weight 500
+CTA hover: background #C4A265 (gold), color white, box-shadow 0 8px 30px rgba(196,162,101,0.3)
+Escassez: manter nota de disponibilidade, adicionar dot pulsante verde antes do texto
+Imagem/Visual de Suporte
+BRIEFING — CTA Background Element
+Adicionar um elemento visual abstrato atrás do conteúdo: composição de linhas curvas douradas entrelaçadas, estilo “thread of strategy”, em opacity baixa (0.1-0.15), criando textura sem competir com o texto. Alternativa: topographic map lines (curvas de nível) em dourado sutil, sugerindo “navigação estratégica por terreno complexo”.
+Micro-Interações
+Headline: fade-in + translateY(20px > 0), duration 0.8s
+Sub-text: fade-in com delay 0.3s
+CTA button: aparece com delay 0.6s, scale(0.95 > 1) + opacity. Idle state: sutil glow pulse (box-shadow gold que expande e contrai, 3s infinite)
+Background lines/elements: parallax lento (0.02x), movem-se sutil conforme scroll
+Hover CTA: além da mudança de cor, o glow radial centrado no botão intensifica (opacity 0.08 > 0.15)
+3.9 Footer (Refino)
+Background
+Manter #1A1A1A mas adicionar grain sutil (opacity 0.03)
+Logo
+DAAZ em Playfair Display 700, 28px, com letter-spacing 4px
+Layout
+3 colunas: Brand + tagline (esquerda) | Links (centro) | Contact/Social (direita)
+Divider
+Linha horizontal 1px solid rgba(255,255,255,0.08) separando conteúdo do copyright
+Copyright
+Texto 13px, opacity 0.5, com link para privacy policy
+Micro-interação
+Links: underline grow from center on hover (#C4A265). Social icons: opacity 0.5 > 1.0 + scale(1.1) on hover
+4. Efeitos Globais e Detalhes Técnicos
+4.1 Smooth Scroll
+Implementar scroll suave com Lenis.js (preferível) ou CSS scroll-behavior: smooth
+Lenis config: lerp 0.1, duration 1.2, wheelMultiplier 1
+Motivo: smooth scroll é um dos sinais mais imediatos de premium — o scroll “desacelerado” comunica intenção
+4.2 Cursor Customizado
+Cursor padrão: círculo de 8px, borda 1.5px solid #4A3F6B, preenchimento transparente
+Cursor sobre links/CTAs: círculo expande para 40px com background rgba(74,63,107,0.08), transition 0.3s
+Cursor sobre imagens: círculo com texto “View” em 10px
+Blend mode: mix-blend-mode: difference em dark sections
+Mobile: desativar completamente (touch não usa cursor)
+4.3 Scroll Progress Indicator
+Linha fina (2px) no topo da viewport que indica progresso de scroll da página
+Cor: gradiente primary > gold
+Z-index acima de tudo, position fixed
+4.4 Page Transitions e Loading
+Initial load: overlay branco que faz fade-out (opacity 1 > 0, duration 0.6s, then display none)
+Logo “DAAZ” aparece centralizado durante load e faz fade para a posição final na nav
+Elementos above-the-fold: stagger animation orquestrada (descrita na hero section)
+4.5 Responsive Breakpoints
+Desktop Large
+> 1440px: container 1200px centrado, hero visual maior
+Desktop
+1024-1440px: layout padrão
+Tablet
+768-1023px: grids de 3 col > 2 col, hero empilha
+Mobile
+< 768px: single column, padding lateral 20px, hero texto + imagem empilhados
+Mobile Small
+< 375px: font-sizes reduzem 10%, paddings reduzem 20%
+5. Prioridade de Implementação
+Nem todas as mudanças têm o mesmo impacto. Aqui está a ordem recomendada:
+Fase 1: Impacto Imediato (Week 1-2)
+Estas mudanças sozinhas levam o score de 5.2 para ~7.0:
+Hero section: visual + layout split + animações de entrada
+Paleta refinada: adicionar gold accent em métricas e destaques
+Grain texture + gradientes sutis nos backgrounds
+Social proof: 3 métricas com counter animation
+Nav sticky com blur
+Fase 2: Profundidade (Week 3-4)
+Levam o score de ~7.0 para ~8.0:
+Service cards: imagens + hover complexo + card destaque
+Problem section: ícones custom + stagger animations
+Solution section: split layout + imagem + reveal animation
+Testimonial: foto + layout editorial + mini-testimonials
+Fase 3: Polish Premium (Week 5-6)
+Levam o score de ~8.0 para 8.5+:
+Cursor customizado
+Smooth scroll (Lenis)
+Page load animation
+Scroll progress indicator
+CTA final: background art + glow effects
+Parallax em múltiplas camadas
+A diferença entre bom e premium está nos detalhes.
+Cada especificação neste documento existe para criar uma sensação de qualidade
+que o visitante sente antes de conseguir articular.
