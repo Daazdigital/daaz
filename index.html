@@ -622,22 +622,13 @@
         }
         /* ——— POSITIONING ——— */
         #positioning {
-            background: var(--indigo);
+            background: var(--offwhite);
             padding: 120px 60px;
             position: relative;
             overflow: hidden;
         }
-        .pos-bg-shape {
-            position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(ellipse, rgba(46,196,182,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
         .pos-inner {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -647,58 +638,67 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--teal);
-            margin-bottom: 20px;
+            color: var(--indigo);
+            margin-bottom: 24px;
             display: block;
         }
         .pos-headline {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(32px, 3.5vw, 48px);
-            line-height: 1.15;
-            color: white;
-            letter-spacing: -0.02em;
-            margin-bottom: 72px;
-            max-width: 640px;
+            font-size: clamp(38px, 4vw, 56px);
+            line-height: 1.12;
+            color: var(--indigo);
+            letter-spacing: -0.025em;
+            margin-bottom: 24px;
+            max-width: 780px;
         }
-        .pos-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            border-top: 1px solid rgba(255,255,255,0.12);
-        }
-        .pos-block {
-            padding: 48px 48px 48px 0;
-            border-right: 1px solid rgba(255,255,255,0.1);
-        }
-        .pos-block:last-child {
-            border-right: none;
-            padding-right: 0;
-            padding-left: 48px;
-        }
-        .pos-block:nth-child(2) {
-            padding-left: 48px;
-        }
-        .pos-block-title {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--teal);
-            margin-bottom: 16px;
-        }
-        .pos-block-headline {
-            font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            color: white;
-            line-height: 1.3;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
-        }
-        .pos-block-body {
-            font-size: 16px;
+        .pos-subtitle {
+            font-size: 18px;
             line-height: 1.7;
-            color: rgba(245,243,240,0.65);
+            color: var(--warmgray);
+            max-width: 720px;
+            margin-bottom: 100px;
             font-weight: 400;
+        }
+        .pos-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+        }
+        .pos-pillar {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .pos-pillar-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--indigo);
+            opacity: 0.35;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+            margin-top: 8px;
+        }
+        .pos-pillar-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .pos-pillar-headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 2.8vw, 36px);
+            color: var(--indigo);
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            font-weight: 400;
+        }
+        .pos-pillar-body {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--warmgray);
+            font-weight: 400;
+            max-width: 620px;
         }
         /* ——— SERVICES ——— */
         #services {
@@ -1293,20 +1293,27 @@
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
-            .pos-grid {
-                grid-template-columns: 1fr;
+            .pos-pillars {
+                gap: 64px;
             }
-            .pos-block {
-                padding: 32px 0;
-                border-right: none;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+            .pos-pillar {
+                grid-template-columns: 40px 1fr;
+                gap: 20px;
             }
-            .pos-block:last-child {
-                padding-left: 0;
-                border-bottom: none;
+            .pos-pillar-num {
+                font-size: 12px;
+                margin-top: 6px;
             }
-            .pos-block:nth-child(2) {
-                padding-left: 0;
+            .pos-pillar-content {
+                gap: 12px;
+            }
+            .pos-headline {
+                margin-bottom: 20px;
+            }
+            .pos-subtitle {
+                margin-bottom: 64px;
+                font-size: 16px;
+                line-height: 1.7;
             }
             .service-card {
                 grid-template-columns: 1fr;
@@ -1363,17 +1370,17 @@
             <div class="hero-proof">
                 <div class="proof-stat">
                     <div class="proof-num">4</div>
-                    <div class="proof-label" data-en="AI Products Shipped" data-pt="AI Com resultados reais">AI Products Shipped</div>
+                    <div class="proof-label" data-en="AI Products with Real Results" data-pt="AI com resultados reais">AI Products with Real Results</div>
                 </div>
                 <div class="proof-divider"></div>
                 <div class="proof-stat">
                     <div class="proof-num">6×</div>
-                    <div class="proof-label" data-en="Productivity Gains" data-pt="Mais de 6× Ganho de produtividade">Productivity Gains</div>
+                    <div class="proof-label" data-en="Productivity Gains" data-pt="Mais de 6× ganho de produtividade">Productivity Gains</div>
                 </div>
                 <div class="proof-divider"></div>
                 <div class="proof-stat">
-                    <div class="proof-num">Series A+</div>
-                    <div class="proof-label" data-en="Stage Focus" data-pt="Acelere A criação de novos produtos">Stage Focus</div>
+                    <div class="proof-num">3×</div>
+                    <div class="proof-label" data-en="Accelerate Product Creation" data-pt="Acelere a criação de novos produtos">Accelerate Product Creation</div>
                 </div>
             </div>
         </div>
@@ -1407,25 +1414,34 @@
     </section>
     <!-- POSITIONING -->
     <section id="positioning">
-        <div class="pos-bg-shape"></div>
         <div class="pos-inner">
             <span class="pos-label" data-en="Our Positioning" data-pt="Nosso Posicionamento">Our Positioning</span>
-            <h2 class="pos-headline" data-en="We're not a vendor. We're your product leadership." data-pt="Não somos um fornecedor. Somos a liderança de produto que você precisa.">We're not a vendor. We're your product leadership.</h2>
-            <div class="pos-grid">
-                <div class="pos-block reveal">
-                    <div class="pos-block-title" data-en="01 — Senior, not junior" data-pt="01 — Sênior, não júnior">01 — Senior, not junior</div>
-                    <h3 class="pos-block-headline" data-en="At the decision layer." data-pt="Na camada de decisão.">At the decision layer.</h3>
-                    <p class="pos-block-body" data-en="Every engagement is led by experienced product leaders who have built, scaled, and transformed products at companies like iFood, Ambev, and Procter & Gamble." data-pt="Cada engajamento é liderado por profissionais sênior de produto que construíram, escalaram e transformaram produtos em empresas como iFood, Ambev e Procter & Gamble.">Every engagement is led by experienced product leaders who have built, scaled, and transformed products at companies like iFood, Ambev, and Procter & Gamble.</p>
+            <h2 class="pos-headline" data-en="Product leadership that sits where decisions are made." data-pt="Liderança de produto onde as decisões são tomadas.">Product leadership that sits where decisions are made.</h2>
+            <p class="pos-subtitle" data-en="We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business." data-pt="Trabalhamos como parceiros estratégicos — integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.</p>
+            <div class="pos-pillars">
+                <!-- Pillar 01 -->
+                <div class="pos-pillar reveal">
+                    <div class="pos-pillar-num">01</div>
+                    <div class="pos-pillar-content">
+                        <h3 class="pos-pillar-headline" data-en="Led by those who've built what you're building." data-pt="Liderados por quem já construiu o que você está construindo.">Led by those who've built what you're building.</h3>
+                        <p class="pos-pillar-body" data-en="Every engagement is led by senior product leaders with track records at companies like iFood, Ambev, and Procter & Gamble. We don't staff projects with junior analysts. We bring the experience to make hard calls and the judgment to know when to make them." data-pt="Cada engajamento é liderado por profissionais sênior de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Não preenchemos projetos com analistas júnior. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">Every engagement is led by senior product leaders with track records at companies like iFood, Ambev, and Procter & Gamble. We don't staff projects with junior analysts. We bring the experience to make hard calls and the judgment to know when to make them.</p>
+                    </div>
                 </div>
-                <div class="pos-block reveal reveal-delay-1">
-                    <div class="pos-block-title" data-en="02 — Embedded, not external" data-pt="02 — Embedded, não externo">02 — Embedded, not external</div>
-                    <h3 class="pos-block-headline" data-en="Inside your team." data-pt="Dentro do seu time.">Inside your team.</h3>
-                    <p class="pos-block-body" data-en="We don't deliver reports from the outside. We work inside your team — aligned with your goals, your constraints, your reality." data-pt="Não entregamos relatórios de fora. Trabalhamos dentro do seu time — alinhados com seus objetivos, suas restrições, sua realidade.">We don't deliver reports from the outside. We work inside your team — aligned with your goals, your constraints, your reality.</p>
+                <!-- Pillar 02 -->
+                <div class="pos-pillar reveal reveal-delay-1">
+                    <div class="pos-pillar-num">02</div>
+                    <div class="pos-pillar-content">
+                        <h3 class="pos-pillar-headline" data-en="Inside your organization, not outside it." data-pt="Dentro da sua organização, não fora dela.">Inside your organization, not outside it.</h3>
+                        <p class="pos-pillar-body" data-en="We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving." data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time — navegando suas restrições, sua política, seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.</p>
+                    </div>
                 </div>
-                <div class="pos-block reveal reveal-delay-2">
-                    <div class="pos-block-title" data-en="03 — Outcomes, not deliverables" data-pt="03 — Resultados, não entregáveis">03 — Outcomes, not deliverables</div>
-                    <h3 class="pos-block-headline" data-en="Real business impact." data-pt="Impacto real no negócio.">Real business impact.</h3>
-                    <p class="pos-block-body" data-en="We measure success by better decisions, faster alignment, and measurable business impact — not by documents produced or hours logged." data-pt="Medimos sucesso por melhores decisões, alinhamento mais rápido e impacto mensurável no negócio — não por documentos produzidos ou horas registradas.">We measure success by better decisions, faster alignment, and measurable business impact — not by documents produced or hours logged.</p>
+                <!-- Pillar 03 -->
+                <div class="pos-pillar reveal reveal-delay-2">
+                    <div class="pos-pillar-num">03</div>
+                    <div class="pos-pillar-content">
+                        <h3 class="pos-pillar-headline" data-en="Measured by what changes, not what's delivered." data-pt="Medidos pelo que muda, não pelo que é entregue.">Measured by what changes, not what's delivered.</h3>
+                        <p class="pos-pillar-body" data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced." data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar — não por horas registradas ou slides produzidos.">Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced.</p>
+                    </div>
                 </div>
             </div>
         </div>
