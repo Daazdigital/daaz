@@ -622,7 +622,11 @@
         }
         /* ——— POSITIONING ——— */
         #positioning {
-            background: var(--offwhite);
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(78,74,173,0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(46,196,182,0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(78,74,173,0.25) 0%, transparent 60%),
+                linear-gradient(135deg, #1a1a3e 0%, #2d2b5a 50%, #1a1a3e 100%);
             padding: 120px 60px;
             position: relative;
             overflow: hidden;
@@ -638,7 +642,7 @@
             font-weight: 600;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--indigo);
+            color: var(--teal);
             margin-bottom: 24px;
             display: block;
         }
@@ -646,15 +650,19 @@
             font-family: 'DM Serif Display', serif;
             font-size: clamp(38px, 4vw, 56px);
             line-height: 1.12;
-            color: var(--indigo);
+            color: white;
             letter-spacing: -0.025em;
             margin-bottom: 24px;
             max-width: 780px;
         }
+        .pos-headline em {
+            color: var(--teal);
+            font-style: italic;
+        }
         .pos-subtitle {
             font-size: 18px;
             line-height: 1.7;
-            color: var(--warmgray);
+            color: rgba(245,243,240,0.75);
             max-width: 720px;
             margin-bottom: 100px;
             font-weight: 400;
@@ -674,8 +682,8 @@
             font-family: 'DM Serif Display', serif;
             font-size: 14px;
             font-weight: 400;
-            color: var(--indigo);
-            opacity: 0.35;
+            color: var(--teal);
+            opacity: 0.5;
             letter-spacing: 0.08em;
             line-height: 1.4;
             margin-top: 8px;
@@ -688,7 +696,7 @@
         .pos-pillar-headline {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(26px, 2.8vw, 36px);
-            color: var(--indigo);
+            color: white;
             line-height: 1.25;
             letter-spacing: -0.02em;
             font-weight: 400;
@@ -696,7 +704,7 @@
         .pos-pillar-body {
             font-size: 17px;
             line-height: 1.8;
-            color: var(--warmgray);
+            color: rgba(245,243,240,0.7);
             font-weight: 400;
             max-width: 620px;
         }
