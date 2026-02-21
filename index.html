@@ -1199,44 +1199,48 @@
             nav {
                 padding: 0 20px;
             }
-            /* ——— HERO MOBILE ——— */
-            /* Stack collapses: photo becomes full background, text overlaid on top */
+            /* ——— HERO MOBILE INVERTED ——— */
+            /* Text at top, image at bottom */
             #hero {
                 display: flex;
                 flex-direction: column;
                 position: relative;
-                min-height: 100svh;
-                padding: 76px 0 0 0; /* Push content below fixed 76px navbar */
+                min-height: auto;
+                padding-top: 76px; /* Clear navbar */
+                background: #0f0e1f;
             }
-            /* Photo fills entire hero as background */
+            /* Image now at bottom */
             .hero-visual {
-                position: absolute;
-                inset: 0;
-                height: 100%;
+                position: relative;
                 width: 100%;
-                z-index: 0;
+                height: 50vh; /* Image takes bottom half */
+                z-index: 1;
+                order: 2; /* Move after content */
             }
             .hero-img {
                 object-position: 85% center;
                 border-radius: 0;
-                /* less zoom on mobile - show more right side of image */
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
             }
-            /* Mobile blend: dark overlay from bottom up for text legibility */
+            /* Gradient: dark at top (for nav/text), transparent at bottom */
             .hero-visual::before {
-                background: /* Bottom-heavy dark overlay for text area */
-                linear-gradient(to top, rgba(15,14,31,0.97) 0%, rgba(15,14,31,0.9) 30%, rgba(15,14,31,0.6) 55%, rgba(15,14,31,0.2) 75%, transparent 100% ),
-                /* Top edge */
-                linear-gradient(to bottom, rgba(15,14,31,0.6) 0%, transparent 20% );
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                background: linear-gradient(to bottom, #0f0e1f 0%, transparent 40%);
+                pointer-events: none;
             }
-            /* Text sits at bottom of hero over the overlay */
+            /* Text at top */
             .hero-content {
                 position: relative;
-                margin-top: auto; /* Push content to bottom */
-                padding: 20px 28px 44px;
+                z-index: 3;
+                order: 1; /* Move before image */
+                padding: 40px 28px;
                 max-width: 100%;
+                background: #0f0e1f; /* Solid background for text area */
             }
             .hero-label {
                 margin-bottom: 16px;
