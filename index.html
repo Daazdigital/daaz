@@ -1200,63 +1200,53 @@
                 padding: 0 20px;
             }
             /* ——— HERO MOBILE INVERTED ——— */
-            /* Text at top, image at bottom */
+            /* Text at top, image fades into purple background below */
             #hero {
                 display: flex;
                 flex-direction: column;
                 position: relative;
                 min-height: auto;
                 padding-top: 76px; /* Clear navbar */
+                /* Purple glows cover ENTIRE section */
                 background: 
                     /* Top-left indigo glow */
                     radial-gradient(ellipse at 20% 10%, rgba(78,74,173,0.45) 0%, transparent 50%),
                     /* Top-right subtle teal */
                     radial-gradient(ellipse at 80% 5%, rgba(46,196,182,0.08) 0%, transparent 40%),
                     /* Center purple haze */
-                    radial-gradient(ellipse at 50% 30%, rgba(78,74,173,0.25) 0%, transparent 60%),
+                    radial-gradient(ellipse at 50% 40%, rgba(78,74,173,0.30) 0%, transparent 60%),
                     /* Base dark */
                     #0f0e1f;
             }
-            /* Image now at bottom */
+            /* Image positioned over the purple background */
             .hero-visual {
                 position: relative;
                 width: 100%;
-                height: 65vh; /* Increased from 50vh to show more of image */
+                height: 55vh;
                 z-index: 1;
-                order: 2; /* Move after content */
+                order: 2;
+                /* Image fades to transparent at bottom to blend with background */
+                -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+                mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
             }
             .hero-img {
-                object-position: center center; /* Show center of image, less zoom */
+                object-position: center center;
                 border-radius: 0;
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
             }
-            /* Gradient: smooth blend from purple/indigo background to image */
+            /* No overlay needed - image fades naturally via mask */
             .hero-visual::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                z-index: 2;
-                background: linear-gradient(
-                    to bottom,
-                    #0f0e1f 0%,
-                    rgba(78, 74, 173, 0.35) 15%,
-                    rgba(78, 74, 173, 0.12) 35%,
-                    transparent 60%,
-                    transparent 85%,
-                    rgba(15, 14, 31, 0.4) 100%
-                );
-                pointer-events: none;
+                display: none;
             }
             /* Text at top */
             .hero-content {
                 position: relative;
                 z-index: 3;
-                order: 1; /* Move before image */
-                padding: 40px 28px;
+                order: 1;
+                padding: 40px 28px 20px;
                 max-width: 100%;
-                /* Background removed — inherits from #hero with purple glows */
             }
             .hero-label {
                 margin-bottom: 16px;
