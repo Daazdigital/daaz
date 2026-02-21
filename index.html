@@ -1090,16 +1090,19 @@
         .logos-row {
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 32px;
             margin-top: 48px;
             flex-wrap: wrap;
         }
         .logo-item {
-            font-size: 13px;
-            font-weight: 700;
-            color: rgba(26,26,46,0.3);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+            height: 24px;
+            width: auto;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            filter: brightness(0) invert(0.15);
+        }
+        .logo-item:hover {
+            opacity: 1;
         }
         /* ——— CTA FINAL ——— */
         #cta-final {
@@ -1677,11 +1680,11 @@
                 </p>
                 <a href="#" class="about-linkedin" data-en="Connect on LinkedIn →" data-pt="Conecte no LinkedIn →">Connect on LinkedIn →</a>
                 <div class="logos-row">
-                    <span class="logo-item">iFood</span>
-                    <span class="logo-item">Ambev</span>
-                    <span class="logo-item">Conta Azul</span>
-                    <span class="logo-item">P&G</span>
-                    <span class="logo-item">3 Corações</span>
+                    <img src="images/logo-ifood-minimal.png" alt="iFood" class="logo-item">
+                    <img src="images/logo-ambev-minimal.png" alt="Ambev" class="logo-item">
+                    <img src="images/logo-contaazul-minimal.png" alt="Conta Azul" class="logo-item">
+                    <img src="images/logo-pg-minimal.png" alt="P&G" class="logo-item">
+                    <img src="images/logo-3coracoes-minimal.png" alt="3 Corações" class="logo-item">
                 </div>
             </div>
         </div>
