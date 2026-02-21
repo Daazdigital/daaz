@@ -1202,9 +1202,10 @@
             /* ——— HERO MOBILE ——— */
             /* Stack collapses: photo becomes full background, text overlaid on top */
             #hero {
-                display: block;
+                display: flex;
+                flex-direction: column;
                 position: relative;
-                min-height: 70svh; /* Reduced from 100svh to show more image */
+                min-height: 100svh;
                 padding: 0;
             }
             /* Photo fills entire hero as background */
@@ -1232,12 +1233,9 @@
             }
             /* Text sits at bottom of hero over the overlay */
             .hero-content {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 3;
-                padding: 140px 28px 44px; /* Increased top padding to clear nav (76px + clearance) */
+                position: relative;
+                margin-top: auto; /* Push content to bottom */
+                padding: 20px 28px 44px;
                 max-width: 100%;
             }
             .hero-label {
