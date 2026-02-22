@@ -321,14 +321,20 @@
             /* Desktop: Alpha mask - image fades from transparent (left) to fully visible (right) */
             -webkit-mask-image: linear-gradient(to right, 
                 transparent 0%,
-                transparent 25%,
-                black 50%,
+                transparent 10%,      /* pure indigo visible */
+                rgba(0,0,0,0.2) 25%,  /* slightly visible */
+                rgba(0,0,0,0.5) 35%,  /* half visible */
+                rgba(0,0,0,0.8) 45%,  /* mostly visible */
+                black 55%,            /* fully visible */
                 black 100%
             );
             mask-image: linear-gradient(to right, 
                 transparent 0%,
-                transparent 25%,
-                black 50%,
+                transparent 10%,      /* pure indigo visible */
+                rgba(0,0,0,0.2) 25%,  /* slightly visible */
+                rgba(0,0,0,0.5) 35%,  /* half visible */
+                rgba(0,0,0,0.8) 45%,  /* mostly visible */
+                black 55%,            /* fully visible */
                 black 100%
             );
         }
