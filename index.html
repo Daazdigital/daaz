@@ -297,34 +297,11 @@
             display: block;
             z-index: 1;  /* Below the gradient overlay */
         }
-        /* Gradient overlay: indigo → transparent, appears ON TOP of image */
+        /* REMOVED: Dark gradient overlay - now using mask-image on the img instead */
         .hero-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 3;  /* Above the hero-img (z-index:1) */
-            background: 
-            /* STRONG gradient: solid indigo left fading to transparent right */
-            linear-gradient(to right, 
-                #0f0e1f 0%, 
-                #0f0e1f 20%,       /* Solid for first 20% */
-                rgba(15,14,31,0.9) 40%, 
-                rgba(15,14,31,0.6) 60%, 
-                rgba(15,14,31,0.3) 80%, 
-                transparent 100%
-            );
-            pointer-events: none;
+            display: none;
         }
-        /* Colour tint overlay — pulls photo toward DAAZ palette */
-        .hero-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            background: rgba(78,74,173,0.18);
-            mix-blend-mode: multiply;
-            pointer-events: none;
-        }
+        /* REMOVED: Colour tint overlay was darkening the image with mix-blend-mode: multiply */
         /* Floating cards sit above all overlays */
         .hv-impact, .hv-decision, .hv-badge {
             position: absolute;
@@ -341,9 +318,19 @@
             object-fit: cover;
             object-position: center bottom;
             border-radius: 24px;
-            /* Fade bottom edge to blend with dark hero background */
-            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            /* Desktop: Alpha mask - image fades from transparent (left) to fully visible (right) */
+            -webkit-mask-image: linear-gradient(to right, 
+                transparent 0%,
+                transparent 25%,
+                black 50%,
+                black 100%
+            );
+            mask-image: linear-gradient(to right, 
+                transparent 0%,
+                transparent 25%,
+                black 50%,
+                black 100%
+            );
         }
         .hero-img-placeholder {
             position: absolute;
@@ -1284,7 +1271,8 @@
                 height: 100%;
             }
             /* No overlay needed - image fades naturally via mask */
-            .hero-visual::before {
+            .hero-visual::before,
+            .hero-visual::after {
                 display: none;
             }
             /* Text at top */
