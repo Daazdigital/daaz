@@ -296,26 +296,28 @@
             object-position: center center;
             display: block;
         }
-        /* Gradient overlay: indigo background blends to transparent, revealing image */
+        /* DEBUG: Make gradient strongly visible in purple to confirm it's working */
         .hero-visual::before {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 2;
             background: 
-            /* HORIZONTAL: indigo (left) → transparent (right) - EXTENDED for visibility */
+            /* VERY STRONG gradient left (indigo) → right (transparent) */
             linear-gradient(to right, 
                 #0f0e1f 0%, 
-                #0f0e1f 15%,       /* More solid indigo space */
-                rgba(15,14,31,0.95) 30%,  /* Slower fade */
-                rgba(15,14,31,0.8) 45%,   /* More gradual transparency */
-                rgba(15,14,31,0.5) 60%, 
-                rgba(15,14,31,0.2) 75%, 
-                transparent 90%
+                #0f0e1f 20%,       /* Solid indigo for 20% */
+                rgba(15,14,31,0.95) 35%, 
+                rgba(15,14,31,0.8) 50%, 
+                rgba(15,14,31,0.5) 70%, 
+                rgba(15,14,31,0.2) 85%, 
+                transparent 100%
             ),
-            /* VERTICAL: subtle top/bottom fade */
-            linear-gradient(to bottom, rgba(15,14,31,0.4) 0%, transparent 20%, transparent 75%, rgba(15,14,31,0.4) 100% );
+            /* Vertical fade */
+            linear-gradient(to bottom, rgba(15,14,31,0.5) 0%, transparent 20%, transparent 80%, rgba(15,14,31,0.5) 100% );
             pointer-events: none;
+            /* Debug purple tint */
+            background-color: rgba(78,74,173,0.1);
         }
         /* Colour tint overlay — pulls photo toward DAAZ palette */
         .hero-visual::after {
