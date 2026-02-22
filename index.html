@@ -62,12 +62,13 @@
             backdrop-filter: blur(12px);
         }
         .nav-logo {
-            font-family: 'DM Serif Display', serif;
-            font-size: 24px;
-            color: white;
-            letter-spacing: 0.08em;
-            text-decoration: none;
-            font-weight: 400;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo-img {
+            height: 28px;
+            width: auto;
+            display: block;
         }
         .nav-right {
             display: flex;
@@ -1392,7 +1393,7 @@
 <body>
     <!-- NAV -->
     <nav id="main-nav">
-        <a href="#" class="nav-logo">DAAZ</a>
+        <a href="#" class="nav-logo"><img src="images/daaz-logo-white.png" alt="DAAZ" class="nav-logo-img"></a>
         <div class="nav-right">
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
