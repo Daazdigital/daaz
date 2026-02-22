@@ -127,7 +127,7 @@
             min-height: 100vh;
             background: #0f0e1f;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.25fr;  /* Aumentado: imagem 25% maior que texto */
             align-items: center;
             overflow: hidden;
             padding: 0;
@@ -283,62 +283,48 @@
         .hero-visual {
             position: relative;
             height: 100vh;
+            min-height: 100vh;
+            width: 100%;
             overflow: hidden;
             z-index: 2;
-        }
-        /* The actual photo — full bleed, no border, no radius */
-        .hero-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            display: block;
-            z-index: 1;  /* Below the gradient overlay */
         }
         /* REMOVED: Dark gradient overlay - now using mask-image on the img instead */
         .hero-visual::before {
             display: none;
         }
-        /* REMOVED: Colour tint overlay was darkening the image with mix-blend-mode: multiply */
-        /* Floating cards sit above all overlays */
-        .hv-impact, .hv-decision, .hv-badge {
-            position: absolute;
-            z-index: 4;
-        }
         /* ——— HERO IMAGE ——— */
-        /* When you have the real image, replace .hero-img-placeholder with: */
-        /* <img src="hero-visual.png" class="hero-img" alt=""> */
         .hero-img {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
+            min-height: 100vh;
             object-fit: cover;
             object-position: center bottom;
             border-radius: 24px;
             /* Desktop: Alpha mask - image fades from transparent (left) to fully visible (right) */
             -webkit-mask-image: linear-gradient(to right, 
                 transparent 0%,
-                transparent 3%,       /* fundo indigo puro */
-                rgba(0,0,0,0.05) 15%, /* muito sutil */
-                rgba(0,0,0,0.15) 25%,
-                rgba(0,0,0,0.3) 35%,
-                rgba(0,0,0,0.55) 50%,
-                rgba(0,0,0,0.8) 65%,
-                black 75%,            /* imagem totalmente visível */
+                transparent 2%,        /* fundo indigo puro */
+                rgba(0,0,0,0.03) 10%, /* imperceptível */
+                rgba(0,0,0,0.08) 20%,
+                rgba(0,0,0,0.18) 30%,
+                rgba(0,0,0,0.35) 45%,
+                rgba(0,0,0,0.6) 60%,
+                rgba(0,0,0,0.85) 75%,
+                black 85%,            /* imagem totalmente visível - EXTENDIDO */
                 black 100%
             );
             mask-image: linear-gradient(to right, 
                 transparent 0%,
-                transparent 3%,       /* fundo indigo puro */
-                rgba(0,0,0,0.05) 15%, /* muito sutil */
-                rgba(0,0,0,0.15) 25%,
-                rgba(0,0,0,0.3) 35%,
-                rgba(0,0,0,0.55) 50%,
-                rgba(0,0,0,0.8) 65%,
-                black 75%,            /* imagem totalmente visível */
+                transparent 2%,        /* fundo indigo puro */
+                rgba(0,0,0,0.03) 10%, /* imperceptível */
+                rgba(0,0,0,0.08) 20%,
+                rgba(0,0,0,0.18) 30%,
+                rgba(0,0,0,0.35) 45%,
+                rgba(0,0,0,0.6) 60%,
+                rgba(0,0,0,0.85) 75%,
+                black 85%,            /* imagem totalmente visível - EXTENDIDO */
                 black 100%
             );
         }
