@@ -286,8 +286,7 @@
             overflow: hidden;
             z-index: 2;
         }
-        /* The actual photo — full bleed, no border, no radius
-           Mask creates transparency fade from left (transparent) to right (visible) */
+        /* The actual photo — full bleed, no border, no radius */
         .hero-img {
             position: absolute;
             inset: 0;
@@ -296,32 +295,25 @@
             object-fit: cover;
             object-position: center center;
             display: block;
-            /* PNG-style transparency: image fades in from left to right */
-            -webkit-mask-image: linear-gradient(to right, 
-                transparent 0%, 
-                transparent 15%, 
-                rgba(0,0,0,0.3) 30%, 
-                rgba(0,0,0,0.7) 50%, 
-                black 70%, 
-                black 100%
-            );
-            mask-image: linear-gradient(to right, 
-                transparent 0%, 
-                transparent 15%, 
-                rgba(0,0,0,0.3) 30%, 
-                rgba(0,0,0,0.7) 50%, 
-                black 70%, 
-                black 100%
-            );
         }
-        /* Light overlay for top/bottom blending only - no left-side darkening needed anymore */
+        /* Gradient overlay: indigo background blends to transparent, revealing image */
         .hero-visual::before {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 2;
             background: 
-            /* Top and bottom edge fade only */
+            /* Horizontal: indigo (left) → transparent (right) to blend image with background */
+            linear-gradient(to right, 
+                #0f0e1f 0%, 
+                #0f0e1f 10%, 
+                rgba(15,14,31,0.85) 25%, 
+                rgba(15,14,31,0.6) 40%, 
+                rgba(15,14,31,0.3) 55%, 
+                rgba(15,14,31,0.1) 70%, 
+                transparent 85%
+            ),
+            /* Vertical: subtle top/bottom fade */
             linear-gradient(to bottom, rgba(15,14,31,0.3) 0%, transparent 15%, transparent 80%, rgba(15,14,31,0.3) 100% );
             pointer-events: none;
         }
