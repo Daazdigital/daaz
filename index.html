@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1378,9 +1378,9 @@
         <a href="#" class="nav-logo"><img src="images/daaz-logo-white.png" alt="DAAZ" class="nav-logo-img"></a>
         <div class="nav-right">
             <div class="lang-toggle">
-                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
                 <span class="lang-sep">|</span>
-                <button class="lang-btn" onclick="setLang('pt')">PT</button>
+                <button class="lang-btn active" onclick="setLang('pt')">PT</button>
             </div>
             <a href="https://wa.me/5519998607474" target="_blank" class="nav-cta" data-en="Let's talk" data-pt="Vamos conversar">Let's talk</a>
         </div>
@@ -1744,7 +1744,7 @@
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
         // ——— LANGUAGE TOGGLE ———
-        let currentLang = 'en';
+        let currentLang = 'pt';
         function setLang(lang) {
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1762,6 +1762,8 @@
                 }
             });
         }
+        // Set initial language to PT
+        setLang('pt');
     </script>
 </body>
 </html>
