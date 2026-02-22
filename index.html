@@ -666,6 +666,9 @@
             color: var(--teal);
             font-style: italic;
         }
+        .highlight-teal {
+            color: var(--teal);
+        }
         .pos-subtitle {
             font-size: 18px;
             line-height: 1.7;
@@ -1045,6 +1048,12 @@
             aspect-ratio: 4/5;
             border-radius: 20px;
             overflow: hidden;
+        }
+        .about-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
         .about-photo-placeholder {
             width: 100%;
@@ -1428,11 +1437,6 @@
                     <div class="stat-label" data-en="of AI initiatives fail to move past pilot stage" data-pt="dos projetos de IA não avançam do estágio piloto">of AI initiatives fail to move past pilot stage</div>
                     <div class="stat-divider"></div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">3×</div>
-                    <div class="stat-label" data-en="faster time-to-decision with embedded product leadership" data-pt="mais velocidade na tomada de decisão com liderança de produto embedded">faster time-to-decision with embedded product leadership</div>
-                    <div class="stat-divider"></div>
-                </div>
             </div>
         </div>
     </section>
@@ -1440,31 +1444,64 @@
     <section id="positioning">
         <div class="pos-inner">
             <span class="pos-label" data-en="Our Positioning" data-pt="Nosso Posicionamento">Our Positioning</span>
-            <h2 class="pos-headline" data-en="Product leadership committed to the <em>results</em>." data-pt="Liderança de produto comprometida com os <em>resultados</em>.">Product leadership that sits where decisions are made.</h2>
-            <p class="pos-subtitle" data-en="We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business." data-pt="Trabalhamos como parceiros estratégicos — integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.</p>
+            <h2 class="pos-headline">
+                <span data-en="Product leadership committed to business <span class='highlight-teal'><em>results</em></span>." 
+                      data-pt="Liderança de produto comprometida com os <span class='highlight-teal'><em>resultados</em></span> do negócio.">
+                    Product leadership committed to business <span class="highlight-teal"><em>results</em></span>.
+                </span>
+            </h2>
+            <p class="pos-subtitle" 
+               data-en="We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business." 
+               data-pt="Trabalhamos como parceiros estratégicos — integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">
+                We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
+            </p>
             <div class="pos-pillars">
                 <!-- Pillar 01 -->
                 <div class="pos-pillar reveal">
                     <div class="pos-pillar-num">01</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" data-en="Led by those who've built what you're building." data-pt="Liderados por quem já construiu o que você está construindo.">Led by those who've built what you're building.</h3>
-                        <p class="pos-pillar-body" data-en="Product experience with track records at companies like iFood, Ambev, and Procter & Gamble. We don't staff projects with junior analysts. We bring the experience to make hard calls and the judgment to know when to make them." data-pt="Experiência de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Não preenchemos projetos com analistas júnior. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">Every engagement is led by senior product leaders with track records at companies like iFood, Ambev, and Procter & Gamble. We don't staff projects with junior analysts. We bring the experience to make hard calls and the judgment to know when to make them.</p>
+                        <h3 class="pos-pillar-headline" 
+                            data-en="Led by those who've built what you're building." 
+                            data-pt="Liderado por quem já construiu o que você está construindo.">
+                            Led by those who've built what you're building.
+                        </h3>
+                        <p class="pos-pillar-body" 
+                           data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them." 
+                           data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
+                            Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
+                        </p>
                     </div>
                 </div>
                 <!-- Pillar 02 -->
                 <div class="pos-pillar reveal reveal-delay-1">
                     <div class="pos-pillar-num">02</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" data-en="Inside your organization, not outside it." data-pt="Dentro da sua organização, não fora dela.">Inside your organization, not outside it.</h3>
-                        <p class="pos-pillar-body" data-en="We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving." data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time — navegando suas restrições, sua política, seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.</p>
+                        <h3 class="pos-pillar-headline" 
+                            data-en="Inside your organization, not outside it." 
+                            data-pt="Dentro da sua organização, não fora dela.">
+                            Inside your organization, not outside it.
+                        </h3>
+                        <p class="pos-pillar-body" 
+                           data-en="We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving." 
+                           data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time — navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
+                            We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
+                        </p>
                     </div>
                 </div>
                 <!-- Pillar 03 -->
                 <div class="pos-pillar reveal reveal-delay-2">
                     <div class="pos-pillar-num">03</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" data-en="Measured by what changes, not what's delivered." data-pt="Medidos pelo que muda, não pelo que é entregue.">Measured by what changes, not what's delivered.</h3>
-                        <p class="pos-pillar-body" data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced." data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar — não por horas registradas ou slides produzidos.">Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced.</p>
+                        <h3 class="pos-pillar-headline" 
+                            data-en="Measured by what changes, not what's delivered." 
+                            data-pt="Medido pelo que muda, não pelo que é entregue.">
+                            Measured by what changes, not what's delivered.
+                        </h3>
+                        <p class="pos-pillar-body" 
+                           data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced." 
+                           data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar — não por horas registradas ou slides produzidos.">
+                            Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1591,15 +1628,7 @@
                         <div class="impact-badge" data-en="6× increase in lawyer productivity" data-pt="6× aumento na produtividade dos advogados">6× increase in lawyer productivity</div>
                     </div>
                     <div class="case-right">
-                        <!-- IMAGE PLACEHOLDER: LECTOR -->
-                        <div class="img-placeholder" style="width:100%; height:100%; min-height:280px; border-color: rgba(232,168,56,0.25); background: linear-gradient(135deg, rgba(74,58,186,0.15), rgba(232,168,56,0.08));">
-                            <span class="briefing-pill">📸 Image Brief</span>
-                            <div class="img-placeholder-title">Lector Dashboard</div>
-                            <div class="img-placeholder-brief" style="color:rgba(245,243,240,0.4);">
-                                <strong style="display:block; color: rgba(232,168,56,0.8); margin-bottom:6px;">Laptop mockup (MacBook, dark frame)</strong>
-                                Show the Lector dashboard with "Processos Ativos" visible. Filter panel left, metrics (23 processos, R$20M valor) prominent. Dark-frame laptop, 5–8° tilt. Floating stat card: "6×" in teal, pinned top-right corner of composition.
-                            </div>
-                        </div>
+                        <img src="images/case-lector-dashboard.jpg" alt="Lector - AI Credit Recovery Platform" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
                     </div>
                 </div>
                 <!-- Case: Somnis -->
@@ -1613,15 +1642,7 @@
                         <div class="impact-badge" data-en="Decision-ready insights from day one" data-pt="Insights prontos para decisão desde o dia 1">Decision-ready insights from day one</div>
                     </div>
                     <div class="case-right">
-                        <!-- IMAGE PLACEHOLDER: SOMNIS -->
-                        <div class="img-placeholder" style="width:100%; height:100%; min-height:280px; border-color: rgba(46,196,182,0.25); background: linear-gradient(135deg, rgba(74,58,186,0.15), rgba(46,196,182,0.08));">
-                            <span class="briefing-pill">📸 Image Brief</span>
-                            <div class="img-placeholder-title">Somnis Climate Dashboard</div>
-                            <div class="img-placeholder-brief" style="color:rgba(245,243,240,0.4);">
-                                <strong style="display:block; color: rgba(46,196,182,0.8); margin-bottom:6px;">Laptop mockup + floating metric card</strong>
-                                Somnis dashboard showing eNPS "+35", gauge at 80%, category grid (Satisfação Geral 67%, Liderança 76%). Laptop straight-on. Floating card overlay showing "+35 eNPS" in teal. Bento-style composition.
-                            </div>
-                        </div>
+                        <img src="images/case-somnis-dashboard.jpg" alt="Somnis - Climate Survey Dashboard" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
                     </div>
                 </div>
                 <!-- Case: PacePocket -->
@@ -1657,15 +1678,7 @@
                         <div class="impact-badge" data-en="Healthcare access that retains talent" data-pt="Acesso à saúde que retém talentos">Healthcare access that retains talent</div>
                     </div>
                     <div class="case-right">
-                        <!-- IMAGE PLACEHOLDER: SEVEN SAÚDE -->
-                        <div class="img-placeholder" style="width:100%; height:100%; min-height:280px; border-color: rgba(46,196,182,0.25); background: linear-gradient(135deg, rgba(26,26,46,0.4), rgba(46,196,182,0.1));">
-                            <span class="briefing-pill">📸 Image Brief</span>
-                            <div class="img-placeholder-title">Seven Saúde App</div>
-                            <div class="img-placeholder-brief" style="color:rgba(245,243,240,0.4);">
-                                <strong style="display:block; color: rgba(46,196,182,0.8); margin-bottom:6px;">Phone cascade (app + video consultation)</strong>
-                                iPhone showing Seven Saúde home screen (Pronto Atendimento, Agendar Consultas). Second phone showing video consultation (Consulta com Fabiana). Slight tilt cascade, floating heart-health icon badge. Teal accent glow.
-                            </div>
-                        </div>
+                        <img src="images/case-sevensaude-platform.jpg" alt="Seven Saúde - Telemedicine App" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
                     </div>
                 </div>
             </div>
@@ -1676,15 +1689,7 @@
         <div class="about-inner">
             <div class="about-photo-col reveal">
                 <div class="about-photo-frame">
-                    <!-- IMAGE PLACEHOLDER: FERNANDO PHOTO -->
-                    <div class="about-photo-placeholder">
-                        <span class="briefing-pill" style="background:rgba(74,58,186,0.12); border-color:rgba(74,58,186,0.3); color:var(--indigo);">📸 Photo Brief</span>
-                        <div class="img-placeholder-title" style="color:var(--indigo);">Fernando Avelar — Portrait</div>
-                        <div class="img-placeholder-brief" style="color:var(--warmgray);">
-                            <strong style="color:var(--indigo); display:block; margin-bottom:6px;">Art Direction:</strong>
-                            Professional portrait, natural window light from left. Clean, neutral background (off-white or warm gray wall). Slight teal outline/border effect around subject (as per existing DAAZ deck treatment). Business-casual: blazer, no tie. Confident, warm expression — not stiff. 4:5 ratio, portrait orientation.
-                        </div>
-                    </div>
+                    <img src="images/fernando-portrait.webp" alt="Fernando Avelar - Product Strategy Lead" class="about-photo-img">
                 </div>
             </div>
             <div class="reveal reveal-delay-1">
