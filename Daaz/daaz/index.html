@@ -1248,23 +1248,25 @@
                     /* Base dark */
                     #0f0e1f;
             }
-            /* Image positioned over the purple background */
+            /* Image positioned over the purple background - ORIGINAL FORMAT */
             .hero-visual {
                 position: relative;
                 width: 100%;
-                height: 55vh;
+                height: auto;           /* Altura natural proporcional */
+                aspect-ratio: 1 / 1;    /* Formato quadrado */
                 z-index: 1;
                 order: 2;
-                /* Image fades to transparent at bottom to blend with background */
-                -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-                mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+                /* Sem mask-image - imagem completa visível */
             }
             .hero-img {
                 object-position: center center;
-                border-radius: 0;
+                border-radius: 12px;    /* Bordas arredondadas */
                 object-fit: cover;
                 width: 100%;
                 height: 100%;
+                position: relative;     /* Não absolute */
+                -webkit-mask-image: none;
+                mask-image: none;
             }
             /* No overlay needed - image fades naturally via mask */
             .hero-visual::before,
