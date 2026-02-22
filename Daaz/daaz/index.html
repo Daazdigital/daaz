@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DAAZ — Product Strategy & Leadership</title>
+    <title>DAAZ - Product Strategy & Leadership</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
             color: var(--nearblack);
             overflow-x: hidden;
         }
-        /* ——— NOISE OVERLAY ——— */
+        /* --- NOISE OVERLAY --- */
         body::before {
             content: '';
             position: fixed;
@@ -43,7 +43,7 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
             opacity: 0.025;
         }
-        /* ——— NAV ——— */
+        /* --- NAV --- */
         nav {
             position: fixed;
             top: 0;
@@ -121,7 +121,7 @@
             background: var(--teal);
             color: white;
         }
-        /* ——— HERO ——— */
+        /* --- HERO --- */
         #hero {
             position: relative;
             min-height: 100vh;
@@ -156,7 +156,7 @@
             pointer-events: none;
             z-index: 1;
         }
-        /* ——— HERO LEFT PANEL ——— */
+        /* --- HERO LEFT PANEL --- */
         .hero-content {
             position: relative;
             z-index: 3;
@@ -279,7 +279,7 @@
             height:40px;
             background:rgba(255,255,255,0.1);
         }
-        /* ——— HERO RIGHT: FULL-BLEED IMAGE ——— */
+        /* --- HERO RIGHT: FULL-BLEED IMAGE --- */
         .hero-visual {
             position: relative;
             height: 100vh;
@@ -292,7 +292,7 @@
         .hero-visual::before {
             display: none;
         }
-        /* ——— HERO IMAGE ——— */
+        /* --- HERO IMAGE --- */
         .hero-img {
             position: absolute;
             inset: 0;
@@ -303,7 +303,7 @@
             object-position: center bottom;
             border-radius: 24px;
             /* Desktop: Alpha mask - image fades from transparent (left) to fully visible (right) */
-            -webkit-mask-image: linear-gradient(to right, 
+            -webkit-mask-image: linear-gradient(to right,
                 transparent 0%,
                 transparent 2%,        /* fundo indigo puro */
                 rgba(0,0,0,0.03) 10%, /* imperceptível */
@@ -315,7 +315,7 @@
                 black 85%,            /* imagem totalmente visível - EXTENDIDO */
                 black 100%
             );
-            mask-image: linear-gradient(to right, 
+            mask-image: linear-gradient(to right,
                 transparent 0%,
                 transparent 2%,        /* fundo indigo puro */
                 rgba(0,0,0,0.03) 10%, /* imperceptível */
@@ -547,7 +547,7 @@
             color:var(--gold);
             letter-spacing:0.04em;
         }
-        /* ——— TENSION SECTION ——— */
+        /* --- TENSION SECTION --- */
         #tension {
             background: var(--offwhite);
             padding: 120px 60px;
@@ -617,9 +617,9 @@
             background: rgba(74,58,186,0.15);
             margin-top: 8px;
         }
-        /* ——— POSITIONING ——— */
+        /* --- POSITIONING --- */
         #positioning {
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 20%, rgba(78,74,173,0.4) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 80%, rgba(46,196,182,0.15) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 50%, rgba(78,74,173,0.25) 0%, transparent 60%),
@@ -708,7 +708,7 @@
             font-weight: 400;
             max-width: 620px;
         }
-        /* ——— SERVICES ——— */
+        /* --- SERVICES --- */
         #services {
             background: var(--offwhite);
             padding: 120px 60px;
@@ -894,7 +894,7 @@
             line-height: 1.5;
             max-width: 220px;
         }
-        /* ——— CASES ——— */
+        /* --- CASES --- */
         #cases {
             background: var(--indigo-dark);
             padding: 120px 60px;
@@ -1021,7 +1021,7 @@
             inset: 0;
             background: linear-gradient(135deg, rgba(74,58,186,0.1) 0%, rgba(46,196,182,0.05) 100%);
         }
-        /* ——— ABOUT ——— */
+        /* --- ABOUT --- */
         #about {
             background: var(--offwhite);
             padding: 120px 60px;
@@ -1116,7 +1116,7 @@
         .brand-logos-image:hover {
             opacity: 1;
         }
-        /* ——— CTA FINAL ——— */
+        /* --- CTA FINAL --- */
         #cta-final {
             background: radial-gradient(ellipse at 50% 50%, #6864c4 0%, var(--indigo) 50%, var(--indigo-dark) 100%);
             padding: 160px 60px;
@@ -1164,7 +1164,7 @@
             color: rgba(245,243,240,0.65);
             margin-bottom: 48px;
         }
-        /* ——— FOOTER ——— */
+        /* --- FOOTER --- */
         footer {
             background: var(--indigo-dark);
             padding: 28px 60px;
@@ -1191,7 +1191,7 @@
         .footer-links a:hover {
             color: rgba(255,255,255,0.7);
         }
-        /* ——— REVEAL ANIMATION ——— */
+        /* --- REVEAL ANIMATION --- */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
@@ -1229,7 +1229,7 @@
             nav {
                 padding: 0 20px;
             }
-            /* ——— HERO MOBILE INVERTED ——— */
+            /* --- HERO MOBILE INVERTED --- */
             /* Text at top, image fades into purple background below */
             #hero {
                 display: flex;
@@ -1238,7 +1238,7 @@
                 min-height: auto;
                 padding-top: 76px; /* Clear navbar */
                 /* Purple glows cover ENTIRE section */
-                background: 
+                background:
                     /* Top-left indigo glow */
                     radial-gradient(ellipse at 20% 10%, rgba(78,74,173,0.45) 0%, transparent 50%),
                     /* Top-right subtle teal */
@@ -1314,11 +1314,11 @@
             .proof-label {
                 font-size: 9px;
             }
-            /* Hide floating cards on mobile — too cluttered */
+            /* Hide floating cards on mobile - too cluttered */
             .hv-impact, .hv-decision, .hv-badge {
                 display: none;
             }
-            /* ——— REST OF SECTIONS ——— */
+            /* --- REST OF SECTIONS --- */
             #tension, #positioning, #services, #cases, #about, #cta-final {
                 padding: 80px 24px;
             }
@@ -1427,8 +1427,8 @@
         <div class="tension-inner">
             <div class="reveal">
                 <h2 class="section-headline" data-en="AI changed the game. Most companies aren't ready." data-pt="A IA mudou o jogo. A maioria das empresas não está preparada.">AI changed the game. Most companies aren't ready.</h2>
-                <p class="section-body" data-en="AI has accelerated every market. But speed without clarity creates waste — misaligned roadmaps, pilots that don't scale, features that solve no real problem. The companies that win aren't the ones that move fastest. They're the ones that make the right decisions." data-pt="A IA acelerou todos os mercados. Mas velocidade sem clareza gera desperdício — roadmaps desalinhados, pilotos que não escalam, funcionalidades que não resolvem problemas reais. As empresas que vencem não são as mais rápidas. São as que tomam as decisões certas.">
-                    AI has accelerated every market. But speed without clarity creates waste — misaligned roadmaps, pilots that don't scale, features that solve no real problem. The companies that win aren't the ones that move fastest. They're the ones that make the right decisions.
+                <p class="section-body" data-en="AI has accelerated every market. But speed without clarity creates waste - misaligned roadmaps, pilots that don't scale, features that solve no real problem. The companies that win aren't the ones that move fastest. They're the ones that make the right decisions." data-pt="A IA acelerou todos os mercados. Mas velocidade sem clareza gera desperdício - roadmaps desalinhados, pilotos que não escalam, funcionalidades que não resolvem problemas reais. As empresas que vencem não são as mais rápidas. São as que tomam as decisões certas.">
+                    AI has accelerated every market. But speed without clarity creates waste - misaligned roadmaps, pilots that don't scale, features that solve no real problem. The companies that win aren't the ones that move fastest. They're the ones that make the right decisions.
                 </p>
             </div>
             <div class="stat-callout reveal reveal-delay-2">
@@ -1445,28 +1445,28 @@
         <div class="pos-inner">
             <span class="pos-label" data-en="Our Positioning" data-pt="Nosso Posicionamento">Our Positioning</span>
             <h2 class="pos-headline">
-                <span data-en="Product leadership committed to business <span class='highlight-teal'><em>results</em></span>." 
+                <span data-en="Product leadership committed to business <span class='highlight-teal'><em>results</em></span>."
                       data-pt="Liderança de produto comprometida com os <span class='highlight-teal'><em>resultados</em></span> do negócio.">
                     Product leadership committed to business <span class="highlight-teal"><em>results</em></span>.
                 </span>
             </h2>
-            <p class="pos-subtitle" 
-               data-en="We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business." 
-               data-pt="Trabalhamos como parceiros estratégicos — integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">
-                We work as strategic partners — embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
+            <p class="pos-subtitle"
+               data-en="We work as strategic partners - embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business."
+               data-pt="Trabalhamos como parceiros estratégicos - integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">
+                We work as strategic partners - embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
             </p>
             <div class="pos-pillars">
                 <!-- Pillar 01 -->
                 <div class="pos-pillar reveal">
                     <div class="pos-pillar-num">01</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" 
-                            data-en="Led by those who've built what you're building." 
+                        <h3 class="pos-pillar-headline"
+                            data-en="Led by those who've built what you're building."
                             data-pt="Liderado por quem já construiu o que você está construindo.">
                             Led by those who've built what you're building.
                         </h3>
-                        <p class="pos-pillar-body" 
-                           data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them." 
+                        <p class="pos-pillar-body"
+                           data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
                            data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
                             Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
                         </p>
@@ -1476,15 +1476,15 @@
                 <div class="pos-pillar reveal reveal-delay-1">
                     <div class="pos-pillar-num">02</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" 
-                            data-en="Inside your organization, not outside it." 
+                        <h3 class="pos-pillar-headline"
+                            data-en="Inside your organization, not outside it."
                             data-pt="Dentro da sua organização, não fora dela.">
                             Inside your organization, not outside it.
                         </h3>
-                        <p class="pos-pillar-body" 
-                           data-en="We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving." 
-                           data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time — navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
-                            We don't produce reports and walk away. We work alongside your team — navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
+                        <p class="pos-pillar-body"
+                           data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
+                           data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
+                            We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
                         </p>
                     </div>
                 </div>
@@ -1492,15 +1492,15 @@
                 <div class="pos-pillar reveal reveal-delay-2">
                     <div class="pos-pillar-num">03</div>
                     <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline" 
-                            data-en="Measured by what changes, not what's delivered." 
+                        <h3 class="pos-pillar-headline"
+                            data-en="Measured by what changes, not what's delivered."
                             data-pt="Medido pelo que muda, não pelo que é entregue.">
                             Measured by what changes, not what's delivered.
                         </h3>
-                        <p class="pos-pillar-body" 
-                           data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced." 
-                           data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar — não por horas registradas ou slides produzidos.">
-                            Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create — not by hours logged or slides produced.
+                        <p class="pos-pillar-body"
+                           data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
+                           data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
+                            Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced.
                         </p>
                     </div>
                 </div>
@@ -1520,7 +1520,7 @@
                         <div>
                             <div class="service-num" data-en="Service 01" data-pt="Serviço 01">Service 01</div>
                             <h3 class="service-name" data-en="Fractional Product Leadership" data-pt="Liderança de Produto Fracionada">Fractional Product Leadership</h3>
-                            <p class="service-desc" data-en="We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap." data-pt="Atuamos como seu Head de Produto — part-time, integrados ao time, focados no que importa: visão de produto, estratégia e as decisões que moldam seu roadmap.">We step in as your Head of Product — part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap.</p>
+                            <p class="service-desc" data-en="We step in as your Head of Product - part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap." data-pt="Atuamos como seu Head de Produto - part-time, integrados ao time, focados no que importa: visão de produto, estratégia e as decisões que moldam seu roadmap.">We step in as your Head of Product - part-time, embedded, and focused on what matters: product vision, strategy, and the decisions that shape your roadmap.</p>
                             <div class="service-best-for">
                                 <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
                                 <span data-en="Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation." data-pt="Empresas crescendo sem liderança sênior de produto. Founders sobrecarregados com decisões táticas. Organizações navegando integração de AI ou transformação.">Companies growing without senior product leadership. Founders overloaded with tactical decisions. Organizations navigating AI integration or transformation.</span>
@@ -1529,7 +1529,7 @@
                         <div class="service-detail-right">
                             <div class="service-format-item">
                                 <div class="service-format-dot"></div>
-                                <div class="service-format-text" data-en="2–3 days per week, medium-term contracts (3–6 months)" data-pt="2–3 dias por semana, contratos de médio prazo (3–6 meses)">2–3 days per week, medium-term contracts (3–6 months)</div>
+                                <div class="service-format-text" data-en="2-3 days per week, medium-term contracts (3-6 months)" data-pt="2-3 dias por semana, contratos de médio prazo (3-6 meses)">2-3 days per week, medium-term contracts (3-6 months)</div>
                             </div>
                             <div class="service-format-item">
                                 <div class="service-format-dot"></div>
@@ -1553,7 +1553,7 @@
                         <div>
                             <div class="service-num" data-en="Service 02" data-pt="Serviço 02">Service 02</div>
                             <h3 class="service-name" data-en="Product Discovery Sprint" data-pt="Sprint de Discovery de Produto">Product Discovery Sprint</h3>
-                            <p class="service-desc" data-en="A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making." data-pt="Um engajamento focado que transforma incerteza em decisões de produto claras e acionáveis. Não é pesquisa por pesquisa — é discovery orientado à tomada de decisão executiva.">A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research — discovery oriented toward executive decision-making.</p>
+                            <p class="service-desc" data-en="A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research - discovery oriented toward executive decision-making." data-pt="Um engajamento focado que transforma incerteza em decisões de produto claras e acionáveis. Não é pesquisa por pesquisa - é discovery orientado à tomada de decisão executiva.">A focused engagement that turns uncertainty into clear, actionable product decisions. Not research for the sake of research - discovery oriented toward executive decision-making.</p>
                             <div class="service-best-for">
                                 <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
                                 <span data-en="Product stagnation. High-stakes bets. Roadmaps without strategic clarity." data-pt="Estagnação de produto. Apostas de alto risco. Roadmaps sem clareza estratégica.">Product stagnation. High-stakes bets. Roadmaps driven by opinion instead of evidence.</span>
@@ -1562,7 +1562,7 @@
                         <div class="service-detail-right">
                             <div class="service-format-item">
                                 <div class="service-format-dot" style="background:var(--teal)"></div>
-                                <div class="service-format-text" data-en="4–6 weeks, fixed scope and fixed price" data-pt="4–6 semanas, escopo e preço fixos">4–6 weeks, fixed scope and fixed price</div>
+                                <div class="service-format-text" data-en="4-6 weeks, fixed scope and fixed price" data-pt="4-6 semanas, escopo e preço fixos">4-6 weeks, fixed scope and fixed price</div>
                             </div>
                             <div class="service-format-item">
                                 <div class="service-format-dot" style="background:var(--teal)"></div>
@@ -1582,7 +1582,7 @@
                         <div>
                             <div class="service-num" data-en="Service 03" data-pt="Serviço 03">Service 03</div>
                             <h3 class="service-name" data-en="AI Product Co-Creation" data-pt="Co-criação de Produto com AI">AI Product Co-Creation</h3>
-                            <p class="service-desc" data-en="We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos." data-pt="Concebemos e evoluímos produtos, funcionalidades e agentes baseados em AI que entregam valor real ao cliente — não experimentos isolados ou demos de tecnologia.">We conceive and evolve AI-driven products, features, and agents that deliver real customer value — not isolated experiments or technology demos.</p>
+                            <p class="service-desc" data-en="We conceive and evolve AI-driven products, features, and agents that deliver real customer value - not isolated experiments or technology demos." data-pt="Concebemos e evoluímos produtos, funcionalidades e agentes baseados em AI que entregam valor real ao cliente - não experimentos isolados ou demos de tecnologia.">We conceive and evolve AI-driven products, features, and agents that deliver real customer value - not isolated experiments or technology demos.</p>
                             <div class="service-best-for">
                                 <strong data-en="Best for" data-pt="Ideal para">Best for</strong>
                                 <span data-en="Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation." data-pt="Empresas que querem AI como diferencial de produto, não apenas um buzzword. Times explorando agentes e automação.">Companies that want AI to be a product differentiator, not just a buzzword. Teams exploring agents and automation.</span>
@@ -1591,7 +1591,7 @@
                         <div class="service-detail-right">
                             <div class="service-format-item">
                                 <div class="service-format-dot" style="background:var(--gold)"></div>
-                                <div class="service-format-text" data-en="6–10 weeks or integrated with Fractional Leadership" data-pt="6–10 semanas ou integrado à Liderança Fracionada">6–10 weeks or integrated with Fractional Leadership</div>
+                                <div class="service-format-text" data-en="6-10 weeks or integrated with Fractional Leadership" data-pt="6-10 semanas ou integrado à Liderança Fracionada">6-10 weeks or integrated with Fractional Leadership</div>
                             </div>
                             <div class="service-format-item">
                                 <div class="service-format-dot" style="background:var(--gold)"></div>
@@ -1623,7 +1623,7 @@
                         <div>
                             <div class="case-category" data-en="Legal / AI Automation" data-pt="Jurídico / Automação com IA">Legal / AI Automation</div>
                             <h3 class="case-name">Lector</h3>
-                            <p class="case-desc" data-en="An AI system that automates the entire legal workflow — from document analysis to petition generation and case tracking. Lawyers focus on strategy. The machine handles the rest." data-pt="Um sistema de IA que automatiza todo o fluxo jurídico — da análise de documentos à geração de petições e acompanhamento processual. Advogados focam em estratégia. A máquina cuida do resto.">An AI system that automates the entire legal workflow — from document analysis to petition generation and case tracking. Lawyers focus on strategy. The machine handles the rest.</p>
+                            <p class="case-desc" data-en="An AI system that automates the entire legal workflow - from document analysis to petition generation and case tracking. Lawyers focus on strategy. The machine handles the rest." data-pt="Um sistema de IA que automatiza todo o fluxo jurídico - da análise de documentos à geração de petições e acompanhamento processual. Advogados focam em estratégia. A máquina cuida do resto.">An AI system that automates the entire legal workflow - from document analysis to petition generation and case tracking. Lawyers focus on strategy. The machine handles the rest.</p>
                         </div>
                         <div class="impact-badge" data-en="6× increase in lawyer productivity" data-pt="6× aumento na produtividade dos advogados">6× increase in lawyer productivity</div>
                     </div>
@@ -1658,13 +1658,13 @@
                     <div class="case-right">
                         <!-- PacePocket Product Video -->
                         <div style="width:100%; height:100%; min-height:280px; overflow:hidden;">
-                            <iframe 
-                                width="100%" 
-                                height="100%" 
-                                src="https://www.youtube.com/embed/hWKK_bdPezI" 
-                                title="PacePocket - AI-Powered Financial Clarity" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/hWKK_bdPezI"
+                                title="PacePocket - AI-Powered Financial Clarity"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen
                                 style="width:100%; height:100%; min-height:280px;">
                             </iframe>
@@ -1677,7 +1677,7 @@
                         <div>
                             <div class="case-category" data-en="Healthtech / Telemedicine" data-pt="Healthtech / Telemedicina">Healthtech / Telemedicine</div>
                             <h3 class="case-name">Seven Saúde</h3>
-                            <p class="case-desc" data-en="A complete telemedicine platform with on-demand consultations, specialist scheduling, and video appointments — designed to retain and engage teams through accessible healthcare." data-pt="Uma plataforma completa de telemedicina com pronto atendimento, agendamento com especialistas e consultas por vídeo — projetada para reter e engajar equipes através de saúde acessível.">A complete telemedicine platform with on-demand consultations, specialist scheduling, and video appointments — designed to retain and engage teams through accessible healthcare.</p>
+                            <p class="case-desc" data-en="A complete telemedicine platform with on-demand consultations, specialist scheduling, and video appointments - designed to retain and engage teams through accessible healthcare." data-pt="Uma plataforma completa de telemedicina com pronto atendimento, agendamento com especialistas e consultas por vídeo - projetada para reter e engajar equipes através de saúde acessível.">A complete telemedicine platform with on-demand consultations, specialist scheduling, and video appointments - designed to retain and engage teams through accessible healthcare.</p>
                         </div>
                         <div class="impact-badge" data-en="Healthcare access that retains talent" data-pt="Acesso à saúde que retém talentos">Healthcare access that retains talent</div>
                     </div>
@@ -1699,8 +1699,8 @@
             <div class="reveal reveal-delay-1">
                 <span class="about-label" data-en="Who Leads" data-pt="Quem Lidera">Who Leads</span>
                 <h2 class="about-name" data-en="Led by Fernando Avelar." data-pt="Liderado por Fernando Avelar.">Led by Fernando Avelar.</h2>
-                <p class="about-bio" data-en="Fernando Avelar Product and digital strategist who built his career leading teams and launching products at companies like iFood, Ambev, P&G, Conta Azul, and 3 Corações. Mechanical Engineering from UNICAMP. MBA from the University of Strathclyde (UK). Fernando combines analytical rigor with business vision to help organizations make better product decisions — especially when AI enters the equation." data-pt="Fernando Avelar Estrategista de produto e digital que construiu carreira liderando times e lançando produtos em empresas como iFood, Ambev, P&G, Conta Azul e 3 Corações. Formado em Engenharia Mecânica pela UNICAMP, com MBA pela University of Strathclyde (UK), Fernando combina rigor analítico com visão de negócio para ajudar organizações a tomar melhores decisões de produto — especialmente quando AI entra na equação.">
-                    Fernando Avelar Product and digital strategist who built his career leading teams and launching products at companies like iFood, Ambev, P&G, Conta Azul, and 3 Corações. Mechanical Engineering from UNICAMP. MBA from the University of Strathclyde (UK). Fernando combines analytical rigor with business vision to help organizations make better product decisions — especially when AI enters the equation.
+                <p class="about-bio" data-en="Product and digital strategist who built his career leading teams and launching products at companies like iFood, Ambev, P&G, Conta Azul, and 3 Corações. Mechanical Engineering from UNICAMP. MBA from the University of Strathclyde (UK). Combines analytical rigor with business vision to help organizations make better product decisions - especially when AI enters the equation." data-pt="Estrategista de produto e digital que construiu carreira liderando times e lançando produtos em empresas como iFood, Ambev, P&G, Conta Azul e 3 Corações. Formado em Engenharia Mecânica pela UNICAMP, com MBA pela University of Strathclyde (UK). Combina rigor analítico com visão de negócio para ajudar organizações a tomar melhores decisões de produto - especialmente quando a IA entra na equação.">
+                    Product and digital strategist who built his career leading teams and launching products at companies like iFood, Ambev, P&G, Conta Azul, and 3 Corações. Mechanical Engineering from UNICAMP. MBA from the University of Strathclyde (UK). Combines analytical rigor with business vision to help organizations make better product decisions - especially when AI enters the equation.
                 </p>
                 <a href="https://www.linkedin.com/in/avelarfernando/" target="_blank" class="about-linkedin" data-en="Connect on LinkedIn →" data-pt="Conecte no LinkedIn →">Connect on LinkedIn →</a>
                 <div class="logos-row">
@@ -1715,7 +1715,7 @@
         <div class="cta-bg-shape-right"></div>
         <div class="cta-final-inner reveal">
             <h2 class="cta-final-headline" data-en="Let's bring clarity to your next product decision." data-pt="Vamos trazer clareza para a sua próxima decisão de produto.">Let's bring clarity to your next product decision.</h2>
-            <p class="cta-final-body" data-en="Whether you're scaling, transforming, or figuring out where AI fits — we'd like to hear what you're navigating." data-pt="Esteja você escalando, transformando ou descobrindo onde a AI se encaixa — queremos ouvir o que você está navegando.">Whether you're scaling, transforming, or figuring out where AI fits — we'd like to hear what you're navigating.</p>
+            <p class="cta-final-body" data-en="Whether you're scaling, transforming, or figuring out where AI fits - we'd like to hear what you're navigating." data-pt="Esteja você escalando, transformando ou descobrindo onde a AI se encaixa - queremos ouvir o que você está navegando.">Whether you're scaling, transforming, or figuring out where AI fits - we'd like to hear what you're navigating.</p>
             <a href="https://wa.me/5519998607474" target="_blank" class="cta-primary" style="font-size:16px; padding:20px 52px;" data-en="Schedule a conversation" data-pt="Agende uma conversa">Schedule a conversation</a>
         </div>
     </section>
@@ -1729,12 +1729,12 @@
         </div>
     </footer>
     <script>
-        // ——— NAV SCROLL BEHAVIOR ———
+        // --- NAV SCROLL BEHAVIOR ---
         const nav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
-        // ——— REVEAL ON SCROLL ———
+        // --- REVEAL ON SCROLL ---
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
@@ -1745,7 +1745,7 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
-        // ——— LANGUAGE TOGGLE ———
+        // --- LANGUAGE TOGGLE ---
         let currentLang = 'pt';
         function setLang(lang) {
             currentLang = lang;
