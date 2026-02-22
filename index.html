@@ -286,7 +286,8 @@
             overflow: hidden;
             z-index: 2;
         }
-        /* The actual photo — full bleed, no border, no radius */
+        /* The actual photo — full bleed, no border, no radius
+           Mask creates transparency fade from left (transparent) to right (visible) */
         .hero-img {
             position: absolute;
             inset: 0;
@@ -295,28 +296,33 @@
             object-fit: cover;
             object-position: center center;
             display: block;
+            /* PNG-style transparency: image fades in from left to right */
+            -webkit-mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                transparent 15%, 
+                rgba(0,0,0,0.3) 30%, 
+                rgba(0,0,0,0.7) 50%, 
+                black 70%, 
+                black 100%
+            );
+            mask-image: linear-gradient(to right, 
+                transparent 0%, 
+                transparent 15%, 
+                rgba(0,0,0,0.3) 30%, 
+                rgba(0,0,0,0.7) 50%, 
+                black 70%, 
+                black 100%
+            );
         }
-        /* The critical blending layer: Left edge: hard fade to #0f0e1f matching hero background — seamless join Bottom: softer fade downward Top: slight fade up Right: very slight vignette to contain A color overlay tints the photo toward indigo/teal to marry it to the palette */
+        /* Light overlay for top/bottom blending only - no left-side darkening needed anymore */
         .hero-visual::before {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 2;
             background: 
-            /* ULTRA-INTENSE horizontal gradient from left: maximum text readability, gradual image reveal */
-            linear-gradient(to right, 
-                rgba(15,14,31,1) 0%, 
-                rgba(15,14,31,1) 12%, 
-                rgba(15,14,31,0.98) 18%, 
-                rgba(15,14,31,0.92) 25%, 
-                rgba(15,14,31,0.75) 35%, 
-                rgba(15,14,31,0.5) 50%, 
-                rgba(15,14,31,0.25) 65%, 
-                rgba(15,14,31,0.08) 80%, 
-                transparent 95%
-            ),
-            /* Top edge fade */
-            linear-gradient(to bottom, rgba(15,14,31,0.5) 0%, transparent 20%, transparent 75%, rgba(15,14,31,0.4) 100% );
+            /* Top and bottom edge fade only */
+            linear-gradient(to bottom, rgba(15,14,31,0.3) 0%, transparent 15%, transparent 80%, rgba(15,14,31,0.3) 100% );
             pointer-events: none;
         }
         /* Colour tint overlay — pulls photo toward DAAZ palette */
