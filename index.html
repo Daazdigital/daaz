@@ -1418,12 +1418,12 @@
                 /* Sem mask-image - imagem completa visível */
             }
             .hero-img {
-                object-position: 40% center;  /* Show center-left portion (man/hands) */
-                border-radius: 12px;          /* Bordas arredondadas */
-                object-fit: cover;            /* Fill entire square, no gaps */
+                object-position: center center;
+                border-radius: 12px;
+                object-fit: contain;          /* Show full image, no cropping */
                 width: 100%;
                 height: 100%;
-                position: relative;           /* Não absolute */
+                position: relative;
                 -webkit-mask-image: none;
                 mask-image: none;
             }
@@ -1591,7 +1591,10 @@
         </div>
         <!-- RIGHT: full-bleed photo -->
         <div class="hero-visual">
-            <img src="images/hero-image.webp" class="hero-img" alt="Product strategy in action">
+            <picture>
+                <source srcset="images/hero-mobile.png" media="(max-width: 768px)">
+                <img src="images/hero-image.webp" class="hero-img" alt="Product strategy in action">
+            </picture>
         </div>
     </section>
     <!-- TENSION -->
