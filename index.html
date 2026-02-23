@@ -730,10 +730,15 @@
         .positioning-item {
             position: relative;
             overflow: hidden;
-            padding: 120px 60px;
+            padding: 100px 60px; /* 100px top/bottom for breathing room */
             margin: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06); /* Visual separation between items */
             content-visibility: auto; /* Performance optimization */
             contain-intrinsic-size: 400px; /* Estimated render size */
+        }
+        /* Remove border from last item */
+        .pos-pillars .positioning-item:last-child {
+            border-bottom: none;
         }
         .positioning-item__bg {
             position: absolute;
@@ -883,9 +888,10 @@
                 margin-bottom: 48px;
             }
             .positioning-item {
-                padding: 40px 24px 72px;
+                padding: 64px 24px; /* Balanced mobile padding */
                 display: flex;
                 flex-direction: column;
+                border-bottom: 1px solid rgba(255,255,255,0.04); /* Lighter border for mobile */
             }
             .positioning-item__bg {
                 position: relative;
