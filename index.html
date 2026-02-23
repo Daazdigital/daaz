@@ -671,7 +671,7 @@
             background: rgba(74,58,186,0.15);
             margin-top: 8px;
         }
-        /* --- POSITIONING --- */
+        /* --- POSITIONING v3 --- */
         #positioning {
             background:
                 radial-gradient(ellipse at 20% 20%, rgba(78,74,173,0.4) 0%, transparent 50%),
@@ -722,103 +722,78 @@
             margin-bottom: 80px;
             font-weight: 400;
         }
-        /* Positioning Items - Side-by-Side Layout v2 */
+        /* Positioning Items v3 - Background image + Centered text */
         .pos-pillars {
             display: flex;
             flex-direction: column;
-            gap: 80px;
+            gap: 0;
         }
         .positioning-item {
-            display: grid;
-            grid-template-columns: minmax(0, 55%) minmax(0, 40%);
-            gap: 5%;
-            align-items: center;
-            padding: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            content-visibility: auto;
-            contain-intrinsic-size: 400px;
-        }
-        .pos-pillars .positioning-item:last-child {
-            border-bottom: none;
-        }
-        .positioning-item__text {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            min-height: 500px;
             display: flex;
-            flex-direction: column;
-            gap: 16px;
-            text-align: center;
-            padding: 0 20px;
+            align-items: center;
         }
-        .positioning-item__num {
+        /* Background image - absolute positioned */
+        .positioning-bg {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 120%;
+            object-fit: cover;
+            opacity: 0;
+            transform: translateY(-50%) scale(1.03);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: transform, opacity;
+            mask-image: linear-gradient(to right, transparent 0%, black 30%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+        }
+        .positioning-bg.visible {
+            opacity: 0.5;
+            transform: translateY(-50%) scale(1);
+        }
+        /* Text block - centered but shifted left */
+        .positioning-text {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateX(-15%);
+            text-align: left;
+            padding: 0 24px;
+        }
+        .positioning-num {
             font-family: 'DM Serif Display', serif;
             font-size: 13px;
             font-weight: 400;
             color: var(--teal);
-            opacity: 0.6;
+            opacity: 0.8;
             letter-spacing: 0.08em;
             line-height: 1.4;
-            margin-bottom: 8px;
+            display: block;
+            margin-bottom: 12px;
         }
-        .positioning-item__headline {
+        .positioning-text h3 {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(26px, 2.4vw, 34px);
             color: white;
             line-height: 1.25;
             letter-spacing: -0.02em;
             font-weight: 400;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
-        .positioning-item__body {
+        .positioning-text p {
             font-size: 17px;
             line-height: 1.8;
             color: #B0ADC8;
             font-weight: 400;
-            max-width: 520px;
-            margin: 0 auto;
         }
-        .positioning-item__visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-        .positioning-img {
-            width: 100%;
-            max-width: 420px;
-            height: auto;
-            object-fit: contain;
-            opacity: 0;
-            transform: scale(1.03);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            will-change: transform, opacity;
-            mask-image: radial-gradient(
-                ellipse 80% 80% at 60% 50%,
-                black 40%,
-                transparent 100%
-            );
-            -webkit-mask-image: radial-gradient(
-                ellipse 80% 80% at 60% 50%,
-                black 40%,
-                transparent 100%
-            );
-        }
-        .positioning-img.visible {
-            opacity: 0.7;
-            transform: scale(1);
-        }
-        /* RESPONSIVE BREAKPOINTS */
-        /* Tablet (768-1200px): Reduced gaps */
-        @media (max-width: 1200px) and (min-width: 769px) {
-            .positioning-item {
-                padding: 48px 40px;
-                gap: 4%;
-            }
-            .positioning-item__text {
-                padding: 0 12px;
-            }
-        }
-        /* Mobile (<768px): Stack vertically, image on top */
+        /* Mobile (<768px): Image above text */
         @media (max-width: 768px) {
             #positioning {
                 padding: 80px 0;
@@ -829,65 +804,66 @@
             .pos-subtitle {
                 margin-bottom: 48px;
             }
-            .pos-pillars {
-                gap: 60px;
-            }
             .positioning-item {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto;
-                gap: 32px;
-                padding: 48px 24px;
-                border-bottom: 1px solid rgba(255,255,255,0.04);
-            }
-            .positioning-item__visual {
-                order: -1;
-                height: auto;
-            }
-            .positioning-img {
-                max-width: 100%;
-                height: 180px;
-                object-fit: cover;
-                object-position: center;
-                opacity: 0.7;
-                transform: scale(1);
-                mask-image: radial-gradient(
-                    ellipse 100% 100% at 50% 50%,
-                    black 60%,
-                    transparent 100%
-                );
-                -webkit-mask-image: radial-gradient(
-                    ellipse 100% 100% at 50% 50%,
-                    black 60%,
-                    transparent 100%
-                );
-            }
-            .positioning-item__text {
+                min-height: auto;
                 padding: 0;
+                flex-direction: column;
+            }
+            .positioning-bg {
+                position: relative;
+                top: 0;
+                right: 0;
+                transform: none;
+                width: 100%;
+                height: 280px;
+                opacity: 0.45;
+                mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+            }
+            .positioning-bg.visible {
+                opacity: 0.45;
+                transform: none;
+            }
+            .positioning-text {
+                transform: none;
+                max-width: 100%;
+                padding: 32px 32px 60px;
                 text-align: center;
             }
-            .positioning-item__num {
+            .positioning-num {
                 font-size: 12px;
-                margin-bottom: 6px;
+                margin-bottom: 10px;
             }
-            .positioning-item__headline {
+            .positioning-text h3 {
                 font-size: clamp(22px, 6vw, 28px);
             }
-            .positioning-item__body {
+            .positioning-text p {
                 font-size: 16px;
                 line-height: 1.75;
                 color: #B8B5CC;
             }
         }
+        /* Tablet (768-1200px): Adjustments */
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .positioning-text {
+                max-width: 420px;
+                transform: translateX(-10%);
+                padding: 0 20px;
+            }
+            .positioning-bg {
+                width: 55%;
+            }
+        }
         /* Accessibility: Respect prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
-            .positioning-img {
-                opacity: 0.7;
-                transform: scale(1);
+            .positioning-bg {
+                opacity: 0.5;
+                transform: translateY(-50%) scale(1);
                 transition: none;
             }
-            .positioning-item:hover .positioning-img {
-                opacity: 0.7;
-                transform: scale(1);
+            .positioning-bg.visible {
+                opacity: 0.5;
+                transform: translateY(-50%) scale(1);
             }
         }
         /* --- SERVICES --- */
@@ -1663,65 +1639,53 @@
                 We work as strategic partners - embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
             </p>
         </div>
-        <!-- Atmospheric Positioning Pillars -->
+        <!-- Positioning Pillars v3 - Background images with centered text -->
         <div class="pos-pillars">
-            <!-- Pillar 01 - Foundation: Led by those who've built -->
-            <article class="positioning-item positioning-item--01 reveal" aria-label="Foundation pillar">
-                <div class="positioning-item__text">
-                    <span class="positioning-item__num" aria-label="Pillar 01">01</span>
-                    <h3 class="positioning-item__headline"
-                        data-en="Led by those who've built what you're building."
+            <!-- Pillar 01 - Foundation -->
+            <div class="positioning-item" id="positioning-01">
+                <img src="images/positioning-01.png" alt="" class="positioning-bg" loading="lazy">
+                <div class="positioning-text reveal">
+                    <span class="positioning-num">01</span>
+                    <h3 data-en="Led by those who've built what you're building."
                         data-pt="Liderado por quem já construiu o que você está construindo.">
-                        Led by those who've built what you're building.
+                        Liderado por quem já construiu o que você está construindo.
                     </h3>
-                    <p class="positioning-item__body"
-                       data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
+                    <p data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
                        data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
-                        Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
+                        Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.
                     </p>
                 </div>
-                <div class="positioning-item__visual">
-                    <img src="images/positioning-01.png" alt="" class="positioning-img" loading="lazy">
-                </div>
-            </article>
-            <!-- Pillar 02 - Integration: Inside your organization -->
-            <article class="positioning-item positioning-item--02 reveal reveal-delay-1" aria-label="Integration pillar">
-                <div class="positioning-item__text">
-                    <span class="positioning-item__num" aria-label="Pillar 02">02</span>
-                    <h3 class="positioning-item__headline"
-                        data-en="Inside your organization, not outside it."
+            </div>
+            <!-- Pillar 02 - Integration -->
+            <div class="positioning-item" id="positioning-02">
+                <img src="images/positioning-02.png" alt="" class="positioning-bg" loading="lazy">
+                <div class="positioning-text reveal reveal-delay-1">
+                    <span class="positioning-num">02</span>
+                    <h3 data-en="Inside your organization, not outside it."
                         data-pt="Dentro da sua organização, não fora dela.">
-                        Inside your organization, not outside it.
+                        Dentro da sua organização, não fora dela.
                     </h3>
-                    <p class="positioning-item__body"
-                       data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
+                    <p data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
                        data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
-                        We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
+                        Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.
                     </p>
                 </div>
-                <div class="positioning-item__visual">
-                    <img src="images/positioning-02.png" alt="" class="positioning-img" loading="lazy">
-                </div>
-            </article>
-            <!-- Pillar 03 - Emergence: Measured by what changes -->
-            <article class="positioning-item positioning-item--03 reveal reveal-delay-2" aria-label="Emergence pillar">
-                <div class="positioning-item__text">
-                    <span class="positioning-item__num" aria-label="Pillar 03">03</span>
-                    <h3 class="positioning-item__headline"
-                        data-en="Measured by what changes, not what's delivered."
+            </div>
+            <!-- Pillar 03 - Emergence -->
+            <div class="positioning-item" id="positioning-03">
+                <img src="images/positioning-03.png" alt="" class="positioning-bg" loading="lazy">
+                <div class="positioning-text reveal reveal-delay-2">
+                    <span class="positioning-num">03</span>
+                    <h3 data-en="Measured by what changes, not what's delivered."
                         data-pt="Medido pelo que muda, não pelo que é entregue.">
-                        Measured by what changes, not what's delivered.
+                        Medido pelo que muda, não pelo que é entregue.
                     </h3>
-                    <p class="positioning-item__body"
-                       data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
+                    <p data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
                        data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
-                        Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced.
+                        Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.
                     </p>
                 </div>
-                <div class="positioning-item__visual">
-                    <img src="images/positioning-03.png" alt="" class="positioning-img" loading="lazy">
-                </div>
-            </article>
+            </div>
         </div>
     </section>
     <!-- SERVICES -->
@@ -1966,19 +1930,19 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
-        // --- POSITIONING ITEMS IMAGE ANIMATION ---
-        // Images start: opacity 0, scale 1.03
-        // On viewport entry (threshold 0.3): transition to opacity 0.7, scale 1
-        const positioningImgs = document.querySelectorAll('.positioning-img');
-        const positioningImgObserver = new IntersectionObserver((entries) => {
+        // --- POSITIONING ITEMS BACKGROUND ANIMATION ---
+        // Background images start: opacity 0, scale 1.03
+        // On viewport entry (threshold 0.3): transition to opacity 0.5 (desktop) / 0.45 (mobile)
+        const positioningBgs = document.querySelectorAll('.positioning-bg');
+        const positioningBgObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.classList.add('visible');
-                    positioningImgObserver.unobserve(e.target);
+                    positioningBgObserver.unobserve(e.target);
                 }
             });
         }, { threshold: 0.3 });
-        positioningImgs.forEach(el => positioningImgObserver.observe(el));
+        positioningBgs.forEach(el => positioningBgObserver.observe(el));
         // --- LANGUAGE TOGGLE ---
         let currentLang = 'pt';
         function setLang(lang) {
