@@ -741,16 +741,15 @@
             position: absolute;
             right: 0;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) scale(1.03);
             width: 50%;
             height: 120%;
             object-fit: cover;
             opacity: 0;
-            transform: translateY(-50%) scale(1.03);
             transition: opacity 1s ease-out, transform 1s ease-out;
-            will-change: transform, opacity;
             mask-image: linear-gradient(to right, transparent 0%, black 30%);
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+            /* NO overlay div, NO dark gradient overlay */
         }
         .positioning-bg.visible {
             opacity: 0.5;
@@ -764,7 +763,7 @@
             margin-left: auto;
             margin-right: auto;
             transform: translateX(-15%);
-            text-align: left;
+            text-align: center;
             padding: 0 24px;
         }
         .positioning-num {
@@ -795,15 +794,6 @@
         }
         /* Mobile (<768px): Image above text */
         @media (max-width: 768px) {
-            #positioning {
-                padding: 80px 0;
-            }
-            .pos-inner {
-                padding: 0 24px 48px;
-            }
-            .pos-subtitle {
-                margin-bottom: 48px;
-            }
             .positioning-item {
                 min-height: auto;
                 padding: 0;
@@ -813,22 +803,24 @@
                 position: relative;
                 top: 0;
                 right: 0;
-                transform: none;
+                transform: scale(1.03);
                 width: 100%;
                 height: 280px;
-                opacity: 0.45;
+                opacity: 0;
+                transition: opacity 1s ease-out, transform 1s ease-out;
                 mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
                 -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
             }
             .positioning-bg.visible {
                 opacity: 0.45;
-                transform: none;
+                transform: scale(1);
             }
             .positioning-text {
                 transform: none;
                 max-width: 100%;
-                padding: 32px 32px 60px;
-                text-align: center;
+                padding: 0 32px;
+                margin: 0 auto;
+                text-align: left;
             }
             .positioning-num {
                 font-size: 12px;
@@ -1639,48 +1631,59 @@
                 We work as strategic partners - embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
             </p>
         </div>
-        <!-- Positioning Pillars v3 - Background images with centered text -->
+        <!-- Positioning Pillars v3 - Background images with centered text block -->
         <div class="pos-pillars">
             <!-- Pillar 01 - Foundation -->
             <div class="positioning-item" id="positioning-01">
+                <!-- Background image -->
                 <img src="images/positioning-01.png" alt="" class="positioning-bg" loading="lazy">
-                <div class="positioning-text reveal">
+                
+                <!-- Text content -->
+                <div class="positioning-text">
                     <span class="positioning-num">01</span>
-                    <h3 data-en="Led by those who've built what you're building."
+                    <h3 data-en="Led by those who've built what you're building." 
                         data-pt="Liderado por quem já construiu o que você está construindo.">
                         Liderado por quem já construiu o que você está construindo.
                     </h3>
-                    <p data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
+                    <p data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them." 
                        data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
                         Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.
                     </p>
                 </div>
             </div>
+
             <!-- Pillar 02 - Integration -->
             <div class="positioning-item" id="positioning-02">
+                <!-- Background image -->
                 <img src="images/positioning-02.png" alt="" class="positioning-bg" loading="lazy">
-                <div class="positioning-text reveal reveal-delay-1">
+                
+                <!-- Text content -->
+                <div class="positioning-text">
                     <span class="positioning-num">02</span>
-                    <h3 data-en="Inside your organization, not outside it."
+                    <h3 data-en="Inside your organization, not outside it." 
                         data-pt="Dentro da sua organização, não fora dela.">
                         Dentro da sua organização, não fora dela.
                     </h3>
-                    <p data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
+                    <p data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving." 
                        data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
                         Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.
                     </p>
                 </div>
             </div>
+
             <!-- Pillar 03 - Emergence -->
             <div class="positioning-item" id="positioning-03">
+                <!-- Background image -->
                 <img src="images/positioning-03.png" alt="" class="positioning-bg" loading="lazy">
-                <div class="positioning-text reveal reveal-delay-2">
+                
+                <!-- Text content -->
+                <div class="positioning-text">
                     <span class="positioning-num">03</span>
-                    <h3 data-en="Measured by what changes, not what's delivered."
+                    <h3 data-en="Measured by what changes, not what's delivered." 
                         data-pt="Medido pelo que muda, não pelo que é entregue.">
                         Medido pelo que muda, não pelo que é entregue.
                     </h3>
-                    <p data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
+                    <p data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced." 
                        data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
                         Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.
                     </p>
@@ -1932,7 +1935,7 @@
         reveals.forEach(el => observer.observe(el));
         // --- POSITIONING ITEMS BACKGROUND ANIMATION ---
         // Background images start: opacity 0, scale 1.03
-        // On viewport entry (threshold 0.3): transition to opacity 0.5 (desktop) / 0.45 (mobile)
+        // On viewport entry (threshold 0.2): fade to opacity 0.5 (desktop) / 0.45 (mobile)
         const positioningBgs = document.querySelectorAll('.positioning-bg');
         const positioningBgObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => {
@@ -1941,7 +1944,7 @@
                     positioningBgObserver.unobserve(e.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.2 });
         positioningBgs.forEach(el => positioningBgObserver.observe(el));
         // --- LANGUAGE TOGGLE ---
         let currentLang = 'pt';
