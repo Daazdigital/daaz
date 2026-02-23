@@ -730,70 +730,79 @@
         .positioning-item {
             position: relative;
             overflow: hidden;
-            padding: 100px 60px;
+            padding: 120px 60px;
             margin: 0;
         }
         .positioning-item__bg {
             position: absolute;
             inset: 0;
             background-size: cover;
-            background-position: center right;
-            opacity: 0.35;
-            transition: opacity 0.6s ease, transform 0.8s ease;
+            background-position: center center;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+            will-change: transform, opacity;
             z-index: 1;
         }
-        /* TODO: Add abstract images to documents/Daaz Mkt Assets/ 
-           - abstract 1.png -> Pillar 01
-           - abstract 2.png -> Pillar 02
-           - abstract 3.png -> Pillar 03
-           Then update background-image URLs below */
-        .positioning-item--01 .positioning-item__bg {
-            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 1.png or .webp */
-            background: linear-gradient(135deg, rgba(78,74,173,0.3) 0%, rgba(46,196,182,0.15) 50%, rgba(78,74,173,0.2) 100%);
-            background-image: none;
+        .positioning-item__bg.visible {
+            opacity: 0.4;
+            transform: scale(1);
         }
-        .positioning-item--02 .positioning-item__bg {
-            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 2.png or .webp */
-            background: linear-gradient(225deg, rgba(46,196,182,0.2) 0%, rgba(78,74,173,0.25) 50%, rgba(46,196,182,0.1) 100%);
-            background-image: none;
-        }
-        .positioning-item--03 .positioning-item__bg {
-            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 3.png or .webp */
-            background: linear-gradient(135deg, rgba(78,74,173,0.25) 0%, rgba(232,168,56,0.1) 50%, rgba(78,74,173,0.2) 100%);
-            background-image: none;
-        }
-        .positioning-item:hover .positioning-item__bg {
-            opacity: 0.5;
+        .positioning-item__bg:hover,
+        .positioning-item:hover .positioning-item__bg.visible {
+            opacity: 0.55;
             transform: scale(1.02);
         }
-        /* Gradient overlay for text legibility */
-        .positioning-item::before {
-            content: '';
+        /* Color transitions per item - Deep indigo, subtle teal - dense, grounded (Foundation) */
+        .positioning-item--01 .positioning-item__bg {
+            /* Foundation: Deep indigo, subtle teal - dense, grounded */
+            background: linear-gradient(135deg, rgba(78,74,173,0.35) 0%, rgba(30,25,70,0.6) 40%, rgba(46,196,182,0.1) 100%);
+            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 1.png or .webp (1920x800px desktop, 1200x600px tablet, 800x800px mobile) */
+        }
+        /* Color transition - Indigo + teal balanced - fluid, connected (Integration) */
+        .positioning-item--02 .positioning-item__bg {
+            /* Integration: Indigo + teal balanced - fluid, connected */
+            background: linear-gradient(135deg, rgba(46,196,182,0.2) 0%, rgba(78,74,173,0.3) 45%, rgba(46,196,182,0.25) 100%);
+            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 2.png or .webp */
+        }
+        /* Color transition - Teal gains prominence, luminous - transformative (Emergence) */
+        .positioning-item--03 .positioning-item__bg {
+            /* Emergence: Teal gains prominence, luminous - transformative */
+            background: linear-gradient(135deg, rgba(46,196,182,0.35) 0%, rgba(78,74,173,0.25) 50%, rgba(46,196,182,0.2) 100%);
+            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 3.png or .webp */
+        }
+        /* Gradient overlay for text legibility - Option A: Atmospheric Bleed */
+        .positioning-item__overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, rgba(26,26,62,0.9) 0%, rgba(26,26,62,0.7) 50%, rgba(26,26,62,0.5) 100%);
+            background: linear-gradient(
+                90deg,
+                rgba(30, 25, 70, 0.92) 0%,     /* left side (text) darker */
+                rgba(30, 25, 70, 0.60) 70%,    /* center lightens */
+                rgba(30, 25, 70, 0.40) 100%   /* right side lets image breathe */
+            );
             z-index: 1;
             pointer-events: none;
         }
         .positioning-item__content {
             position: relative;
-            z-index: 3;
-            max-width: 1100px;
-            margin: 0 auto;
+            z-index: 2;
+            max-width: 650px;
+            margin: 0 auto 0 0;
             display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 60px;
+            grid-template-columns: 80px 1fr;
+            gap: 48px;
             align-items: start;
         }
         .positioning-item__num {
             font-family: 'DM Serif Display', serif;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 400;
             color: var(--teal);
-            opacity: 0.5;
+            opacity: 0.6;
             letter-spacing: 0.08em;
             line-height: 1.4;
-            margin-top: 8px;
+            margin-top: 6px;
         }
         .positioning-item__text {
             display: flex;
@@ -802,7 +811,7 @@
         }
         .positioning-item__headline {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(26px, 2.8vw, 36px);
+            font-size: clamp(26px, 2.4vw, 34px);
             color: white;
             line-height: 1.25;
             letter-spacing: -0.02em;
@@ -811,31 +820,43 @@
         .positioning-item__body {
             font-size: 17px;
             line-height: 1.8;
-            color: rgba(245,243,240,0.7);
+            color: rgba(245,243,240,0.75);
             font-weight: 400;
-            max-width: 620px;
         }
         /* Mobile responsive positioning items */
         @media (max-width: 768px) {
             .pos-inner {
-                padding: 0 24px;
+                padding: 0 24px 64px;
             }
             .pos-subtitle {
                 margin-bottom: 48px;
             }
             .positioning-item {
-                padding: 64px 24px;
+                padding: 72px 24px;
+            }
+            .positioning-item__overlay {
+                background: linear-gradient(
+                    90deg,
+                    rgba(30, 25, 70, 0.95) 0%,
+                    rgba(30, 25, 70, 0.75) 50%,
+                    rgba(30, 25, 70, 0.55) 100%
+                );
             }
             .positioning-item__content {
-                grid-template-columns: 40px 1fr;
+                max-width: 100%;
+                grid-template-columns: 48px 1fr;
                 gap: 20px;
             }
             .positioning-item__num {
                 font-size: 12px;
-                margin-top: 6px;
+                margin-top: 4px;
             }
-            .pos-pillars {
-                gap: 0;
+            .positioning-item__headline {
+                font-size: clamp(22px, 6vw, 28px);
+            }
+            .positioning-item__body {
+                font-size: 16px;
+                line-height: 1.75;
             }
         }
         /* --- SERVICES --- */
@@ -1608,9 +1629,10 @@
         </div>
         <!-- Atmospheric Positioning Pillars -->
         <div class="pos-pillars">
-            <!-- Pillar 01 - Led by those who've built -->
+            <!-- Pillar 01 - Foundation: Led by those who've built -->
             <div class="positioning-item positioning-item--01 reveal">
                 <div class="positioning-item__bg"></div>
+                <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
                     <div class="positioning-item__num">01</div>
                     <div class="positioning-item__text">
@@ -1627,9 +1649,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Pillar 02 - Inside your organization -->
+            <!-- Pillar 02 - Integration: Inside your organization -->
             <div class="positioning-item positioning-item--02 reveal reveal-delay-1">
                 <div class="positioning-item__bg"></div>
+                <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
                     <div class="positioning-item__num">02</div>
                     <div class="positioning-item__text">
@@ -1646,9 +1669,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Pillar 03 - Measured by what changes -->
+            <!-- Pillar 03 - Emergence: Measured by what changes -->
             <div class="positioning-item positioning-item--03 reveal reveal-delay-2">
                 <div class="positioning-item__bg"></div>
+                <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
                     <div class="positioning-item__num">03</div>
                     <div class="positioning-item__text">
@@ -1906,6 +1930,44 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
+        // --- POSITIONING ITEMS BACKGROUND ANIMATION ---
+        // Images start: opacity 0, scale 1.05
+        // On viewport entry (threshold 0.3): transition to opacity 0.4, scale 1
+        const positioningItems = document.querySelectorAll('.positioning-item__bg');
+        const positioningObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    positioningObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        positioningItems.forEach(el => positioningObserver.observe(el));
+        // --- PARALLAX EFFECT FOR POSITIONING BACKGROUNDS ---
+        // Background moves 20% slower than scroll (ratio 0.8)
+        const positioningItemsParallax = document.querySelectorAll('.positioning-item');
+        let ticking = false;
+        function updateParallax() {
+            positioningItemsParallax.forEach(item => {
+                const bg = item.querySelector('.positioning-item__bg');
+                if (!bg) return;
+                const rect = item.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                // Only process if item is in viewport
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    const parallaxOffset = (scrollProgress - 0.5) * -20; // 20% parallax range
+                    bg.style.transform = `translateY(${parallaxOffset}%) ${bg.classList.contains('visible') ? 'scale(1)' : 'scale(1.05)'}`;
+                }
+            });
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
         // --- LANGUAGE TOGGLE ---
         let currentLang = 'pt';
         function setLang(lang) {
