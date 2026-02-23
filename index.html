@@ -1720,11 +1720,17 @@
         <!-- Atmospheric Positioning Pillars -->
         <div class="pos-pillars">
             <!-- Pillar 01 - Foundation: Led by those who've built -->
-            <div class="positioning-item positioning-item--01 reveal">
-                <div class="positioning-item__bg"></div>
+            <article class="positioning-item positioning-item--01 reveal" aria-label="Foundation pillar">
+                <!-- Background image - decorative, hidden from screen readers -->
+                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
+                <!-- Noise/grain texture overlay (2-3%) -->
+                <div class="positioning-item__texture" aria-hidden="true"></div>
+                <!-- Vignette overlay - darker edges, especially LEFT -->
+                <div class="positioning-item__vignette" aria-hidden="true"></div>
+                <!-- Gradient overlay for text legibility -->
                 <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
-                    <div class="positioning-item__num">01</div>
+                    <div class="positioning-item__num" aria-label="Pillar 01">01</div>
                     <div class="positioning-item__text">
                         <h3 class="positioning-item__headline"
                             data-en="Led by those who've built what you're building."
@@ -1738,13 +1744,15 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </article>
             <!-- Pillar 02 - Integration: Inside your organization -->
-            <div class="positioning-item positioning-item--02 reveal reveal-delay-1">
-                <div class="positioning-item__bg"></div>
+            <article class="positioning-item positioning-item--02 reveal reveal-delay-1" aria-label="Integration pillar">
+                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
+                <div class="positioning-item__texture" aria-hidden="true"></div>
+                <div class="positioning-item__vignette" aria-hidden="true"></div>
                 <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
-                    <div class="positioning-item__num">02</div>
+                    <div class="positioning-item__num" aria-label="Pillar 02">02</div>
                     <div class="positioning-item__text">
                         <h3 class="positioning-item__headline"
                             data-en="Inside your organization, not outside it."
@@ -1758,13 +1766,15 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </article>
             <!-- Pillar 03 - Emergence: Measured by what changes -->
-            <div class="positioning-item positioning-item--03 reveal reveal-delay-2">
-                <div class="positioning-item__bg"></div>
+            <article class="positioning-item positioning-item--03 reveal reveal-delay-2" aria-label="Emergence pillar">
+                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
+                <div class="positioning-item__texture" aria-hidden="true"></div>
+                <div class="positioning-item__vignette" aria-hidden="true"></div>
                 <div class="positioning-item__overlay"></div>
                 <div class="positioning-item__content">
-                    <div class="positioning-item__num">03</div>
+                    <div class="positioning-item__num" aria-label="Pillar 03">03</div>
                     <div class="positioning-item__text">
                         <h3 class="positioning-item__headline"
                             data-en="Measured by what changes, not what's delivered."
@@ -1778,7 +1788,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
     <!-- SERVICES -->
