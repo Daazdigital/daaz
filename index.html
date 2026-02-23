@@ -678,7 +678,7 @@
                 radial-gradient(ellipse at 80% 80%, rgba(46,196,182,0.15) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 50%, rgba(78,74,173,0.25) 0%, transparent 60%),
                 linear-gradient(135deg, #1a1a3e 0%, #2d2b5a 50%, #1a1a3e 100%);
-            padding: 120px 60px;
+            padding: 120px 0 0;
             position: relative;
             overflow: hidden;
         }
@@ -687,6 +687,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            padding: 0 60px;
         }
         .pos-label {
             font-size: 12px;
@@ -718,21 +719,73 @@
             line-height: 1.7;
             color: rgba(245,243,240,0.75);
             max-width: 720px;
-            margin-bottom: 100px;
+            margin-bottom: 64px;
             font-weight: 400;
         }
+        /* Atmospheric Bleed - Positioning Items */
         .pos-pillars {
             display: flex;
             flex-direction: column;
-            gap: 100px;
         }
-        .pos-pillar {
+        .positioning-item {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 60px;
+            margin: 0;
+        }
+        .positioning-item__bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center right;
+            opacity: 0.35;
+            transition: opacity 0.6s ease, transform 0.8s ease;
+            z-index: 1;
+        }
+        /* TODO: Add abstract images to documents/Daaz Mkt Assets/ 
+           - abstract 1.png -> Pillar 01
+           - abstract 2.png -> Pillar 02
+           - abstract 3.png -> Pillar 03
+           Then update background-image URLs below */
+        .positioning-item--01 .positioning-item__bg {
+            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 1.png or .webp */
+            background: linear-gradient(135deg, rgba(78,74,173,0.3) 0%, rgba(46,196,182,0.15) 50%, rgba(78,74,173,0.2) 100%);
+            background-image: none;
+        }
+        .positioning-item--02 .positioning-item__bg {
+            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 2.png or .webp */
+            background: linear-gradient(225deg, rgba(46,196,182,0.2) 0%, rgba(78,74,173,0.25) 50%, rgba(46,196,182,0.1) 100%);
+            background-image: none;
+        }
+        .positioning-item--03 .positioning-item__bg {
+            /* Placeholder: Replace with documents/Daaz Mkt Assets/abstract 3.png or .webp */
+            background: linear-gradient(135deg, rgba(78,74,173,0.25) 0%, rgba(232,168,56,0.1) 50%, rgba(78,74,173,0.2) 100%);
+            background-image: none;
+        }
+        .positioning-item:hover .positioning-item__bg {
+            opacity: 0.5;
+            transform: scale(1.02);
+        }
+        /* Gradient overlay for text legibility */
+        .positioning-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(26,26,62,0.9) 0%, rgba(26,26,62,0.7) 50%, rgba(26,26,62,0.5) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .positioning-item__content {
+            position: relative;
+            z-index: 3;
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 120px 1fr;
+            grid-template-columns: 100px 1fr;
             gap: 60px;
             align-items: start;
         }
-        .pos-pillar-num {
+        .positioning-item__num {
             font-family: 'DM Serif Display', serif;
             font-size: 14px;
             font-weight: 400;
@@ -742,12 +795,12 @@
             line-height: 1.4;
             margin-top: 8px;
         }
-        .pos-pillar-content {
+        .positioning-item__text {
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
-        .pos-pillar-headline {
+        .positioning-item__headline {
             font-family: 'DM Serif Display', serif;
             font-size: clamp(26px, 2.8vw, 36px);
             color: white;
@@ -755,12 +808,35 @@
             letter-spacing: -0.02em;
             font-weight: 400;
         }
-        .pos-pillar-body {
+        .positioning-item__body {
             font-size: 17px;
             line-height: 1.8;
             color: rgba(245,243,240,0.7);
             font-weight: 400;
             max-width: 620px;
+        }
+        /* Mobile responsive positioning items */
+        @media (max-width: 768px) {
+            .pos-inner {
+                padding: 0 24px;
+            }
+            .pos-subtitle {
+                margin-bottom: 48px;
+            }
+            .positioning-item {
+                padding: 64px 24px;
+            }
+            .positioning-item__content {
+                grid-template-columns: 40px 1fr;
+                gap: 20px;
+            }
+            .positioning-item__num {
+                font-size: 12px;
+                margin-top: 6px;
+            }
+            .pos-pillars {
+                gap: 0;
+            }
         }
         /* --- SERVICES --- */
         #services {
@@ -1395,34 +1471,18 @@
                 display: none;
             }
             /* --- REST OF SECTIONS --- */
-            #tension, #positioning, #services, #cases, #about, #cta-final {
+            #tension, #services, #cases, #about, #cta-final {
                 padding: 80px 24px;
+            }
+            #positioning {
+                padding: 80px 0;
             }
             .tension-inner {
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
-            .pos-pillars {
-                gap: 64px;
-            }
-            .pos-pillar {
-                grid-template-columns: 40px 1fr;
-                gap: 20px;
-            }
-            .pos-pillar-num {
-                font-size: 12px;
-                margin-top: 6px;
-            }
-            .pos-pillar-content {
-                gap: 12px;
-            }
             .pos-headline {
                 margin-bottom: 20px;
-            }
-            .pos-subtitle {
-                margin-bottom: 64px;
-                font-size: 16px;
-                line-height: 1.7;
             }
             .service-card-content {
                 grid-template-columns: 1fr;
@@ -1545,49 +1605,59 @@
                data-pt="Trabalhamos como parceiros estratégicos - integrados ao seu time, responsáveis por resultados, focados nas decisões que moldam seu produto e seu negócio.">
                 We work as strategic partners - embedded in your team, accountable for outcomes, focused on the decisions that shape your product and your business.
             </p>
-            <div class="pos-pillars">
-                <!-- Pillar 01 -->
-                <div class="pos-pillar reveal">
-                    <div class="pos-pillar-num">01</div>
-                    <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline"
+        </div>
+        <!-- Atmospheric Positioning Pillars -->
+        <div class="pos-pillars">
+            <!-- Pillar 01 - Led by those who've built -->
+            <div class="positioning-item positioning-item--01 reveal">
+                <div class="positioning-item__bg"></div>
+                <div class="positioning-item__content">
+                    <div class="positioning-item__num">01</div>
+                    <div class="positioning-item__text">
+                        <h3 class="positioning-item__headline"
                             data-en="Led by those who've built what you're building."
                             data-pt="Liderado por quem já construiu o que você está construindo.">
                             Led by those who've built what you're building.
                         </h3>
-                        <p class="pos-pillar-body"
+                        <p class="positioning-item__body"
                            data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
                            data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
                             Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
                         </p>
                     </div>
                 </div>
-                <!-- Pillar 02 -->
-                <div class="pos-pillar reveal reveal-delay-1">
-                    <div class="pos-pillar-num">02</div>
-                    <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline"
+            </div>
+            <!-- Pillar 02 - Inside your organization -->
+            <div class="positioning-item positioning-item--02 reveal reveal-delay-1">
+                <div class="positioning-item__bg"></div>
+                <div class="positioning-item__content">
+                    <div class="positioning-item__num">02</div>
+                    <div class="positioning-item__text">
+                        <h3 class="positioning-item__headline"
                             data-en="Inside your organization, not outside it."
                             data-pt="Dentro da sua organização, não fora dela.">
                             Inside your organization, not outside it.
                         </h3>
-                        <p class="pos-pillar-body"
+                        <p class="positioning-item__body"
                            data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
                            data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
                             We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
                         </p>
                     </div>
                 </div>
-                <!-- Pillar 03 -->
-                <div class="pos-pillar reveal reveal-delay-2">
-                    <div class="pos-pillar-num">03</div>
-                    <div class="pos-pillar-content">
-                        <h3 class="pos-pillar-headline"
+            </div>
+            <!-- Pillar 03 - Measured by what changes -->
+            <div class="positioning-item positioning-item--03 reveal reveal-delay-2">
+                <div class="positioning-item__bg"></div>
+                <div class="positioning-item__content">
+                    <div class="positioning-item__num">03</div>
+                    <div class="positioning-item__text">
+                        <h3 class="positioning-item__headline"
                             data-en="Measured by what changes, not what's delivered."
                             data-pt="Medido pelo que muda, não pelo que é entregue.">
                             Measured by what changes, not what's delivered.
                         </h3>
-                        <p class="pos-pillar-body"
+                        <p class="positioning-item__body"
                            data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
                            data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
                             Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced.
