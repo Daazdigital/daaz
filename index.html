@@ -245,33 +245,38 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 36px;
-            margin-bottom: 32px;
-            max-width: 320px;
+            margin-top: 40px;
+            margin-bottom: 8px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.18em;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.55);
+            background: linear-gradient(135deg, #a8b8ff 0%, #5cdbb8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             position: relative;
         }
         .hero-divider::before,
         .hero-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.22);
-            margin: 0 16px;
+            content: '✦';
+            font-size: 16px;
+            background: linear-gradient(135deg, #a8b8ff 0%, #5cdbb8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 12px;
+            opacity: 0.9;
         }
         .hero-proof {
-            margin-top: 60px;
+            margin-top: 28px;
             display:flex;
             align-items:center;
             gap:32px;
-            padding-top:32px;
-            border-top:1px solid rgba(255,255,255,0.08);
+            padding-top:0;
         }
         .proof-stat {
             display:flex;
@@ -1331,15 +1336,16 @@
                 font-size: 15px;
             }
             .hero-divider {
-                margin-top: 28px;
-                margin-bottom: 24px;
-                max-width: 280px;
-                font-size: 10px;
-                letter-spacing: 0.15em;
+                margin-top: 32px;
+                margin-bottom: 6px;
+                max-width: 340px;
+                font-size: 12px;
+                letter-spacing: 0.12em;
             }
             .hero-divider::before,
             .hero-divider::after {
-                margin: 0 12px;
+                font-size: 14px;
+                margin: 0 10px;
             }
             .hero-proof {
                 margin-top: 36px;
@@ -1441,7 +1447,7 @@
                 <a href="#services" class="cta-secondary" data-en="See how we work" data-pt="Como trabalhamos">See how we work</a>
             </div>
             <!-- Contextual divider -->
-            <div class="hero-divider" data-en="✦ AI-accelerated ✦" data-pt="✦ acelerado por IA ✦">✦ AI-accelerated ✦</div>
+            <div class="hero-divider" data-en="AI-ACCELERATED" data-pt="acelerado por IA">AI-ACCELERATED</div>
             <!-- Social proof bar -->
             <div class="hero-proof">
                 <div class="proof-stat">
