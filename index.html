@@ -678,7 +678,7 @@
                 radial-gradient(ellipse at 80% 80%, rgba(46,196,182,0.15) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 50%, rgba(78,74,173,0.25) 0%, transparent 60%),
                 linear-gradient(135deg, #1a1a3e 0%, #2d2b5a 50%, #1a1a3e 100%);
-            padding: 120px 0 0;
+            padding: 120px 0;
             position: relative;
             overflow: hidden;
         }
@@ -719,123 +719,36 @@
             line-height: 1.7;
             color: rgba(245,243,240,0.75);
             max-width: 720px;
-            margin-bottom: 64px;
+            margin-bottom: 80px;
             font-weight: 400;
         }
-        /* Atmospheric Bleed - Positioning Items */
+        /* Positioning Items - Side-by-Side Layout v2 */
         .pos-pillars {
             display: flex;
             flex-direction: column;
+            gap: 80px;
         }
         .positioning-item {
-            position: relative;
-            overflow: hidden;
-            padding: 100px 60px; /* 100px top/bottom for breathing room */
-            margin: 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06); /* Visual separation between items */
-            content-visibility: auto; /* Performance optimization */
-            contain-intrinsic-size: 400px; /* Estimated render size */
+            display: grid;
+            grid-template-columns: minmax(0, 55%) minmax(0, 40%);
+            gap: 5%;
+            align-items: center;
+            padding: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            content-visibility: auto;
+            contain-intrinsic-size: 400px;
         }
-        /* Remove border from last item */
         .pos-pillars .positioning-item:last-child {
             border-bottom: none;
         }
-        .positioning-item__bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center center;
-            opacity: 0;
-            transform: scale(1.05);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-            will-change: transform, opacity;
-            z-index: 1;
-            /* Image treatment notes for subagent implementation:
-               - Color grading: Match indigo to brand #4E4AAD, adjust saturation/hue
-               - Contrast: Reduce slightly (background role, not focus)
-               - Noise/grain: Add subtle 2-3% grain via overlay texture
-               - Vignette: Darken edges, especially LEFT edge (where text sits) */
-        }
-        .positioning-item__bg.visible {
-            opacity: 0.4;
-            transform: scale(1);
-        }
-        .positioning-item__bg:hover,
-        .positioning-item:hover .positioning-item__bg.visible {
-            opacity: 0.55;
-            transform: scale(1.02);
-        }
-        /* Color transitions per item - Deep indigo, subtle teal - dense, grounded (Foundation) */
-        .positioning-item--01 .positioning-item__bg {
-            /* Foundation: Deep indigo, subtle teal - dense, grounded */
-            background-image: linear-gradient(135deg, rgba(30,25,70,0.55) 0%, rgba(30,25,70,0.25) 100%), url('images/positioning-01.png');
-            background-size: cover;
-            background-position: center right;
-        }
-        /* Color transition - Indigo + teal balanced - fluid, connected (Integration) */
-        .positioning-item--02 .positioning-item__bg {
-            /* Integration: Indigo + teal balanced - fluid, connected */
-            background-image: linear-gradient(135deg, rgba(30,25,70,0.50) 0%, rgba(30,25,70,0.20) 100%), url('images/positioning-02.png');
-            background-size: cover;
-            background-position: center right;
-        }
-        /* Color transition - Teal gains prominence, luminous - transformative (Emergence) */
-        .positioning-item--03 .positioning-item__bg {
-            /* Emergence: Teal gains prominence, luminous - transformative */
-            background-image: linear-gradient(135deg, rgba(30,25,70,0.45) 0%, rgba(30,25,70,0.15) 100%), url('images/positioning-03.png');
-            background-size: cover;
-            background-position: center right;
-        }
-        /* Subtle grain texture overlay for image integration */
-        .positioning-item__texture {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0;
-            mix-blend-mode: overlay;
-            transition: opacity 1.2s ease-out;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-        }
-        .positioning-item__bg.visible + .positioning-item__texture {
-            opacity: 0.025; /* 2-3% grain effect */
-        }
-        /* Vignette overlay - darker edges, especially LEFT */
-        .positioning-item__vignette {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            background: radial-gradient(
-                ellipse at 30% 50%,
-                transparent 0%,
-                rgba(30, 25, 70, 0.3) 60%,
-                rgba(30, 25, 70, 0.5) 100%
-            );
-        }
-        /* Gradient overlay for text legibility - Option A: Atmospheric Bleed */
-        .positioning-item__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                rgba(30, 25, 70, 0.92) 0%,     /* left side (text) darker - 92% opacity */
-                rgba(30, 25, 70, 0.60) 70%,    /* center lightens */
-                rgba(30, 25, 70, 0.40) 100%    /* right side lets image breathe */
-            );
-            z-index: 2;
-            pointer-events: none;
-        }
-        .positioning-item__content {
-            position: relative;
-            z-index: 3;
-            max-width: 650px;
-            margin: 0 auto 0 0;
-            width: 50%; /* Text takes ~50% width on desktop */
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 48px;
-            align-items: start;
+        .positioning-item__text {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+            padding: 0 20px;
         }
         .positioning-item__num {
             font-family: 'DM Serif Display', serif;
@@ -845,12 +758,7 @@
             opacity: 0.6;
             letter-spacing: 0.08em;
             line-height: 1.4;
-            margin-top: 6px;
-        }
-        .positioning-item__text {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            margin-bottom: 8px;
         }
         .positioning-item__headline {
             font-family: 'DM Serif Display', serif;
@@ -859,76 +767,107 @@
             line-height: 1.25;
             letter-spacing: -0.02em;
             font-weight: 400;
+            margin-bottom: 8px;
         }
         .positioning-item__body {
             font-size: 17px;
             line-height: 1.8;
-            color: #B0ADC8; /* AA compliant body text - ~12:1 contrast ratio */
+            color: #B0ADC8;
             font-weight: 400;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .positioning-item__visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .positioning-img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(1.03);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: transform, opacity;
+            mask-image: radial-gradient(
+                ellipse 80% 80% at 60% 50%,
+                black 40%,
+                transparent 100%
+            );
+            -webkit-mask-image: radial-gradient(
+                ellipse 80% 80% at 60% 50%,
+                black 40%,
+                transparent 100%
+            );
+        }
+        .positioning-img.visible {
+            opacity: 0.7;
+            transform: scale(1);
         }
         /* RESPONSIVE BREAKPOINTS */
-        /* Tablet (768-1200px): Same structure, heavier overlay, parallax OFF */
+        /* Tablet (768-1200px): Reduced gaps */
         @media (max-width: 1200px) and (min-width: 769px) {
-            .positioning-item__content {
-                width: 60%; /* Slightly wider for tablets */
+            .positioning-item {
+                padding: 48px 40px;
+                gap: 4%;
             }
-            .positioning-item__overlay {
-                background: linear-gradient(
-                    90deg,
-                    rgba(30, 25, 70, 0.95) 0%,
-                    rgba(30, 25, 70, 0.75) 60%,
-                    rgba(30, 25, 70, 0.50) 100%
-                );
+            .positioning-item__text {
+                padding: 0 12px;
             }
         }
-        /* Mobile (<768px): Banner style above text, 200px height, centered crop, lighter overlay */
+        /* Mobile (<768px): Stack vertically, image on top */
         @media (max-width: 768px) {
+            #positioning {
+                padding: 80px 0;
+            }
             .pos-inner {
                 padding: 0 24px 48px;
             }
             .pos-subtitle {
                 margin-bottom: 48px;
             }
+            .pos-pillars {
+                gap: 60px;
+            }
             .positioning-item {
-                padding: 64px 24px; /* Balanced mobile padding */
-                display: flex;
-                flex-direction: column;
-                border-bottom: 1px solid rgba(255,255,255,0.04); /* Lighter border for mobile */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto;
+                gap: 32px;
+                padding: 48px 24px;
+                border-bottom: 1px solid rgba(255,255,255,0.04);
             }
-            .positioning-item__bg {
-                position: relative;
-                height: 200px;
-                width: 100%;
-                border-radius: 8px;
-                margin-bottom: 32px;
+            .positioning-item__visual {
                 order: -1;
-                background-position: center center; /* Centered crop */
-                /* Disable parallax animations on mobile */
-                transform: none !important;
-                opacity: 0.4 !important;
+                height: auto;
             }
-            .positioning-item__vignette,
-            .positioning-item__texture {
-                display: none; /* Simplified mobile */
-            }
-            .positioning-item__overlay {
-                /* Lighter overlay for mobile - text below image */
-                background: linear-gradient(
-                    180deg,
-                    rgba(30, 25, 70, 0.85) 0%,
-                    rgba(30, 25, 70, 0.95) 45%,
-                    rgba(30, 25, 70, 0.98) 100%
+            .positioning-img {
+                max-width: 100%;
+                height: 180px;
+                object-fit: cover;
+                object-position: center;
+                opacity: 0.7;
+                transform: scale(1);
+                mask-image: radial-gradient(
+                    ellipse 100% 100% at 50% 50%,
+                    black 60%,
+                    transparent 100%
+                );
+                -webkit-mask-image: radial-gradient(
+                    ellipse 100% 100% at 50% 50%,
+                    black 60%,
+                    transparent 100%
                 );
             }
-            .positioning-item__content {
-                width: 100%;
-                max-width: 100%;
-                grid-template-columns: 48px 1fr;
-                gap: 20px;
+            .positioning-item__text {
+                padding: 0;
+                text-align: center;
             }
             .positioning-item__num {
                 font-size: 12px;
-                margin-top: 4px;
+                margin-bottom: 6px;
             }
             .positioning-item__headline {
                 font-size: clamp(22px, 6vw, 28px);
@@ -936,19 +875,18 @@
             .positioning-item__body {
                 font-size: 16px;
                 line-height: 1.75;
-                color: #B8B5CC; /* Slightly brighter for mobile readability */
+                color: #B8B5CC;
             }
         }
         /* Accessibility: Respect prefers-reduced-motion */
         @media (prefers-reduced-motion: reduce) {
-            .positioning-item__bg {
-                opacity: 0.4;
+            .positioning-img {
+                opacity: 0.7;
                 transform: scale(1);
                 transition: none;
-                animation: none;
             }
-            .positioning-item:hover .positioning-item__bg {
-                opacity: 0.4;
+            .positioning-item:hover .positioning-img {
+                opacity: 0.7;
                 transform: scale(1);
             }
         }
@@ -1729,72 +1667,59 @@
         <div class="pos-pillars">
             <!-- Pillar 01 - Foundation: Led by those who've built -->
             <article class="positioning-item positioning-item--01 reveal" aria-label="Foundation pillar">
-                <!-- Background image - decorative, hidden from screen readers -->
-                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
-                <!-- Noise/grain texture overlay (2-3%) -->
-                <div class="positioning-item__texture" aria-hidden="true"></div>
-                <!-- Vignette overlay - darker edges, especially LEFT -->
-                <div class="positioning-item__vignette" aria-hidden="true"></div>
-                <!-- Gradient overlay for text legibility -->
-                <div class="positioning-item__overlay"></div>
-                <div class="positioning-item__content">
-                    <div class="positioning-item__num" aria-label="Pillar 01">01</div>
-                    <div class="positioning-item__text">
-                        <h3 class="positioning-item__headline"
-                            data-en="Led by those who've built what you're building."
-                            data-pt="Liderado por quem já construiu o que você está construindo.">
-                            Led by those who've built what you're building.
-                        </h3>
-                        <p class="positioning-item__body"
-                           data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
-                           data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
-                            Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
-                        </p>
-                    </div>
+                <div class="positioning-item__text">
+                    <span class="positioning-item__num" aria-label="Pillar 01">01</span>
+                    <h3 class="positioning-item__headline"
+                        data-en="Led by those who've built what you're building."
+                        data-pt="Liderado por quem já construiu o que você está construindo.">
+                        Led by those who've built what you're building.
+                    </h3>
+                    <p class="positioning-item__body"
+                       data-en="Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them."
+                       data-pt="Liderança de produto com histórico em empresas como iFood, Ambev e Procter & Gamble. Trazemos a experiência para tomar decisões difíceis e o julgamento para saber quando tomá-las.">
+                        Product leader with track record at companies like iFood, Ambev, and Procter & Gamble. We bring the experience to make hard calls and the judgment to know when to make them.
+                    </p>
+                </div>
+                <div class="positioning-item__visual">
+                    <img src="images/positioning-01.png" alt="" class="positioning-img" loading="lazy">
                 </div>
             </article>
             <!-- Pillar 02 - Integration: Inside your organization -->
             <article class="positioning-item positioning-item--02 reveal reveal-delay-1" aria-label="Integration pillar">
-                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
-                <div class="positioning-item__texture" aria-hidden="true"></div>
-                <div class="positioning-item__vignette" aria-hidden="true"></div>
-                <div class="positioning-item__overlay"></div>
-                <div class="positioning-item__content">
-                    <div class="positioning-item__num" aria-label="Pillar 02">02</div>
-                    <div class="positioning-item__text">
-                        <h3 class="positioning-item__headline"
-                            data-en="Inside your organization, not outside it."
-                            data-pt="Dentro da sua organização, não fora dela.">
-                            Inside your organization, not outside it.
-                        </h3>
-                        <p class="positioning-item__body"
-                           data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
-                           data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
-                            We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
-                        </p>
-                    </div>
+                <div class="positioning-item__text">
+                    <span class="positioning-item__num" aria-label="Pillar 02">02</span>
+                    <h3 class="positioning-item__headline"
+                        data-en="Inside your organization, not outside it."
+                        data-pt="Dentro da sua organização, não fora dela.">
+                        Inside your organization, not outside it.
+                    </h3>
+                    <p class="positioning-item__body"
+                       data-en="We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving."
+                       data-pt="Não produzimos relatórios e vamos embora. Trabalhamos ao lado do seu time - navegando suas restrições, sua política e seus trade-offs. O resultado não é um deck de recomendações. É um time alinhado e em movimento.">
+                        We don't produce reports and walk away. We work alongside your team - navigating your constraints, your politics, your trade-offs. The result isn't a recommendation deck. It's a team that's aligned and moving.
+                    </p>
+                </div>
+                <div class="positioning-item__visual">
+                    <img src="images/positioning-02.png" alt="" class="positioning-img" loading="lazy">
                 </div>
             </article>
             <!-- Pillar 03 - Emergence: Measured by what changes -->
             <article class="positioning-item positioning-item--03 reveal reveal-delay-2" aria-label="Emergence pillar">
-                <div class="positioning-item__bg" role="presentation" aria-hidden="true" loading="lazy"></div>
-                <div class="positioning-item__texture" aria-hidden="true"></div>
-                <div class="positioning-item__vignette" aria-hidden="true"></div>
-                <div class="positioning-item__overlay"></div>
-                <div class="positioning-item__content">
-                    <div class="positioning-item__num" aria-label="Pillar 03">03</div>
-                    <div class="positioning-item__text">
-                        <h3 class="positioning-item__headline"
-                            data-en="Measured by what changes, not what's delivered."
-                            data-pt="Medido pelo que muda, não pelo que é entregue.">
-                            Measured by what changes, not what's delivered.
-                        </h3>
-                        <p class="positioning-item__body"
-                           data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
-                           data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
-                            Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced.
-                        </p>
-                    </div>
+                <div class="positioning-item__text">
+                    <span class="positioning-item__num" aria-label="Pillar 03">03</span>
+                    <h3 class="positioning-item__headline"
+                        data-en="Measured by what changes, not what's delivered."
+                        data-pt="Medido pelo que muda, não pelo que é entregue.">
+                        Measured by what changes, not what's delivered.
+                    </h3>
+                    <p class="positioning-item__body"
+                       data-en="Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced."
+                       data-pt="Melhores decisões. Alinhamento mais rápido. Produtos que chegam ao mercado com clareza. Definimos sucesso pelo impacto no negócio que ajudamos a criar - não por horas registradas ou slides produzidos.">
+                        Better decisions. Faster alignment. Products that reach the market with clarity. We define success by the business impact we help create - not by hours logged or slides produced.
+                    </p>
+                </div>
+                <div class="positioning-item__visual">
+                    <img src="images/positioning-03.png" alt="" class="positioning-img" loading="lazy">
                 </div>
             </article>
         </div>
@@ -2041,44 +1966,19 @@
             });
         }, { threshold: 0.12 });
         reveals.forEach(el => observer.observe(el));
-        // --- POSITIONING ITEMS BACKGROUND ANIMATION ---
-        // Images start: opacity 0, scale 1.05
-        // On viewport entry (threshold 0.3): transition to opacity 0.4, scale 1
-        const positioningItems = document.querySelectorAll('.positioning-item__bg');
-        const positioningObserver = new IntersectionObserver((entries) => {
+        // --- POSITIONING ITEMS IMAGE ANIMATION ---
+        // Images start: opacity 0, scale 1.03
+        // On viewport entry (threshold 0.3): transition to opacity 0.7, scale 1
+        const positioningImgs = document.querySelectorAll('.positioning-img');
+        const positioningImgObserver = new IntersectionObserver((entries) => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.classList.add('visible');
-                    positioningObserver.unobserve(e.target);
+                    positioningImgObserver.unobserve(e.target);
                 }
             });
         }, { threshold: 0.3 });
-        positioningItems.forEach(el => positioningObserver.observe(el));
-        // --- PARALLAX EFFECT FOR POSITIONING BACKGROUNDS ---
-        // Background moves 20% slower than scroll (ratio 0.8)
-        const positioningItemsParallax = document.querySelectorAll('.positioning-item');
-        let ticking = false;
-        function updateParallax() {
-            positioningItemsParallax.forEach(item => {
-                const bg = item.querySelector('.positioning-item__bg');
-                if (!bg) return;
-                const rect = item.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                // Only process if item is in viewport
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
-                    const parallaxOffset = (scrollProgress - 0.5) * -20; // 20% parallax range
-                    bg.style.transform = `translateY(${parallaxOffset}%) ${bg.classList.contains('visible') ? 'scale(1)' : 'scale(1.05)'}`;
-                }
-            });
-            ticking = false;
-        }
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        });
+        positioningImgs.forEach(el => positioningImgObserver.observe(el));
         // --- LANGUAGE TOGGLE ---
         let currentLang = 'pt';
         function setLang(lang) {
