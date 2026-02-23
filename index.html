@@ -732,6 +732,8 @@
             overflow: hidden;
             padding: 120px 60px;
             margin: 0;
+            content-visibility: auto; /* Performance optimization */
+            contain-intrinsic-size: 400px; /* Estimated render size */
         }
         .positioning-item__bg {
             position: absolute;
@@ -743,6 +745,11 @@
             transition: opacity 1.2s ease-out, transform 1.2s ease-out;
             will-change: transform, opacity;
             z-index: 1;
+            /* Image treatment notes for subagent implementation:
+               - Color grading: Match indigo to brand #4E4AAD, adjust saturation/hue
+               - Contrast: Reduce slightly (background role, not focus)
+               - Noise/grain: Add subtle 2-3% grain via overlay texture
+               - Vignette: Darken edges, especially LEFT edge (where text sits) */
         }
         .positioning-item__bg.visible {
             opacity: 0.4;
@@ -757,19 +764,47 @@
         .positioning-item--01 .positioning-item__bg {
             /* Foundation: Deep indigo, subtle teal - dense, grounded */
             background: linear-gradient(135deg, rgba(78,74,173,0.35) 0%, rgba(30,25,70,0.6) 40%, rgba(46,196,182,0.1) 100%);
-            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 1.png or .webp (1920x800px desktop, 1200x600px tablet, 800x800px mobile) */
+            /* TODO: Replace with images/positioning-01-foundation-desktop.webp (1920x800px)
+               + tablet (1200x600px) + mobile (800x800px) versions */
         }
         /* Color transition - Indigo + teal balanced - fluid, connected (Integration) */
         .positioning-item--02 .positioning-item__bg {
             /* Integration: Indigo + teal balanced - fluid, connected */
             background: linear-gradient(135deg, rgba(46,196,182,0.2) 0%, rgba(78,74,173,0.3) 45%, rgba(46,196,182,0.25) 100%);
-            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 2.png or .webp */
+            /* TODO: Replace with images/positioning-02-integration-desktop.webp etc. */
         }
         /* Color transition - Teal gains prominence, luminous - transformative (Emergence) */
         .positioning-item--03 .positioning-item__bg {
             /* Emergence: Teal gains prominence, luminous - transformative */
             background: linear-gradient(135deg, rgba(46,196,182,0.35) 0%, rgba(78,74,173,0.25) 50%, rgba(46,196,182,0.2) 100%);
-            /* TODO: Replace with documents/Daaz Mkt Assets/abstract 3.png or .webp */
+            /* TODO: Replace with images/positioning-03-emergence-desktop.webp etc. */
+        }
+        /* Subtle grain texture overlay for image integration */
+        .positioning-item__texture {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            mix-blend-mode: overlay;
+            transition: opacity 1.2s ease-out;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        }
+        .positioning-item__bg.visible + .positioning-item__texture {
+            opacity: 0.025; /* 2-3% grain effect */
+        }
+        /* Vignette overlay - darker edges, especially LEFT */
+        .positioning-item__vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse at 30% 50%,
+                transparent 0%,
+                rgba(30, 25, 70, 0.3) 60%,
+                rgba(30, 25, 70, 0.5) 100%
+            );
         }
         /* Gradient overlay for text legibility - Option A: Atmospheric Bleed */
         .positioning-item__overlay {
@@ -777,18 +812,19 @@
             inset: 0;
             background: linear-gradient(
                 90deg,
-                rgba(30, 25, 70, 0.92) 0%,     /* left side (text) darker */
+                rgba(30, 25, 70, 0.92) 0%,     /* left side (text) darker - 92% opacity */
                 rgba(30, 25, 70, 0.60) 70%,    /* center lightens */
-                rgba(30, 25, 70, 0.40) 100%   /* right side lets image breathe */
+                rgba(30, 25, 70, 0.40) 100%    /* right side lets image breathe */
             );
-            z-index: 1;
+            z-index: 2;
             pointer-events: none;
         }
         .positioning-item__content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 650px;
             margin: 0 auto 0 0;
+            width: 50%; /* Text takes ~50% width on desktop */
             display: grid;
             grid-template-columns: 80px 1fr;
             gap: 48px;
@@ -820,29 +856,64 @@
         .positioning-item__body {
             font-size: 17px;
             line-height: 1.8;
-            color: rgba(245,243,240,0.75);
+            color: #B0ADC8; /* AA compliant body text - ~12:1 contrast ratio */
             font-weight: 400;
         }
-        /* Mobile responsive positioning items */
-        @media (max-width: 768px) {
-            .pos-inner {
-                padding: 0 24px 64px;
-            }
-            .pos-subtitle {
-                margin-bottom: 48px;
-            }
-            .positioning-item {
-                padding: 72px 24px;
+        /* RESPONSIVE BREAKPOINTS */
+        /* Tablet (768-1200px): Same structure, heavier overlay, parallax OFF */
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .positioning-item__content {
+                width: 60%; /* Slightly wider for tablets */
             }
             .positioning-item__overlay {
                 background: linear-gradient(
                     90deg,
                     rgba(30, 25, 70, 0.95) 0%,
-                    rgba(30, 25, 70, 0.75) 50%,
-                    rgba(30, 25, 70, 0.55) 100%
+                    rgba(30, 25, 70, 0.75) 60%,
+                    rgba(30, 25, 70, 0.50) 100%
+                );
+            }
+        }
+        /* Mobile (<768px): Banner style above text, 200px height, centered crop, lighter overlay */
+        @media (max-width: 768px) {
+            .pos-inner {
+                padding: 0 24px 48px;
+            }
+            .pos-subtitle {
+                margin-bottom: 48px;
+            }
+            .positioning-item {
+                padding: 40px 24px 72px;
+                display: flex;
+                flex-direction: column;
+            }
+            .positioning-item__bg {
+                position: relative;
+                height: 200px;
+                width: 100%;
+                border-radius: 8px;
+                margin-bottom: 32px;
+                order: -1;
+                background-position: center center; /* Centered crop */
+                /* Disable parallax animations on mobile */
+                transform: none !important;
+                opacity: 0.4 !important;
+            }
+            .positioning-item__vignette,
+            .positioning-item__texture {
+                display: none; /* Simplified mobile */
+            }
+            .positioning-item__overlay {
+                /* Lighter overlay for mobile - text below image */
+                background: linear-gradient(
+                    180deg,
+                    rgba(30, 25, 70, 0.85) 0%,
+                    rgba(30, 25, 70, 0.95) 45%,
+                    rgba(30, 25, 70, 0.98) 100%
                 );
             }
             .positioning-item__content {
+                width: 100%;
                 max-width: 100%;
                 grid-template-columns: 48px 1fr;
                 gap: 20px;
@@ -857,6 +928,20 @@
             .positioning-item__body {
                 font-size: 16px;
                 line-height: 1.75;
+                color: #B8B5CC; /* Slightly brighter for mobile readability */
+            }
+        }
+        /* Accessibility: Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .positioning-item__bg {
+                opacity: 0.4;
+                transform: scale(1);
+                transition: none;
+                animation: none;
+            }
+            .positioning-item:hover .positioning-item__bg {
+                opacity: 0.4;
+                transform: scale(1);
             }
         }
         /* --- SERVICES --- */
@@ -1528,6 +1613,11 @@
                 gap: 16px;
                 text-align: center;
             }
+            /* Mobile: unlimited height for brand logos */
+            .brand-logos-image {
+                max-height: none;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -1889,7 +1979,10 @@
                 </p>
                 <a href="https://www.linkedin.com/in/avelarfernando/" target="_blank" class="about-linkedin" data-en="Connect on LinkedIn →" data-pt="Conecte no LinkedIn →">Connect on LinkedIn →</a>
                 <div class="logos-row">
-                    <img src="images/brand-logos.webp" alt="iFood e 3 Corações" class="brand-logos-image">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="images/brand-logos-new-mobile.png">
+                        <img src="images/brand-logos.webp" alt="iFood e 3 Corações" class="brand-logos-image">
+                    </picture>
                 </div>
             </div>
         </div>
