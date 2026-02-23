@@ -240,6 +240,31 @@
         .cta-secondary::after {
             content:' →';
         }
+        /* Contextual divider between CTA and metrics */
+        .hero-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 36px;
+            margin-bottom: 32px;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            position: relative;
+        }
+        .hero-divider::before,
+        .hero-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.22);
+            margin: 0 16px;
+        }
         .hero-proof {
             margin-top: 60px;
             display:flex;
@@ -1305,6 +1330,17 @@
                 padding: 14px 32px;
                 font-size: 15px;
             }
+            .hero-divider {
+                margin-top: 28px;
+                margin-bottom: 24px;
+                max-width: 280px;
+                font-size: 10px;
+                letter-spacing: 0.15em;
+            }
+            .hero-divider::before,
+            .hero-divider::after {
+                margin: 0 12px;
+            }
             .hero-proof {
                 margin-top: 36px;
                 padding-top: 24px;
@@ -1404,6 +1440,8 @@
                 <a href="https://wa.me/5519998607474" target="_blank" class="cta-primary" data-en="Let's talk" data-pt="Vamos conversar">Let's talk</a>
                 <a href="#services" class="cta-secondary" data-en="See how we work" data-pt="Como trabalhamos">See how we work</a>
             </div>
+            <!-- Contextual divider -->
+            <div class="hero-divider" data-en="✦ AI-accelerated ✦" data-pt="✦ acelerado por IA ✦">✦ AI-accelerated ✦</div>
             <!-- Social proof bar -->
             <div class="hero-proof">
                 <div class="proof-stat">
