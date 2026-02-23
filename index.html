@@ -755,14 +755,13 @@
             opacity: 0.5;
             transform: translateY(-50%) scale(1);
         }
-        /* Text block - centered but shifted left */
+        /* Text block - aligned left at consistent position */
         .positioning-text {
             position: relative;
             z-index: 2;
             max-width: 500px;
-            margin-left: auto;
+            margin-left: 15%;
             margin-right: auto;
-            transform: translateX(-15%);
             text-align: left;
             padding: 0 24px;
         }
@@ -794,11 +793,14 @@
         }
         /* Mobile (<768px): Image above text */
         @media (max-width: 768px) {
+            #positioning {
+                padding: 80px 0 100px;
+            }
             .positioning-item {
                 min-height: auto;
                 padding: 0;
                 flex-direction: column;
-                margin-bottom: 60px;
+                margin-bottom: 80px;
             }
             .positioning-item:last-child {
                 margin-bottom: 0;
@@ -843,7 +845,8 @@
         @media (max-width: 1200px) and (min-width: 769px) {
             .positioning-text {
                 max-width: 420px;
-                transform: translateX(-10%);
+                margin-left: 12%;
+                margin-right: auto;
                 padding: 0 20px;
             }
             .positioning-bg {
