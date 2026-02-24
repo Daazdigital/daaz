@@ -800,7 +800,7 @@
                 min-height: auto;
                 padding: 0;
                 flex-direction: column;
-                margin-bottom: 80px;
+                margin-bottom: 56px;
             }
             .positioning-item:last-child {
                 margin-bottom: 0;
@@ -824,7 +824,7 @@
             .positioning-text {
                 transform: none;
                 max-width: 100%;
-                padding: 0 32px;
+                padding: 24px 32px 0;
                 margin: 0 auto;
                 text-align: left;
             }
@@ -1394,10 +1394,10 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
-                height: auto;           /* Wrap tightly to content */
-                min-height: unset;      /* Remove min-height constraint */
-                padding: 0;             /* Remove all padding */
-                margin: 0;              /* Remove all margin */
+                height: auto !important;
+                min-height: 0 !important;
+                padding: 0;
+                margin: 0;
                 padding-top: 76px;      /* Clear navbar */
                 /* Purple glows cover ENTIRE section */
                 background:
@@ -1410,30 +1410,38 @@
                     /* Base dark */
                     #0f0e1f;
             }
-            /* Image positioned over the purple background - ORIGINAL FORMAT */
+            /* Image positioned over the purple background */
             .hero-visual {
                 position: relative;
                 width: 100%;
-                height: auto;           /* Natural height, no fixed aspect-ratio */
-                aspect-ratio: auto;       /* Remove aspect-ratio constraint */
+                height: auto !important;
+                min-height: 0 !important;
+                overflow: hidden;
                 z-index: 1;
                 order: 2;
-                padding: 0;             /* Remove any padding */
-                margin: 0;              /* Remove any margin */
-                /* Sem mask-image - imagem completa visível */
+                padding: 0;
+                margin: 12px 0 0;
+                line-height: 0;
+                font-size: 0;
+            }
+            .hero-visual picture {
+                display: block;
+                width: 100%;
+                line-height: 0;
             }
             .hero-img {
-                display: block;         /* Remove inline image gap */
-                object-position: center center;
-                border-radius: 12px;
-                object-fit: contain;    /* Show full image, no cropping */
+                display: block;
                 width: 100%;
-                height: auto;           /* Natural height based on image */
+                height: auto;           /* Image dictates its own height — no empty space */
+                max-height: 100vw;      /* Cap at screen width = square max */
+                object-fit: cover;
+                object-position: center top;
+                border-radius: 0;
                 position: relative;
-                -webkit-mask-image: none;
-                mask-image: none;
-                padding: 0;             /* Remove any padding */
-                margin: 0;              /* Remove any margin */
+                -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+                mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+                padding: 0;
+                margin: 0;
             }
             /* No overlay needed - image fades naturally via mask */
             .hero-visual::before,
@@ -1445,20 +1453,20 @@
                 position: relative;
                 z-index: 3;
                 order: 1;
-                padding: 32px 28px 0;     /* Tightened top padding */
+                padding: 40px 28px 0;
                 margin: 0;
                 max-width: 100%;
             }
             .hero-label {
-                margin-bottom: 12px;
+                margin-bottom: 14px;
             }
             .hero-headline {
                 font-size: clamp(32px, 8vw, 44px);
-                margin-bottom: 12px;
+                margin-bottom: 16px;
             }
             .hero-sub {
                 font-size: 15px;
-                margin-bottom: 24px;
+                margin-bottom: 28px;
                 max-width: 100%;
                 color: rgba(245,243,240,0.72);
             }
@@ -1471,8 +1479,8 @@
                 font-size: 15px;
             }
             .hero-divider {
-                margin-top: 28px;
-                margin-bottom: -16px;
+                margin-top: 32px;
+                margin-bottom: -12px;
                 max-width: 400px;
                 font-size: 15px;
                 letter-spacing: 0.08em;
@@ -1483,8 +1491,8 @@
                 margin: 0 10px;
             }
             .hero-stats-wrapper {
-                padding: 20px 20px 0;     /* Removed bottom padding */
-                margin-top: 12px;
+                padding: 20px 20px 16px;
+                margin-top: 16px;
                 margin-bottom: 0;
             }
             .hero-stats-wrapper::before {
@@ -1494,7 +1502,7 @@
             .hero-proof {
                 margin-top: 12px;
                 padding-top: 0;
-                padding-bottom: 8px;      /* Minimal gap before image */
+                padding-bottom: 4px;
                 gap: 20px;
             }
             .proof-num {
@@ -1509,7 +1517,7 @@
             }
             /* --- REST OF SECTIONS --- */
             #tension {
-                padding: 12px 24px 80px;  /* Tightened top padding under hero image */
+                padding: 56px 24px 80px;  /* Harmonious top padding after hero image */
             }
             #services, #cases, #about, #cta-final {
                 padding: 80px 24px;
