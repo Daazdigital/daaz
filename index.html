@@ -1445,36 +1445,34 @@
                 position: relative;
                 z-index: 3;
                 order: 1;
-                padding: 40px 28px 0;     /* Removed bottom padding to bring image closer */
+                padding: 32px 28px 0;     /* Tightened top padding */
                 margin: 0;
                 max-width: 100%;
             }
-            }
             .hero-label {
-                margin-bottom: 16px;
+                margin-bottom: 12px;
             }
             .hero-headline {
                 font-size: clamp(32px, 8vw, 44px);
-                margin-bottom: 16px;
+                margin-bottom: 12px;
             }
             .hero-sub {
                 font-size: 15px;
-                margin-bottom: 32px;
+                margin-bottom: 24px;
                 max-width: 100%;
-                /* Slightly more visible on mobile */
                 color: rgba(245,243,240,0.72);
             }
             .hero-ctas {
-                gap: 16px;
+                gap: 12px;
                 flex-wrap: wrap;
             }
             .cta-primary {
-                padding: 14px 32px;
+                padding: 12px 28px;
                 font-size: 15px;
             }
             .hero-divider {
-                margin-top: 36px;
-                margin-bottom: -12px;
+                margin-top: 28px;
+                margin-bottom: -16px;
                 max-width: 400px;
                 font-size: 15px;
                 letter-spacing: 0.08em;
@@ -1485,16 +1483,18 @@
                 margin: 0 10px;
             }
             .hero-stats-wrapper {
-                padding: 24px 20px 16px;
-                margin-top: 16px;
+                padding: 20px 20px 0;     /* Removed bottom padding */
+                margin-top: 12px;
+                margin-bottom: 0;
             }
             .hero-stats-wrapper::before {
                 max-width: 340px;
                 height: 130%;
             }
             .hero-proof {
-                margin-top: 16px;
+                margin-top: 12px;
                 padding-top: 0;
+                padding-bottom: 8px;      /* Minimal gap before image */
                 gap: 20px;
             }
             .proof-num {
@@ -1508,7 +1508,10 @@
                 display: none;
             }
             /* --- REST OF SECTIONS --- */
-            #tension, #services, #cases, #about, #cta-final {
+            #tension {
+                padding: 12px 24px 80px;  /* Tightened top padding under hero image */
+            }
+            #services, #cases, #about, #cta-final {
                 padding: 80px 24px;
             }
             #positioning {
