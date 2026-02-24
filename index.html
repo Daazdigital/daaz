@@ -1394,8 +1394,11 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
-                min-height: auto;
-                padding-top: 76px; /* Clear navbar */
+                height: auto;           /* Wrap tightly to content */
+                min-height: unset;      /* Remove min-height constraint */
+                padding: 0;             /* Remove all padding */
+                margin: 0;              /* Remove all margin */
+                padding-top: 76px;      /* Clear navbar */
                 /* Purple glows cover ENTIRE section */
                 background:
                     /* Top-left indigo glow */
@@ -1411,21 +1414,26 @@
             .hero-visual {
                 position: relative;
                 width: 100%;
-                height: auto;           /* Altura natural proporcional */
-                aspect-ratio: 1 / 1;    /* Formato quadrado */
+                height: auto;           /* Natural height, no fixed aspect-ratio */
+                aspect-ratio: auto;       /* Remove aspect-ratio constraint */
                 z-index: 1;
                 order: 2;
+                padding: 0;             /* Remove any padding */
+                margin: 0;              /* Remove any margin */
                 /* Sem mask-image - imagem completa visível */
             }
             .hero-img {
+                display: block;         /* Remove inline image gap */
                 object-position: center center;
                 border-radius: 12px;
-                object-fit: contain;          /* Show full image, no cropping */
+                object-fit: contain;    /* Show full image, no cropping */
                 width: 100%;
-                height: 100%;
+                height: auto;           /* Natural height based on image */
                 position: relative;
                 -webkit-mask-image: none;
                 mask-image: none;
+                padding: 0;             /* Remove any padding */
+                margin: 0;              /* Remove any margin */
             }
             /* No overlay needed - image fades naturally via mask */
             .hero-visual::before,
@@ -1437,7 +1445,8 @@
                 position: relative;
                 z-index: 3;
                 order: 1;
-                padding: 40px 28px 20px;
+                padding: 40px 28px 20px;  /* Keep horizontal padding (28px), adjust vertical */
+                margin: 0;                /* Remove any margin */
                 max-width: 100%;
             }
             .hero-label {
