@@ -1,0 +1,26 @@
+# Sensitive data - Memory files with internal notes
+memory/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment variables (if any)
+.env
+.env.*
+
+# Secrets
+secrets/
+*.key
+*.pem
+
+# Temporary files
+tmp/
+temp/
+*.tmp
