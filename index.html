@@ -1519,9 +1519,15 @@
             #tension {
                 padding: 56px 24px 80px;  /* Harmonious top padding after hero image */
             }
-            #services, #cases, #about, #cta-final {
+            #services, #cases, #about, #testimonials, #cta-final {
                 padding: 80px 24px;
             }
+            .daaz-testi-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+            .daaz-testi-featured { grid-row: auto; padding: 36px 28px; }
+            .daaz-testi-secondary { padding: 28px 24px; }
+            .daaz-trust-bar { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .daaz-trust-companies { gap: 16px; }
+            .daaz-trust-company { font-size: 16px; }
             #positioning {
                 padding: 80px 0;
             }
@@ -1561,6 +1567,154 @@
                 height: auto;
             }
         }
+        /* ======= TESTIMONIALS SECTION ======= */
+        #testimonials {
+            background: white;
+            padding: 120px 60px;
+            position: relative;
+        }
+        .testimonials-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Section header */
+        .testi-section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 16px;
+            display: block;
+        }
+        .testi-section-headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 3.5vw, 46px);
+            line-height: 1.15;
+            color: var(--indigo);
+            letter-spacing: -0.02em;
+            margin-bottom: 56px;
+            max-width: 540px;
+        }
+        .testi-section-headline em { font-style: italic; color: var(--teal); }
+        /* Trust bar */
+        .daaz-trust-bar {
+            display: flex; align-items: center; gap: 40px;
+            margin-bottom: 64px; padding-bottom: 40px;
+            border-bottom: 1px solid rgba(74,58,186,0.1);
+        }
+        .daaz-trust-label {
+            font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--warmgray);
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .daaz-trust-companies { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+        .daaz-trust-company {
+            font-family: 'DM Serif Display', serif;
+            font-size: 20px; letter-spacing: -0.01em;
+            color: rgba(74,58,186,0.2); transition: color .25s;
+        }
+        .daaz-trust-company:hover { color: var(--indigo); }
+        .daaz-trust-sep { color: rgba(74,58,186,0.15); font-size: 14px; }
+        /* Grid */
+        .daaz-testi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        /* Featured card */
+        .daaz-testi-featured {
+            grid-row: 1 / 3;
+            background: var(--indigo-dark);
+            border-radius: 20px;
+            padding: 52px 48px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            position: relative; overflow: hidden;
+            box-shadow: 0 20px 60px rgba(26,26,46,0.25);
+        }
+        .daaz-testi-featured::before {
+            content: '';
+            position: absolute; top: 0; left: 0; bottom: 0; width: 5px;
+            background: var(--teal); border-radius: 20px 0 0 20px;
+        }
+        .daaz-testi-featured::after {
+            content: '';
+            position: absolute; bottom: -60px; right: -60px;
+            width: 300px; height: 300px;
+            background: radial-gradient(ellipse, rgba(78,74,173,0.4) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .daaz-bg-quote {
+            position: absolute; bottom: -10px; right: 32px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 200px; line-height: 1;
+            color: rgba(46,196,182,0.05);
+            pointer-events: none; user-select: none;
+        }
+        /* Secondary cards */
+        .daaz-testi-secondary {
+            background: var(--offwhite);
+            border-radius: 20px;
+            padding: 40px 40px;
+            display: flex; flex-direction: column;
+            position: relative; overflow: hidden;
+            border: 1px solid rgba(74,58,186,0.07);
+            box-shadow: 0 4px 32px rgba(74,58,186,0.07);
+        }
+        .daaz-testi-secondary::before {
+            content: '';
+            position: absolute; top: 0; left: 0; bottom: 0; width: 5px;
+            border-radius: 20px 0 0 20px;
+        }
+        .daaz-testi-secondary.accent-teal::before { background: var(--teal); }
+        .daaz-testi-secondary.accent-gold::before { background: var(--gold); }
+        /* Stars */
+        .daaz-testi-stars { display: flex; gap: 4px; margin-bottom: 24px; }
+        .daaz-testi-star { color: var(--teal); font-size: 13px; }
+        /* Quote text */
+        .daaz-testi-featured .daaz-testi-quote {
+            font-family: 'DM Serif Display', serif;
+            color: rgba(245,243,240,0.88);
+            font-size: 18px; line-height: 1.65; font-style: italic;
+            flex: 1; margin-bottom: 40px;
+        }
+        .daaz-testi-secondary .daaz-testi-quote {
+            font-size: 15px; line-height: 1.78; font-style: italic;
+            color: var(--warmgray); flex: 1; margin-bottom: 28px;
+        }
+        /* Author row */
+        .daaz-testi-author-row { display: flex; align-items: center; gap: 16px; }
+        /* Overlapping avatars */
+        .daaz-avatar-group { display: flex; align-items: flex-start; flex-shrink: 0; }
+        .daaz-avatar-person {
+            width: 64px; height: 64px; border-radius: 50%;
+            overflow: hidden; position: relative; z-index: 2;
+        }
+        .daaz-avatar-person img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .daaz-avatar-logo {
+            width: 64px; height: 64px; border-radius: 50%;
+            overflow: hidden; position: relative; z-index: 1;
+            margin-left: -18px; margin-top: 22px;
+            background: white; display: flex; align-items: center; justify-content: center;
+        }
+        .daaz-avatar-logo img { width: 46px; height: 46px; object-fit: contain; display: block; }
+        .daaz-testi-featured .daaz-avatar-person { border: 2px solid var(--indigo-dark); }
+        .daaz-testi-featured .daaz-avatar-logo  { border: 2px solid var(--indigo-dark); }
+        .daaz-testi-secondary .daaz-avatar-person { border: 2px solid var(--offwhite); }
+        .daaz-testi-secondary .daaz-avatar-logo  { border: 2px solid var(--offwhite); }
+        /* Author text */
+        .daaz-testi-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px; letter-spacing: -0.01em; margin-bottom: 4px;
+        }
+        .daaz-testi-featured .daaz-testi-name { color: white; }
+        .daaz-testi-secondary .daaz-testi-name { color: var(--nearblack); }
+        .daaz-testi-role {
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--warmgray);
+        }
+        .daaz-testi-featured .daaz-testi-role { color: rgba(245,243,240,0.4); }
     </style>
 </head>
 <body>
@@ -1928,6 +2082,106 @@
             </div>
         </div>
     </section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+        <div class="testimonials-inner">
+            <span class="testi-section-tag reveal" data-en="What Clients Say" data-pt="O Que Dizem os Clientes">O Que Dizem os Clientes</span>
+            <h2 class="testi-section-headline reveal" data-en="Leaders who moved from doubt <em>to clarity.</em>" data-pt="Líderes que saíram da dúvida <em>para a clareza.</em>">Líderes que saíram da dúvida <em>para a clareza.</em></h2>
+
+            <div class="daaz-trust-bar reveal">
+                <span class="daaz-trust-label" data-en="Trusted by" data-pt="Confiam na DAAZ">Confiam na DAAZ</span>
+                <div class="daaz-trust-companies">
+                    <span class="daaz-trust-company">Seventech</span>
+                    <span class="daaz-trust-sep">·</span>
+                    <span class="daaz-trust-company">Somnis</span>
+                    <span class="daaz-trust-sep">·</span>
+                    <span class="daaz-trust-company">Guerini &amp; Soriano</span>
+                </div>
+            </div>
+
+            <div class="daaz-testi-grid">
+
+                <!-- Featured: Natanael Santos -->
+                <div class="daaz-testi-featured reveal">
+                    <span class="daaz-bg-quote" aria-hidden="true">"</span>
+                    <div>
+                        <div class="daaz-testi-stars">
+                            <span class="daaz-testi-star">★</span><span class="daaz-testi-star">★</span>
+                            <span class="daaz-testi-star">★</span><span class="daaz-testi-star">★</span>
+                            <span class="daaz-testi-star">★</span>
+                        </div>
+                        <p class="daaz-testi-quote"
+                            data-en='"Fernando became an essential strategic partner. His sharp product insight, combined with high analytical rigor, made us evaluate opportunities with greater precision — eliminating those that didn't hold up. He gets things done fast, driven by action and experimentation. He accelerated stalled initiatives and left a real legacy: our team now thinks and operates differently."'
+                            data-pt='"Fernando se tornou um parceiro estratégico essencial. Seu olhar afiado para produto, aliado a um rigor analítico elevado, nos fez avaliar oportunidades com mais critério — eliminando as que não se sustentavam. Ele faz acontecer rápido, é orientado a ação e experimentação. Acelerou iniciativas que estavam travadas e deixou um legado real: nosso time hoje pensa e opera de forma diferente."'>
+                            "Fernando se tornou um parceiro estratégico essencial. Seu olhar afiado para produto, aliado a um rigor analítico elevado, nos fez avaliar oportunidades com mais critério — eliminando as que não se sustentavam. Ele faz acontecer rápido, é orientado a ação e experimentação. Acelerou iniciativas que estavam travadas e deixou um legado real: nosso time hoje pensa e opera de forma diferente."
+                        </p>
+                    </div>
+                    <div class="daaz-testi-author-row">
+                        <div class="daaz-avatar-group">
+                            <div class="daaz-avatar-person"><img src="images/testimonials/Natanael.png" alt="Natanael Santos"></div>
+                            <div class="daaz-avatar-logo"><img src="images/testimonials/Logo Seventech.webp" alt="Seventech"></div>
+                        </div>
+                        <div>
+                            <div class="daaz-testi-name">Natanael Santos</div>
+                            <div class="daaz-testi-role" data-en="Founder &amp; CEO — Seventech" data-pt="Fundador &amp; CEO — Seventech">Fundador &amp; CEO — Seventech</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary: Julia Soriano -->
+                <div class="daaz-testi-secondary accent-gold reveal reveal-delay-1">
+                    <div class="daaz-testi-stars">
+                        <span class="daaz-testi-star" style="color:var(--gold)">★</span>
+                        <span class="daaz-testi-star" style="color:var(--gold)">★</span>
+                        <span class="daaz-testi-star" style="color:var(--gold)">★</span>
+                        <span class="daaz-testi-star" style="color:var(--gold)">★</span>
+                        <span class="daaz-testi-star" style="color:var(--gold)">★</span>
+                    </div>
+                    <p class="daaz-testi-quote"
+                        data-en='"Fernando delivered more than a tool — he delivered a custom solution for our operation. He understood our business deeply, and the result was an AI system that multiplies lawyer productivity by 6×. More than a consultant, he was a strategic partner for the firm."'
+                        data-pt='"O Fernando entregou mais que uma ferramenta, entregou uma solução customizada para a nossa operação. Ele entendeu nosso negócio a fundo, e o resultado foi um sistema de IA que multiplica por 6x a produtividade dos advogados. Mais que um consultor, foi um parceiro estratégico do escritório."'>
+                        "O Fernando entregou mais que uma ferramenta, entregou uma solução customizada para a nossa operação. Ele entendeu nosso negócio a fundo, e o resultado foi um sistema de IA que multiplica por 6x a produtividade dos advogados. Mais que um consultor, foi um parceiro estratégico do escritório."
+                    </p>
+                    <div class="daaz-testi-author-row">
+                        <div class="daaz-avatar-group">
+                            <div class="daaz-avatar-person"><img src="images/testimonials/Julia.png" alt="Julia Soriano"></div>
+                            <div class="daaz-avatar-logo"><img src="images/testimonials/Logo Guerini e Soriano.png" alt="Guerini e Soriano"></div>
+                        </div>
+                        <div>
+                            <div class="daaz-testi-name">Julia Soriano</div>
+                            <div class="daaz-testi-role" data-en="Founder — Guerini &amp; Soriano Advocacia" data-pt="Fundadora — Guerini e Soriano Advocacia">Fundadora — Guerini e Soriano Advocacia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary: Leandro Trevisan -->
+                <div class="daaz-testi-secondary accent-teal reveal reveal-delay-2">
+                    <div class="daaz-testi-stars">
+                        <span class="daaz-testi-star">★</span><span class="daaz-testi-star">★</span>
+                        <span class="daaz-testi-star">★</span><span class="daaz-testi-star">★</span>
+                        <span class="daaz-testi-star">★</span>
+                    </div>
+                    <p class="daaz-testi-quote"
+                        data-en='"Fernando is extremely sharp in understanding demands, quickly grasping the essence and priorities of each challenge. He consistently delivers above expectations, with quality and on time. His ability to align strategy and execution makes him a highly reliable and differentiated partner."'
+                        data-pt='"Fernando é extremamente sagaz na compreensão das demandas, captando rapidamente a essência e as prioridades de cada desafio. Entrega consistentemente acima do esperado, sempre com qualidade e dentro do prazo. Sua capacidade de alinhar estratégia e execução faz dele um parceiro altamente confiável e diferenciado."'>
+                        "Fernando é extremamente sagaz na compreensão das demandas, captando rapidamente a essência e as prioridades de cada desafio. Entrega consistentemente acima do esperado, sempre com qualidade e dentro do prazo. Sua capacidade de alinhar estratégia e execução faz dele um parceiro altamente confiável e diferenciado."
+                    </p>
+                    <div class="daaz-testi-author-row">
+                        <div class="daaz-avatar-group">
+                            <div class="daaz-avatar-person"><img src="images/testimonials/Leandro.png" alt="Leandro Trevisan"></div>
+                            <div class="daaz-avatar-logo"><img src="images/testimonials/Logo Somnis.jpeg" alt="Somnis"></div>
+                        </div>
+                        <div>
+                            <div class="daaz-testi-name">Leandro Trevisan</div>
+                            <div class="daaz-testi-role" data-en="CEO — Somnis" data-pt="CEO — Somnis">CEO — Somnis</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section id="cta-final">
         <div class="cta-bg-shape-left"></div>
