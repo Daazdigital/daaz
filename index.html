@@ -1742,6 +1742,38 @@
             letter-spacing: 0.1em; text-transform: uppercase; color: var(--warmgray);
         }
         .daaz-testi-featured .daaz-testi-role { color: rgba(245,243,240,0.4); }
+
+        /* Testimonials — mobile overrides (after desktop rules to win cascade) */
+        @media (max-width: 768px) {
+            #testimonials { padding: 80px 24px; }
+            .testi-section-headline { margin-bottom: 36px; }
+            .daaz-trust-bar {
+                flex-direction: column; align-items: flex-start;
+                gap: 12px; margin-bottom: 40px; padding-bottom: 28px;
+            }
+            .daaz-trust-companies { gap: 10px; flex-wrap: wrap; }
+            .daaz-trust-company { font-size: 15px; }
+            .daaz-testi-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .daaz-testi-featured { padding: 32px 24px; }
+            .daaz-testi-featured .daaz-testi-quote {
+                font-size: 15px; line-height: 1.6; margin-bottom: 28px;
+            }
+            .daaz-bg-quote { font-size: 100px; }
+            .daaz-testi-secondary { padding: 24px 20px; }
+            .daaz-testi-secondary .daaz-testi-quote { font-size: 14px; }
+            .daaz-testi-author-row { gap: 12px; }
+            .daaz-avatar-person { width: 48px; height: 48px; }
+            .daaz-avatar-logo {
+                width: 48px; height: 48px;
+                margin-left: -14px; margin-top: 16px;
+            }
+            .daaz-avatar-logo img { width: 34px; height: 34px; }
+            .daaz-testi-name { font-size: 14px; }
+        }
     </style>
 </head>
 <body>
